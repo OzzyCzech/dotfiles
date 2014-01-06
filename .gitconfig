@@ -5,16 +5,12 @@
 [color]
     ui = always
 
-[apply]
-    whitespace = fix
-
 [push]
     default = current
 
 [core]
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
-    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 
  [color "branch"]
     current = yellow reverse
