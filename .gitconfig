@@ -1,0 +1,84 @@
+[user]
+    name = Roman Ožana
+    email = ozana@omdesign.cz
+
+[color]
+    ui = always
+
+[apply]
+    whitespace = fix
+
+[push]
+    default = current
+
+[core]
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+
+ [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+[merge]
+        log = true
+
+[alias]
+    mergedone = merge --no-ff --no-commit
+    c = commit -am
+    up = pull
+    p = push
+    s = status -s
+    df = diff --color --color-words --abbrev
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[core]
+    editor = nano
+    excludesfile = /Users/roman/.gitignore_global
+
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
+# git clone bb:user/repo
+[url "git@bitbucket.org:"]
+        insteadOf = "bb:"
+        pushInsteadOf = "bitbucket:"
+        pushInsteadOf = "git://bitbucket.org/"
+
+# git clone gh:user/repo
+[url "git@github.com:"]
+        insteadOf = "gh:"
+        pushInsteadOf = "github:"
+        pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+        insteadOf = "github:"
+
+# git clone gist:number
+[url "git@gist.github.com:"]
+        insteadOf = "gist:"
+        pushInsteadOf = "gist:"
+        pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+        insteadOf = "gist:"
+
+# Any GitHub repo with my username should be checked out r/w by default
+# http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
+[url "git@github.com:OzzyCzech/"]
+    insteadOf = "git://github.com/OzzyCzech/"
