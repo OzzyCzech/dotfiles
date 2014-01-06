@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# DO NOT RUN AS SUDO !!! 
+
+###############################################################
+# nginx
+###############################################################
+
+brew install nginx
+ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents
+
+###############################################################
+# php-fpm
+###############################################################
+
+brew install --without-apache --with-fpm --with-mysql php55
+
+brew install php55-mongo
+brew install php55-apcu
+brew install php55-http
+brew install php55-xdebug
+brew install php55-memcache
+brew install php55-memcached
+brew install php55-opcache
+brew install php55-tidy
+brew install phpunit
+
+ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents    
+
+###############################################################
+# mongodb
+###############################################################
+
+brew install mongodb
+brew link mongod
+
+###############################################################
+# mysql
+###############################################################
+
+brew install mysql
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
