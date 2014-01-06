@@ -36,6 +36,7 @@
 [alias]
     mergedone = merge --no-ff --no-commit
     c = commit -am
+    st = status
     up = pull
     p = push
     s = status -s
