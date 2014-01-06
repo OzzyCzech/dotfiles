@@ -36,16 +36,17 @@
 [alias]
     mergedone = merge --no-ff --no-commit
     c = commit -am
-    st = status
+    co = commit
     up = pull
     p = push
     s = status -s
+    st = status
     di = diff
     df = diff --color --color-words --abbrev
     aa = add --all
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     pure = clean -xdf # remove untracked dirs, ignored files with force !
-    conflicts = !git ls-files -u | cut -f 2 | sort -u # display only conflicts files
+	conflicts = !git ls-files -u | cut -f 2 | sort -u
 
 [core]
     editor = nano
