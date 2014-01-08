@@ -33,6 +33,7 @@
     mergedone = merge --no-ff --no-commit
     c = commit -am
     co = commit
+    fo = fetch origin
     up = pull
     p = push
     s = status -s
