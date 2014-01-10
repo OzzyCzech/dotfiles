@@ -144,5 +144,10 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
 
+#############################################################################
+# Change Terminal tab name to dir basename
+#############################################################################
+
+PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
 
 
