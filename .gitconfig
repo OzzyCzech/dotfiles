@@ -31,6 +31,7 @@
 
 [alias]
     mergedone = merge --no-ff --no-commit
+
     c = commit -am
     co = commit
     fo = fetch origin
@@ -41,9 +42,23 @@
     di = diff
     df = diff --color --color-words --abbrev
     aa = add --all
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    pure = clean -xdf # remove untracked dirs, ignored files with force !
-	conflicts = !git ls-files -u | cut -f 2 | sort -u
+
+		# tags
+		tags = !git tag | sort -V
+		last = describe --tags --abbrev=0
+
+    # remove untracked dirs, ignored files with force !
+    prune = clean -xdf
+
+    # show all conflicts
+		conflicts = !git ls-files -u | cut -f 2 | sort -u
+
+		# logs functions
+		wtf = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+		l =  log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+		# last changes
+		chlast = show --pretty="format:" --name-only
 
 [core]
     editor = nano
