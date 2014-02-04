@@ -160,6 +160,7 @@ Launch after login
     brew install php55-memcache
     brew install php55-memcached
     brew install php55-opcache
+    brew install php55-xhprof
 
 add launch agent for memcached
 
@@ -197,8 +198,8 @@ See my configuration:
     upload_max_filesize = 256M
     date.timezone = "Europe/Prague"
     error_reporting = E_ALL
-    
     xdebug.idekey=PHPSTORM
+    xhprof.output_dir="/var/tmp/xhprof"
 
 ## mongo
 
