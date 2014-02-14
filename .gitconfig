@@ -43,35 +43,43 @@
     df = diff --color --color-words --abbrev
     aa = add --all
 
-    # tags
-    tags = !git tag | sort -V
-    last = describe --tags --abbrev=0
-    ver = "!git tag -l \"v*\" -n20 | sed -n 'H;${;g;s/\\n[^v]/\\x00/g;p}' | sort -rV | tr \\\\000 \\\\n | less"
+    # show tags sort by push date
+    tag-sort = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
+
+		# display info about remote tags
+    tag-remote = ls-remote --tags origin
+    # show not pushed local tags
+    tag-local = !git ls-remote --tags origin | git show-ref --tags --exclude-existing
+    # prune local tags (delete not pushed tags)
+    tag-prune = fetch --prune --tags
+    # display most recent tag
+    tag-latest = describe --tags --abbrev=0
 
     # remove untracked dirs, ignored files with force !
     prune = clean -xdf
 
     # show all conflicts
-	conflicts = !git ls-files -u | cut -f 2 | sort -u
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
 
-	# logs functions
-	wtf = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	l =  log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    # logs functions
+    wtf = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    l =  log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
-	# last changes
-	chlast = show --pretty="format:" --name-only
+    # last changes
+    chlast = show --pretty="format:" --name-only
+	latest = branch -v
 
 [core]
     editor = nano
     excludesfile = /Users/roman/.gitignore_global
 
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path = 
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 # git clone bb:user/repo
 [url "git@bitbucket.org:"]
