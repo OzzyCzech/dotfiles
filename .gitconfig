@@ -44,9 +44,8 @@
     aa = add --all
 
     # show tags sort by push date
-    tag-sort = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
-
-		# display info about remote tags
+    tag-list = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
+	# display info about remote tags
     tag-remote = ls-remote --tags origin
     # show not pushed local tags
     tag-local = !git ls-remote --tags origin | git show-ref --tags --exclude-existing
