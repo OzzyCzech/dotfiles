@@ -319,3 +319,10 @@ Install wget:
     brew install wget --enable-iri
 
 See [.brew](https://github.com/addyosmani/dotfiles/blob/master/.brew) for more information
+
+# Troubleshooting
+
+If you get error like: `Dubious ownership on file...` need to change rights:
+
+    sudo chown root <file>
+    sudo chmod 644 <filename>
