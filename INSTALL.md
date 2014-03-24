@@ -195,11 +195,35 @@ See my configuration:
     short_open_tag = On
     display_errors = On
     display_startup_errors = On
-    upload_max_filesize = 256M
+    upload_max_filesize = 1024M
+    post_max_size = 1024M
     date.timezone = "Europe/Prague"
     error_reporting = E_ALL
+    memory_limit = 256M
+
+    log_errors=On
+    error_log=/tmp/php-error.log
+
+    mysql.default_socket=/tmp/mysql.sock
+    pdo_mysql.default_socket=/tmp/mysql.sock
+
+    [opcache]
+    opcache.revalidate_freq=1
+
+    [xdebug]
+    xdebug.remote_enable=1
+    xdebug.remote_connect_back=On
+    ;xdebug.remote_host=127.0.0.1
+    ;xdebug.remote_port=9001
+    xdebug.remote_autostart=1
     xdebug.idekey=PHPSTORM
     xhprof.output_dir="/var/tmp/xhprof"
+
+    xdebug.profiler_enable = 0;
+    xdebug.profiler_output_name=cachegrind.out.%H.%t
+    xdebug.profiler_enable_trigger = 1;
+    xdebug.profiler_output_dir = /Users/roman/Desktop
+
 
 ## mongo
 
@@ -292,9 +316,20 @@ And update your `~/.bash_profile` to add autocomplete and prompt
 
 Restart terminal (need to be quit and relaunch cmd+q)
 
-## Others
+## npm
 
     brew install npm
+
+Save tab Completion for npm
+
+		npm completion > /usr/local/etc/bash_completion.d/npm
+
+Update your `.bash_profile` with
+
+		source /usr/local/etc/bash_completion.d/npm
+
+## Others
+
 
 Install GNU core utilities (those that come with OS X are outdated)
 

@@ -70,7 +70,7 @@
 
 [core]
     editor = nano
-    excludesfile = /Users/roman/.gitignore_global
+    excludesfile =  ~/.gitignore_global
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
