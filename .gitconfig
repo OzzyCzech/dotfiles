@@ -108,3 +108,7 @@
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
 [url "git@github.com:OzzyCzech/"]
     insteadOf = "git://github.com/OzzyCzech/"
+
+# See https://help.github.com/articles/checking-out-pull-requests-locally
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
