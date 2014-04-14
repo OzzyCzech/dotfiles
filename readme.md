@@ -156,12 +156,17 @@ Launch after login
     
 ### Install PHP extensions
 
-    brew install php55-mongo
-    brew install php55-xdebug
+    brew install php55-http
+    brew install php55-mcrypt
     brew install php55-memcache
     brew install php55-memcached
+    brew install php55-mongo
     brew install php55-opcache
-    brew install php55-xhprof
+    brew install php55-propro
+    brew install php55-raphf
+    brew install php55-tidy
+    brew install php55-xdebug
+    # ...
 
 add launch agent for memcached
 
