@@ -146,7 +146,8 @@ Restart nginx (`sudo nginx -s reload`) and check if working (`open http://omdesi
 ### Install
 
     brew tap homebrew/dupes
-    brew tap josegonzalez/homebrew-php
+    brew tap homebrew/versions
+    brew tap homebrew/homebrew-php
     brew install --without-apache --with-fpm --with-mysql php55
 
 Launch after login
