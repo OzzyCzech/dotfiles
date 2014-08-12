@@ -90,6 +90,7 @@ alias opera="open -a opera"
 alias chrome="open -a google\ chrome"
 alias f='open -a Finder'
 alias please=sudo
+alias reload="source ~/.bash_profile"
 
 #############################################################################
 # List aliases
