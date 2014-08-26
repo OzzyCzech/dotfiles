@@ -288,6 +288,11 @@ after that relaunch Terminal and check bash version
 
     echo $BASH_VERSION
 
+## Redis
+
+	brew install redis
+	ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+	
 ## git
 
     brew install git
