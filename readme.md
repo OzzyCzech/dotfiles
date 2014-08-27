@@ -273,6 +273,16 @@ First setup new password for root
     nodejs --version
     npm completion > /usr/local/etc/bash_completion.d/npm # bash code completation
 
+and modules
+
+    npm install -g bower 
+    npm install -g phantomjs
+    npm install -g yo
+    npm install -g less
+    npm install -g grunt-cli
+    npm install -g gulp
+    npm install -g coffee-script
+
 ## bash (need to be upgrade for new Git)
 
     brew install bash
