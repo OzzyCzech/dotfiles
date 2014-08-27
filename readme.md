@@ -1,10 +1,10 @@
-# Install NGINX, PHP-FPM (5.5.6), Mongo and MySql
+# How to install NGINX, PHP-FPM (5.5+), Mongodb, Redis, Nodejs, Mysql, Git
 
 ## Preparation
 
 Download [Sublime editor](http://www.sublimetext.com/) and create link `subl`:
 
-    sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /bin/subl
+    ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 Install [Homebrew](http://brew.sh/)
 
@@ -52,7 +52,6 @@ Here is my basic `nginx.conf` file (do not forgot change root path):
         include       mime.types;
         include       sites-enabled/*.dev; # load virtuals config
         sendfile        on;
-
         keepalive_timeout  65;
 
         # gzip  on;
@@ -228,10 +227,10 @@ See my configuration:
     xdebug.profiler_enable = 0;
     xdebug.profiler_output_name=cachegrind.out.%H.%t
     xdebug.profiler_enable_trigger = 1;
-    xdebug.profiler_output_dir = /Users/roman/Desktop
+    xdebug.profiler_output_dir = /Users/roman/.Trash
 
 
-## mongo
+## mongodb
 
     brew install mongodb
     brew link mongod
@@ -240,7 +239,7 @@ Setup to autostart after login
 
     ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 
-### Start & restart
+### Start & stop
 
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
@@ -268,11 +267,17 @@ First setup new password for root
 
     mysqladmin -u root password
 
+## nodejs & npm
+
+    brew install nodejs
+    nodejs --version
+    npm completion > /usr/local/etc/bash_completion.d/npm # bash code completation
+
 ## bash (need to be upgrade for new Git)
 
     brew install bash
 
-Open terminal cmd+, setup path to new bash `/usr/local/bin/bash`
+Open terminal ⌘+, setup path to new bash `/usr/local/bin/bash`
 
     sudo subl /etc/shells
 
@@ -293,19 +298,26 @@ after that relaunch Terminal and check bash version
 	brew install redis
 	ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 	
-## git
+## Git
 
     brew install git
     brew unlink git && brew link git
     brew info git
 
-And update your `~/.bash_profile` to add autocomplete and prompt
-    
+And update your `~/.bash_profile` to add autocomplete and prompt:
     
     #############################################################################
     # My current prompt
     #############################################################################
     
+    # \d – Current date
+    # \t – Current time
+    # \h – Host name
+    # \# – Command number
+    # \u – User name
+    # \W – Current working directory (ie: Desktop/)
+    # \w – Current working directory, full path (ie: /Users/Admin/Desktop)
+    # export PS1="\u@\h\w: "
     export PS1="\w: " 
 
     #############################################################################
@@ -320,29 +332,15 @@ And update your `~/.bash_profile` to add autocomplete and prompt
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM="git verbose legacy"
-    
     export PSORIG="$PS1" # or remove if you don't have My custom prompt
 
     PS1=$PSORIG'$(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
 
-Restart terminal (need to be quit and relaunch cmd+q)
-
-## npm
-
-    brew install npm
-
-Save tab Completion for npm
-
-		npm completion > /usr/local/etc/bash_completion.d/npm
-
-Update your `.bash_profile` with
-
-		source /usr/local/etc/bash_completion.d/npm
+Restart terminal (need to be relaunch with ⌘+Q). Get more info from my [.bash_profile](https://github.com/OzzyCzech/dotfiles/blob/master/.bash_profile) file.
 
 ## Others
 
-
-Install GNU core utilities (those that come with OS X are outdated)
+Install GNU core utilities (those that come with OS X are outdated):
 
     brew install coreutils
     
@@ -364,11 +362,11 @@ Install wget:
     
     brew install wget --enable-iri
 
-See [.brew](https://github.com/addyosmani/dotfiles/blob/master/.brew) for more information
+See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more information
 
 # Troubleshooting
 
-If you get error like: `Dubious ownership on file...` need to change rights:
+If you get error like: `Dubious ownership on file...` need to change plist rights:
 
-    sudo chown root <file>
-    sudo chmod 644 <filename>
+    sudo chown root ~/Library/LaunchAgents/*.plist
+    sudo chmod 644 ~/Library/LaunchAgents/*.plist

@@ -59,6 +59,14 @@ alias mongo-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mon
 alias mongo-restart="mongo-stop && mongo-start"
 
 #############################################################################
+# redis
+#############################################################################
+
+alias redis-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis-restart="redis-stop && redis-start"
+
+#############################################################################
 # mysql
 #############################################################################
 
@@ -75,13 +83,19 @@ alias memcached-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl
 alias memcached-restart="memcached-stop && memcached-start"
 
 #############################################################################
+# Start everything :-)
+#############################################################################
+
+alias jarvis="memcached-start && mysql-start && redis-start && mongo-start && php-start && nginx-start"
+alias jarvis-stop="memcached-stop && mysql-stop && redis-stop && mongo-stop && php-stop && nginx-stop"
+alias jarvis-restart="memcached-restart && mysql-restart && redis-restart && mongo-restart && php-restart && nginx-restart"
+
+#############################################################################
 # aliases
 #############################################################################
 
 alias drives="df -h" # list all drives
-alias listen="sudo lsof -i -P | grep -i \"listen\"" # listen on ports
-
-
+alias listen="sudo lsof -i -P | grep -i \"listen\"" # listen all apps on ports
 alias preview="open -a '$PREVIEW'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias safari="open -a safari"
@@ -89,7 +103,7 @@ alias firefox="open -a firefox"
 alias opera="open -a opera"
 alias chrome="open -a google\ chrome"
 alias f='open -a Finder'
-alias please=sudo
+alias please="sudo"
 alias reload="source ~/.bash_profile"
 
 #############################################################################
@@ -150,5 +164,3 @@ shopt -s histappend
 #############################################################################
 
 PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
-
-
