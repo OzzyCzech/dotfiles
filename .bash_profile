@@ -105,6 +105,8 @@ alias chrome="open -a google\ chrome"
 alias f='open -a Finder'
 alias please="sudo"
 alias reload="source ~/.bash_profile"
+alias yolo="history -c && clear"
+alias apt-get="brew" # admins :-)
 
 #############################################################################
 # List aliases
