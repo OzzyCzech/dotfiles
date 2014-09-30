@@ -46,8 +46,8 @@ alias nginx-stop="sudo nginx -s stop"
 # php-fpm aliases
 #############################################################################
 
-alias php-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
-alias php-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
+alias php-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+alias php-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
 alias php-restart="php-stop && php-start"
 
 #############################################################################

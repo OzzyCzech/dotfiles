@@ -144,27 +144,36 @@ Restart nginx (`sudo nginx -s reload`) and check if working (`open http://omdesi
 
 ### Install
 
+Start with taping formulas repositories:
+
     brew tap homebrew/dupes
     brew tap homebrew/versions
     brew tap homebrew/homebrew-php
-    brew install --without-apache --with-fpm --with-mysql php55
+
+Remove all PHP dependencies (it's only safe way how to compile PHP successfully)
+
+    brew remove libtool freetype gettext icu4c jpeg libpng unixodbc zlib
+
+Then install PHP
+
+    brew install -v --with-fpm --with-mysql --disable-opcache php56
 
 Launch after login
 
-    ln -sfv /usr/local/opt/php55/*.plist ~/Library/LaunchAgents
+    ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
     
 ### Install PHP extensions
 
-    brew install php55-http
-    brew install php55-mcrypt
-    brew install php55-memcache
-    brew install php55-memcached
-    brew install php55-mongo
-    brew install php55-opcache
-    brew install php55-propro
-    brew install php55-raphf
-    brew install php55-tidy
-    brew install php55-xdebug
+    brew install php56-http
+    brew install php56-mcrypt
+    brew install php56-memcache
+    brew install php56-memcached
+    brew install php56-mongo
+    brew install php56-opcache
+    brew install php56-propro
+    brew install php56-raphf
+    brew install php56-tidy
+    brew install php56-xdebug
     # ...
 
 add launch agent for memcached
@@ -173,11 +182,11 @@ add launch agent for memcached
     
 or get others
  
-    brew search php55
+    brew search php56
     
 What about APC? See [stackoverflow](http://stackoverflow.com/questions/9611676/is-apc-compatible-with-php-5-4-or-php-5-5) - APC have some problems but you can install emulated APC
 
-    brew install php55-apcu # APC
+    brew install php56-apcu # APC
 
 ### Replace OS X PHP
 
@@ -193,7 +202,7 @@ You can found basic php-fpm config file here `subl /usr/local/etc/php/5.5/php-fp
 
 PHP config files can be found here `subl /usr/local/etc/php/5.5/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
 
-    subl /usr/local/etc/php/5.5/conf.d/zzzzzzzzzzzz.ini
+    subl /usr/local/etc/php/5.6/conf.d/zzzzzzzzzzzzzzzzzzzzzzzz.ini
 
 See my configuration:
 
@@ -375,6 +384,17 @@ Install wget:
 See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more information
 
 # Troubleshooting
+
+### Change local Forumlas
+
+All local formulas can be found in paths:
+
+    /usr/local/Library/Formula
+    /usr/local/Library/Taps/homebrew/
+    
+It's a git repo, you can checkout any older source from github.
+
+### Dubious ownership
 
 If you get error like: `Dubious ownership on file...` need to change plist rights:
 
