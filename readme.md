@@ -1,10 +1,10 @@
-# How to install NGINX, PHP-FPM (5.5+), Mongodb, Redis, Nodejs, Mysql, Git
+# How to install NGINX, PHP-FPM (5.6+), Mongodb, Redis, Nodejs, Mysql, Git
 
 ## Preparation
 
 Download [Sublime editor](http://www.sublimetext.com/) and create link `subl`:
 
-    ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+    ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /bin/subl
 
 Install [Homebrew](http://brew.sh/)
 
