@@ -385,6 +385,16 @@ See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more inf
 
 # Troubleshooting
 
+### Remove PHP and all dependencies 
+
+Follow procedure fix a most of problems like: Segmentation fault, compile errors or dependencies problem. 
+
+		 brew update
+     brew rm $(brew deps php56)
+     brew cleanup
+     brew install -v --with-fpm --with-mysql --disable-opcache php56
+     # etc.
+     
 ### Change local Forumlas
 
 All local formulas can be found in paths:
