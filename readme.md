@@ -83,6 +83,7 @@ Here is my basic `nginx.conf` file (do not forgot change root path):
                 fastcgi_intercept_errors on;
                 include fastcgi_params;
             }
+            include "/usr/local/etc/nginx/sites-enabled/*";
         }
     }
 
@@ -132,7 +133,7 @@ Here is my example configuration:
 
 Create symlink to sites-enabled:
 
-    sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-nabled/omdesign.dev
+    sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-enabled/omdesign.dev
     
 Update your `subl /etc/hosts` file with follow line:
 
