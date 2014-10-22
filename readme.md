@@ -27,13 +27,13 @@ You can start nginx manually and check if running in browser
     sudo nginx            # start
     sudo nginx -s stop    # stop
     sudo nginx -s reload  # restart
-    
+
 Check if running `open http://localhost:8080` or `open http://localhost:80`
-    
+
 ### Configuration
 
 nginx configuration files can be found here `subl /usr/local/etc/nginx`
-    
+
 Here is my basic `nginx.conf` file (do not forgot change root path):
 
     #user  nobody;
@@ -50,7 +50,7 @@ Here is my basic `nginx.conf` file (do not forgot change root path):
 
     http {
         include       mime.types;
-        include       sites-enabled/*.dev; # load virtuals config
+        include       sites-enabled/*; # load virtuals config
         sendfile        on;
         keepalive_timeout  65;
 
@@ -68,7 +68,7 @@ Here is my basic `nginx.conf` file (do not forgot change root path):
             }
 
             # configure *.PHP requests
-            
+
             location ~ \.php$ {
                 root  /Users/roman/Sites;
                 try_files  $uri  $uri/  /index.php?$args ;
@@ -96,7 +96,7 @@ First prepare follow dirs
 Create first dev configuration:
 
     subl /usr/local/etc/nginx/sites-available/omdesign.dev
-   
+
 Here is my example configuration:
 
     server {
@@ -104,36 +104,36 @@ Here is my example configuration:
       server_name           omdesign.dev;
       #access_log           /Users/roman/Work/omdesign.cz/log/omdesign.dev.access.log;
       #error_log            /Users/roman/Work/omdesign.cz/log/omdesign.dev.error.log;
-    
+
       location / {
         root  /Users/roman/Work/omdesign.cz;
         try_files  $uri  $uri/  /index.php?$args;
         index index.php;
       }
-    
+
       location ~ \.php$ {
         root  /Users/roman/Work/omdesign.cz;
         try_files  $uri  $uri/  /index.php?$args;
         index  index.html index.htm index.php;
-    
+
         fastcgi_param PATH_INFO $fastcgi_path_info;
         fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    
-    
+
+
         fastcgi_pass 127.0.0.1:9000;
         fastcgi_index index.php;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_intercept_errors on;
         include fastcgi_params;
       }
-    
+
     }
 
 Create symlink to sites-enabled:
 
-    sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-nabled/omdesign.dev
-    
+    sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-enabled/omdesign.dev
+
 Update your `subl /etc/hosts` file with follow line:
 
     127.0.0.1   omdesign.dev
@@ -161,7 +161,7 @@ Then install PHP
 Launch after login
 
     ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
-    
+
 ### Install PHP extensions
 
     brew install php56-http
@@ -178,12 +178,12 @@ Launch after login
 
 add launch agent for memcached
 
-    ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents    
-    
+    ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
+
 or get others
- 
+
     brew search php56
-    
+
 What about APC? See [stackoverflow](http://stackoverflow.com/questions/9611676/is-apc-compatible-with-php-5-4-or-php-5-5) - APC have some problems but you can install emulated APC
 
     brew install php56-apcu # APC
@@ -193,7 +193,7 @@ What about APC? See [stackoverflow](http://stackoverflow.com/questions/9611676/i
 change `~/.bash_profile` add follow line:
 
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-    
+
 Restart Terminal and check if working `php -v` or `php-fpm -v`
 
 ### Configuration and php.ini
@@ -252,11 +252,11 @@ Setup to autostart after login
 
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
-    
+
 ## mysql
 
     brew install mysql
-    
+
 Setup to autostart after login
 
     ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
@@ -270,7 +270,7 @@ Change rights
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-### Confugure 
+### Confugure
 
 First setup new password for root
 
@@ -284,7 +284,7 @@ First setup new password for root
 
 and modules
 
-    npm install -g bower 
+    npm install -g bower
     npm install -g phantomjs
     npm install -g yo
     npm install -g less
@@ -304,7 +304,7 @@ add this line at the end of the list:
 
     /usr/local/bin/bash
 
-and 
+and
 
     chsh -s /usr/local/bin/bash YOUR_USER_NAME
 
@@ -316,7 +316,7 @@ after that relaunch Terminal and check bash version
 
 	brew install redis
 	ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
-	
+
 ## Git
 
     brew install git
@@ -324,11 +324,11 @@ after that relaunch Terminal and check bash version
     brew info git
 
 And update your `~/.bash_profile` to add autocomplete and prompt:
-    
+
     #############################################################################
     # My current prompt
     #############################################################################
-    
+
     # \d – Current date
     # \t – Current time
     # \h – Host name
@@ -337,17 +337,17 @@ And update your `~/.bash_profile` to add autocomplete and prompt:
     # \W – Current working directory (ie: Desktop/)
     # \w – Current working directory, full path (ie: /Users/Admin/Desktop)
     # export PS1="\u@\h\w: "
-    export PS1="\w: " 
+    export PS1="\w: "
 
     #############################################################################
     # git autocomplet and bash prompt
     #############################################################################
-    
+
     source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
     source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
-    
+
     # configure yout git and prompt
-    
+
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWUPSTREAM="git verbose legacy"
@@ -362,46 +362,46 @@ Restart terminal (need to be relaunch with ⌘+Q). Get more info from my [.bash_
 Install GNU core utilities (those that come with OS X are outdated):
 
     brew install coreutils
-    
+
 Don't forget add `/usr/local/Cellar/coreutils/8.21/libexec/gnubin` to $PATH
 
 Find, Locate etc. for mac
 
     brew install findutils
-    
-Rename command: 
+
+Rename command:
 
     brew install rename
-    
+
 Tree command for mac:
 
     brew install tree
 
 Install wget:
-    
+
     brew install wget --enable-iri
 
 See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more information
 
 # Troubleshooting
 
-### Remove PHP and all dependencies 
+### Remove PHP and all dependencies
 
-Follow procedure fix a most of problems like: Segmentation fault, compile errors or dependencies problem. 
+Follow procedure fix a most of problems like: Segmentation fault, compile errors or dependencies problem.
 
      brew update
      brew rm $(brew deps php56)
      brew cleanup
      brew install -v --with-fpm --with-mysql --disable-opcache php56
      # etc.
-     
+
 ### Change local Forumlas
 
 All local formulas can be found in paths:
 
     /usr/local/Library/Formula
     /usr/local/Library/Taps/homebrew/
-    
+
 It's a git repo, you can checkout any older source from github.
 
 ### Dubious ownership
