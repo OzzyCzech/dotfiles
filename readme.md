@@ -4,7 +4,7 @@
 
 Download [Sublime editor](http://www.sublimetext.com/) and create link `subl`:
 
-    ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /bin/subl
+    sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /bin/subl
 
 Install [Homebrew](http://brew.sh/)
 
