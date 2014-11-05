@@ -242,7 +242,7 @@ See my configuration:
 ## mongodb
 
     brew install mongodb
-    brew link mongod
+    brew link mongodb
 
 Setup to autostart after login
 
