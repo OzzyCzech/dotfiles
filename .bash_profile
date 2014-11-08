@@ -9,7 +9,7 @@
 # \W – Current working directory (ie: Desktop/)
 # \w – Current working directory, full path (ie: /Users/Admin/Desktop)
 # export PS1="\u@\h\w: "
-export PS1="\w: " 
+export PS1="\w: "
 
 #############################################################################
 # git autocomplet and bash prompt
@@ -31,7 +31,7 @@ PS1=$PSORIG'$(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
 
 # If you get error like: `Dubious ownership on file...` need to change rights:
 # sudo chown root <file>
-# sudo chmod 644 <filename>     
+# sudo chmod 644 <filename>
 
 
 #############################################################################
@@ -119,7 +119,7 @@ alias l="ls -l --color"
 alias la="ls -la --color"
 
 # List all alias
-alias ll="ls -la" # ll alias
+alias ll="ls -lha" # ll alias
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
