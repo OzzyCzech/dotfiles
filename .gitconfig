@@ -1,6 +1,6 @@
 [user]
     name = Roman Ožana
-    email = ozana@omdesign.cz
+    email = roman@wikidi.com
 
 [color]
     ui = always
@@ -9,7 +9,8 @@
     default = current
 
 [core]
-    excludesfile = ~/.gitignore
+    editor = nano
+    excludesfile =  ~/.gitignore_global
     attributesfile = ~/.gitattributes
 
  [color "branch"]
@@ -67,10 +68,6 @@
     # last changes
     chlast = show --pretty="format:" --name-only
 	latest = branch -v
-
-[core]
-    editor = nano
-    excludesfile =  ~/.gitignore_global
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

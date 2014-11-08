@@ -1,15 +1,56 @@
 # Google from command line
 function wtf() {
-	/usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
+  /usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
 }
 
-# Add Wikidi release tag
+# Add Wikidi release tag to repo
 # thx Ondra Procházka https://gist.github.com/OndrejP
 # thx Jan Prachar https://gist.github.com/pracj3am
-
 function WikidiRelease {
  d="release/"`date +"%Y%m%d"`;
  r=$((`git tag -l "$d*" | sort -rV | head -1 | sed -n "s@^$d\.@@p" || echo 0`+1))
  git tag $d.$r;
  git push origin $d.$r;
+}
+
+# Clean up drive before unmount
+# http://www.nabito.net/how-to-clean-flash-drive-before-unmount-on-mac/
+function cleandrive() {
+  if [ -n "$1" ] && [ -d "/Volumes/$1/" ]; then
+    read -r -p "Clean /Volumes/$1/ and unmount? [y/N] " response
+      if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        find "/Volumes/$1/" -name "._*" -type f -delete
+        find "/Volumes/$1/" -name "*.DS_Store" -type f -ls -delete
+        rm -rf "/Volumes/$1/.Spotlight-V100/"
+        rm -rf "/Volumes/$1/.Trashes/"
+        diskutil unmount "/Volumes/$1/"
+        echo "Done..."
+      fi
+  else
+    echo "Drive '$1' missing"
+  fi
+}
+
+
+# Create a new directory and enter it
+function md() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Create a data URL from a file
+function dataurl() {
+        local mimeType=$(file -b --mime-type "$1")
+        if [[ $mimeType == text/* ]]; then
+                mimeType="${mimeType};charset=utf-8"
+        fi
+        echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+# Create a git.io short URL
+function gitio() {
+        if [ -z "${1}" -o -z "${2}" ]; then
+                echo "Usage: \`gitio slug url\`"
+                return 1
+        fi
+        curl -i http://git.io/ -F "url=${2}" -F "code=${1}"
 }

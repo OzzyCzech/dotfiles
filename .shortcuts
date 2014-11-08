@@ -1,0 +1,55 @@
+#############################################################################
+# nginx aliases
+#############################################################################
+
+alias nginx-start="sudo nginx"
+alias nginx-restart="sudo nginx -s reload"
+alias nginx-stop="sudo nginx -s stop"
+
+#############################################################################
+# php-fpm aliases
+#############################################################################
+
+alias php-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+alias php-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
+alias php-restart="php-stop && php-start"
+
+#############################################################################
+# mongo aliases
+#############################################################################
+
+alias mongo-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+alias mongo-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+alias mongo-restart="mongo-stop && mongo-start"
+
+#############################################################################
+# redis
+#############################################################################
+
+alias redis-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis-restart="redis-stop && redis-start"
+
+#############################################################################
+# mysql
+#############################################################################
+
+alias mysql-start="sudo mysql.server start"
+alias mysql-stop="sudo mysql.server stop"
+alias mysql-restart="mysql-stop && mysql-start"
+
+#############################################################################
+# memcached
+#############################################################################
+
+alias memcached-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
+alias memcached-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
+alias memcached-restart="memcached-stop && memcached-start"
+
+#############################################################################
+# Start everything :-)
+#############################################################################
+
+alias jarvis="memcached-start && mysql-start && redis-start && mongo-start && php-start && nginx-start"
+alias jarvis-stop="memcached-stop && mysql-stop && redis-stop && mongo-stop && php-stop && nginx-stop"
+alias jarvis-restart="memcached-restart && mysql-restart && redis-restart && mongo-restart && php-restart && nginx-restart"

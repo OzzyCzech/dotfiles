@@ -1,4 +1,7 @@
+########################################################################################################################
 # Easier navigation: .., ..., ~ and -
+########################################################################################################################
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -6,20 +9,29 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
+########################################################################################################################
+# Simplify life
+########################################################################################################################
+
+alias drives="df -h" # list all drives
+alias reload="source ~/.bash_profile"
+
+########################################################################################################################
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+########################################################################################################################
+
+alias downloads="cd ~/Downloads"
+alias desktop="cd ~/Desktop"
+alias work="cd ~/Work"
+alias home="cd ~"
 alias g="git"
-alias h="history"
 alias j="jobs"
 
-# programs
+########################################################################################################################
+# Programs
+########################################################################################################################
 
-alias st='open -a "Sublime Text"'
-# also/or do this:
-# ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+alias subl='open -a "Sublime Text"'
 alias preview="open -a '$PREVIEW'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias filemerge="open -a '/Developer/Applications/Utilities/FileMerge.app'"
@@ -28,28 +40,29 @@ alias firefox="open -a firefox"
 alias opera="open -a opera"
 alias chrome="open -a google\ chrome"
 alias chromium="open -a chromium"
-alias dashcode="open -a dashcode"
 alias f='open -a Finder'
-alias fireworks="open -a '/Applications/Adobe Fireworks CS6/Adobe Fireworks CS6.app'"
 alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop.app'"
-alias gpr="~/code/gpr $1"
+
+########################################################################################################################
+# Trololo
+########################################################################################################################
+
+# be nice
+alias please=sudo
+
+# be nice to dumb admins :-)
+alias apt-get="brew"
+
+# clean terminal history
+alias yolo="history -c && clear"
 
 # Thanks to stefanpenner for this one.
 # https://www.youtube.com/watch?v=SMWi7CLoZ2Q
 alias nom="rm -rf node_modules && npm cache clear && npm i"
 
-# general shortcuts
-alias pro="cd ~/projects"
-alias gh="open -a google\ chrome 'http://github.com/addyosmani'"
-alias bl="open -a google\ chrome 'http://browserling.com'"
-
-# be nice
-alias please=sudo
-
-# handy things
-alias bunyip='node ~/code/bunyip/cli.js'
-alias spotify="osascript ~/code/SpotifyControl/SpotifyControl.scpt"
-
+########################################################################################################################
+# List aliases
+########################################################################################################################
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -62,7 +75,8 @@ fi
 alias l="ls -l ${colorflag}"
 
 # List all files colorized in long format, including dot files
-alias la="ls -la ${colorflag}"
+alias la="ls -lha ${colorflag}"
+alias ll="ls -lha ${colorflag}"
 
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
@@ -81,15 +95,12 @@ else
 	export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 fi
 
-# `cat` with beautiful colors. requires Pygments installed.
-# 							   sudo easy_install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
-
+########################################################################################################################
 # GIT STUFF
+########################################################################################################################
 
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
-
 
 # git root
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
@@ -105,7 +116,10 @@ alias whois="whois -h whois-servers.net"
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
+########################################################################################################################
 # npm
+########################################################################################################################
+
 alias npmp="sudo npm publish"
 alias npma="sudo npm adduser"
 alias npmi="sudo npm install"
@@ -113,6 +127,13 @@ alias npmg="sudo npm install -g"
 alias npmu="sudo npm update"
 alias npmr="sudo npm uninstall"
 alias npmrg="sudo npm uninstall -g"
+
+########################################################################################################################
+# network
+########################################################################################################################
+
+# list all apps on ports
+alias listen="sudo lsof -i -P | grep -i \"listen\""
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -148,20 +169,14 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
-# Run DropboxUploader if you have it installed
-alias dropbox="~/code/Dropbox-Uploader/dropbox_uploader.sh $1"
-
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+########################################################################################################################
+# Spotlight
+########################################################################################################################
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-alias plistbuddy="/usr/libexec/PlistBuddy"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -174,11 +189,6 @@ command -v grunt > /dev/null && alias grunt="grunt --stack"
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 10'"
-alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
 
 # Faster npm for europeans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
