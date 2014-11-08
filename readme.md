@@ -13,7 +13,7 @@ To update later on, just run the sync again.
 
 ## Tutorials
 
-- [How to install NGINX, PHP-FPM (5.6+), Mongodb, Redis, Nodejs, Mysql, Git](https://github.com/OzzyCzech/dotfiles/blob/master/install.md)
+- [How to install NGINX, PHP-FPM (5.6+), Mongodb, Redis, Nodejs, Mysql, Git](https://github.com/OzzyCzech/dotfiles/blob/master/how-to-install-mac.md)
 
 ## Credits - for more than simple inspiration
 
