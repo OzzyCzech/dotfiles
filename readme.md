@@ -1,6 +1,8 @@
+# OzzyCzech dotfiles for Mac OS X
+
 ## Add private config
 
-All private config can be save in `.extra` which you do not commit to this repo and just keep in your ~/
+All private config can be save in `.extra` which you do not commit to this repo and just keep in your `~/`
 
 ## Install/update
 
@@ -13,6 +15,8 @@ To update later on, just run the sync again.
 
 - [How to install NGINX, PHP-FPM (5.6+), Mongodb, Redis, Nodejs, Mysql, Git](https://github.com/OzzyCzech/dotfiles/blob/master/install.md)
 
-## Credits
+## Credits - for more than simple inspiration
 
-- https://github.com/addyosmani/dotfiles/ - for more than simple inspiration
+- https://github.com/addyosmani/dotfiles/
+- https://github.com/paulirish/dotfiles/
+- https://github.com/mathiasbynens/dotfiles/
