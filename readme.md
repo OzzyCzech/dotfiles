@@ -10,6 +10,7 @@ Install [Homebrew](http://brew.sh/)
 
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 
+
 ## NGINX
 
 ### Install
@@ -410,3 +411,9 @@ If you get error like: `Dubious ownership on file...` need to change plist right
 
     sudo chown root ~/Library/LaunchAgents/*.plist
     sudo chmod 644 ~/Library/LaunchAgents/*.plist
+
+------------------------------------------------------------------------------------------------------------------------
+
+## How to install/update dotfiles
+
+git clone git@github.com:OzzyCzech/dotfiles.git && cp ./.* ~/

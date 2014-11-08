@@ -1,0 +1,15 @@
+# Google from command line
+function wtf() {
+	/usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
+}
+
+# Add release tag
+# thx Ondra Procházka https://gist.github.com/OndrejP
+# thx Jan Prachar https://gist.github.com/pracj3am
+
+function WikidiRelease {
+ d="release/"`date +"%Y%m%d"`;
+ r=$((`git tag -l "$d*" | sort -rV | head -1 | sed -n "s@^$d\.@@p" || echo 0`+1))
+ git tag $d.$r;
+ git push origin $d.$r;
+}

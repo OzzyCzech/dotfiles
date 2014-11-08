@@ -1,38 +1,13 @@
 #############################################################################
-# current prompt
-#############################################################################
-# \d – Current date
-# \t – Current time
-# \h – Host name
-# \# – Command number
-# \u – User name
-# \W – Current working directory (ie: Desktop/)
-# \w – Current working directory, full path (ie: /Users/Admin/Desktop)
-# export PS1="\u@\h\w: "
-export PS1="\w: "
-
-#############################################################################
-# git autocomplet and bash prompt
+# load other files
 #############################################################################
 
-source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/npm
-
-# configure git and prompt
-
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="git verbose legacy"
-export PSORIG="$PS1" # pokud chcete zachovat puvodni PS1
-
-PS1=$PSORIG'$(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
-
-
-# If you get error like: `Dubious ownership on file...` need to change rights:
-# sudo chown root <file>
-# sudo chmod 644 <filename>
-
+# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
+# ~/.extra can be used for settings you don’t want to commit
+for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
 
 #############################################################################
 # nginx aliases
@@ -166,11 +141,3 @@ shopt -s histappend
 #############################################################################
 
 PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
-
-#############################################################################
-# Functions
-#############################################################################
-
-function wtf() {
-	/usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql -> google mysql
-}
