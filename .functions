@@ -3,7 +3,7 @@ function wtf() {
 	/usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
 }
 
-# Add release tag
+# Add Wikidi release tag
 # thx Ondra Procházka https://gist.github.com/OndrejP
 # thx Jan Prachar https://gist.github.com/pracj3am
 

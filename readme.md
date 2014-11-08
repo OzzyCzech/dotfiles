@@ -412,8 +412,7 @@ If you get error like: `Dubious ownership on file...` need to change plist right
     sudo chown root ~/Library/LaunchAgents/*.plist
     sudo chmod 644 ~/Library/LaunchAgents/*.plist
 
-------------------------------------------------------------------------------------------------------------------------
+### How to install/update dotfiles
 
-## How to install/update dotfiles
-
-git clone git@github.com:OzzyCzech/dotfiles.git && cp ./.* ~/
+    git clone git@github.com:OzzyCzech/dotfiles.git && cp ./.* ~/
+    git reset --hard cp ./.* ~/ # for updates

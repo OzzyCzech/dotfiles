@@ -126,18 +126,4 @@ export LANG="en_US"
 # path
 #############################################################################
 
-export PATH="/usr/local/Cellar/coreutils/8.21/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH"
-
-#############################################################################
-# bash history size
-#############################################################################
-
-export HISTCONTROL=erasedups
-export HISTSIZE=10000
-shopt -s histappend
-
-#############################################################################
-# Change Terminal tab name to dir basename
-#############################################################################
-
-PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH"

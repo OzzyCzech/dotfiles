@@ -27,3 +27,9 @@ GIT_PS1_SHOWUPSTREAM="git verbose legacy"
 export PSORIG="$PS1" # pokud chcete zachovat puvodni PS1
 
 PS1=$PSORIG'$(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
+
+#############################################################################
+# Change Terminal tab name to dir basename
+#############################################################################
+
+PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
