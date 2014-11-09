@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 git pull
 function doIt() {
-	rsync --exclude ".git/" --exclude ".git*" --exclude ".DS_Store" --exclude "sync.sh" --exclude "*.md" --exclude "extras/" --exclude ".idea/" -av . ~
+	rsync --exclude ".git/" --exclude ".DS_Store" --exclude ".gitconfig" --exclude "sync.sh" --exclude "*.md" --exclude "extras/" --exclude ".idea/" -av . ~
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt

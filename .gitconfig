@@ -1,6 +1,6 @@
 [user]
     name = Roman Ožana
-    email = roman@wikidi.com
+    email = ozana@omdesign.cz
 
 [color]
     ui = always
@@ -13,22 +13,24 @@
     excludesfile =  ~/.gitignore_global
     attributesfile = ~/.gitattributes
 
- [color "branch"]
-    current = yellow reverse
+[color "branch"]
+    current = yellow revwerse
     local = yellow
     remote = green
 
 [color "diff"]
-        meta = yellow bold
-        frag = magenta bold
-        old = red bold
-        new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
 [color "status"]
-        added = yellow
-        changed = green
-        untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
+
 [merge]
-        log = true
+    log = true
 
 [alias]
     mergedone = merge --no-ff --no-commit
@@ -79,27 +81,27 @@
 
 # git clone bb:user/repo
 [url "git@bitbucket.org:"]
-        insteadOf = "bb:"
-        pushInsteadOf = "bitbucket:"
-        pushInsteadOf = "git://bitbucket.org/"
+    insteadOf = "bb:"
+    pushInsteadOf = "bitbucket:"
+    pushInsteadOf = "git://bitbucket.org/"
 
 # git clone gh:user/repo
 [url "git@github.com:"]
-        insteadOf = "gh:"
-        pushInsteadOf = "github:"
-        pushInsteadOf = "git://github.com/"
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
-        insteadOf = "github:"
+    insteadOf = "github:"
 
 # git clone gist:number
 [url "git@gist.github.com:"]
-        insteadOf = "gist:"
-        pushInsteadOf = "gist:"
-        pushInsteadOf = "git://gist.github.com/"
+    insteadOf = "gist:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
-        insteadOf = "gist:"
+    insteadOf = "gist:"
 
 # Any GitHub repo with my username should be checked out r/w by default
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules

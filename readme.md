@@ -7,7 +7,6 @@ All private config can be save in `.extra` which you do not commit to this repo 
 ## Install/update
 
     git clone https://github.com/OzzyCzech/dotfiles.git && cd dotfiles && ./sync.sh
-    cp ./.git* ~ # if you need update gitconfig
 
 To update later on, just run the sync again.
 
