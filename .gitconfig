@@ -14,7 +14,7 @@
     attributesfile = ~/.gitattributes
 
 [color "branch"]
-    current = yellow revwerse
+    current = yellow reverse
     local = yellow
     remote = green
 
