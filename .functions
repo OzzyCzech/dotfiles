@@ -6,9 +6,10 @@ function wtf() {
 # Add Wikidi release tag to repo
 # thx Ondra Procházka https://gist.github.com/OndrejP
 # thx Jan Prachar https://gist.github.com/pracj3am
+# require Git 2.+
 function WikidiRelease {
  d="release/"`date +"%Y%m%d"`;
- r=$((`git tag -l "$d*" | sort -rV | head -1 | sed -n "s@^$d\.@@p" || echo 0`+1))
+ r=$((`git tag -l "$d*" | git tag -l --sort "-v:refname" | head -1 | sed -n "s@^$d\.@@p" || echo 0`+1))
  git tag $d.$r;
  git push origin $d.$r;
 }
