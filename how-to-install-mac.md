@@ -323,6 +323,8 @@ after that relaunch Terminal and check bash version
     brew install git
     brew unlink git && brew link git
     brew info git
+    brew install git-extra
+    brew install git bash-completion
 
 And update your `~/.bash_profile` to add autocomplete and prompt:
 
