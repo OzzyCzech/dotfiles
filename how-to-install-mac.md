@@ -199,9 +199,9 @@ Restart Terminal and check if working `php -v` or `php-fpm -v`
 
 ### Configuration and php.ini
 
-You can found basic php-fpm config file here `subl /usr/local/etc/php/5.5/php-fpm.conf`. Check especially `listen = 127.0.0.1:9000` everything else can be leave as is.
+You can found basic php-fpm config file here `subl /usr/local/etc/php/5.6/php-fpm.conf`. Check especially `listen = 127.0.0.1:9000` everything else can be leave as is.
 
-PHP config files can be found here `subl /usr/local/etc/php/5.5/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
+PHP config files can be found here `subl /usr/local/etc/php/5.6/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
 
     subl /usr/local/etc/php/5.6/conf.d/zzzzzzzzzzzzzzzzzzzzzzzz.ini
 
@@ -386,7 +386,7 @@ Install wget:
 
 See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more information
 
-        
+
 # Software
 
 ## Time saving
