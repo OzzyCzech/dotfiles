@@ -5,8 +5,10 @@
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 # tap
+brew tap caskroom/cask
 brew tap homebrew/dupes
 brew tap homebrew/php
+brew tap homebrew/services
 brew tap homebrew/versions
 
 # upgrade brew
@@ -20,15 +22,19 @@ brew install automake
 brew install bash
 brew install bison27
 brew install boost-build
+brew install boot2docker
+brew install brew-cask
 brew install c-ares
 brew install cmake
 brew install coreutils
 brew install cpptest
 brew install curl
+brew install docker
 brew install erlang
 brew install exiftool
 brew install faac
 brew install ffmpeg
+brew install fig
 brew install flex
 brew install fontconfig
 brew install freetds
@@ -36,6 +42,7 @@ brew install freetype
 brew install gawk
 brew install gd
 brew install gdb
+brew install gdbm
 brew install geoip
 brew install gettext
 brew install git
@@ -43,6 +50,7 @@ brew install git-extras
 brew install go
 brew install graphviz
 brew install icu4c
+brew install igbinary
 brew install imagemagick
 brew install jpeg
 brew install lame
@@ -81,6 +89,7 @@ brew install php56-tidy
 brew install php56-xdebug
 brew install phpunit
 brew install pkg-config
+brew install python
 brew install re2c
 brew install readline
 brew install redis
@@ -88,6 +97,7 @@ brew install rename
 brew install ruby
 brew install scons
 brew install sphinx '  --mysql'
+brew install sqlite
 brew install texi2html
 brew install tree
 brew install ucl
