@@ -10,6 +10,7 @@ Install [Homebrew](http://brew.sh/)
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+Read first [El Capitan & Homebrew](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md) and follow instruction.
 
 ## NGINX
 
