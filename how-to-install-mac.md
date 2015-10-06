@@ -259,6 +259,15 @@ Setup to autostart after login
 
     brew install mysql
 
+Run the commands brew suggested
+
+    unset TMPDIR
+    mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+    
+Start mysql use commands
+
+    mysql.server start
+
 Setup to autostart after login
 
     ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
