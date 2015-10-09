@@ -207,7 +207,10 @@ change `~/.bash_profile` add follow line:
 
     alias php56.start=launchctl\ load\ -w\ /usr/local/opt/php56/homebrew.mxcl.php56.plist
     alias php56.stop=launchctl\ unload\ -w\ /usr/local/opt/php56/homebrew.mxcl.php56.plist
-
+    
+    also can try use
+    
+    php-fpm -D
 
 ### Configuration and php.ini
 
