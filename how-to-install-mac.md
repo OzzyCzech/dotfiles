@@ -5,6 +5,9 @@
 Download [Sublime editor](http://www.sublimetext.com/) and create link `subl`:
 
     sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /bin/subl
+   
+    sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/ # OS 10.11
+    
 
 Install [Homebrew](http://brew.sh/)
 
@@ -197,6 +200,17 @@ change `~/.bash_profile` add follow line:
     export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 Restart Terminal and check if working `php -v` or `php-fpm -v`
+
+### Add alias link for php-fpm start, stop
+
+change `~/.bash_profile` add follow line:
+
+    alias php56.start=launchctl\ load\ -w\ /usr/local/opt/php56/homebrew.mxcl.php56.plist
+    alias php56.stop=launchctl\ unload\ -w\ /usr/local/opt/php56/homebrew.mxcl.php56.plist
+    
+    also can try use
+    
+    php-fpm -D
 
 ### Configuration and php.ini
 
