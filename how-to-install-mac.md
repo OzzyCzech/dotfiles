@@ -2,15 +2,43 @@
 
 ## Preparation
 
-Download [Sublime editor](http://www.sublimetext.com/) and create link `subl`:
-
-    sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /bin/subl
-
 Install [Homebrew](http://brew.sh/)
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
 
 Read first [El Capitan & Homebrew](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md) and follow instruction.
+
+And install [Cask](http://caskroom.io/)
+
+    brew install caskroom/cask/brew-cask && brew cask update
+
+
+Then install [Atom editor](https://atom.io/) and chose from Atom menu *Install Shell Commands*
+
+    brew cask install atom
+
+## Docker
+
+First install [VirtualBox](https://www.virtualbox.org/)
+    
+    brew cask install virtualbox
+
+Then install docker and docker-machine:
+
+    brew install docker-machine
+    brew install docker-compose
+    brew install docker
+    
+Create your docker
+
+    docker-machine create --driver virtualbox dev
+    docker-machine ls # show current machines
+    eval "$(docker-machine env dev)"
+    docker-machine env dev
+
+-  https://docs.docker.com/machine/get-started/ - Starting with Docker machine
+-  https://hub.docker.com/
 
 ## NGINX
 
@@ -34,7 +62,7 @@ Check if running `open http://localhost:8080` or `open http://localhost:80`
 
 ### Configuration
 
-nginx configuration files can be found here `subl /usr/local/etc/nginx`
+nginx configuration files can be found here `atom /usr/local/etc/nginx`
 
 Here is my basic `nginx.conf` file (do not forgot change root path):
 
@@ -97,7 +125,7 @@ First prepare follow dirs
 
 Create first dev configuration:
 
-    subl /usr/local/etc/nginx/sites-available/omdesign.dev
+    atom /usr/local/etc/nginx/sites-available/omdesign.dev
 
 Here is my example configuration:
 
@@ -136,7 +164,7 @@ Create symlink to sites-enabled:
 
     sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-enabled/omdesign.dev
 
-Update your `subl /etc/hosts` file with follow line:
+Update your `atom /etc/hosts` file with follow line:
 
     127.0.0.1   omdesign.dev
 
@@ -200,11 +228,11 @@ Restart Terminal and check if working `php -v` or `php-fpm -v`
 
 ### Configuration and php.ini
 
-You can found basic php-fpm config file here `subl /usr/local/etc/php/5.6/php-fpm.conf`. Check especially `listen = 127.0.0.1:9000` everything else can be leave as is.
+You can found basic php-fpm config file here `atom /usr/local/etc/php/5.6/php-fpm.conf`. Check especially `listen = 127.0.0.1:9000` everything else can be leave as is.
 
-PHP config files can be found here `subl /usr/local/etc/php/5.6/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
+PHP config files can be found here `atom /usr/local/etc/php/5.6/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
 
-    subl /usr/local/etc/php/5.6/conf.d/zzzzzzzzzzzzzzzzzzzzzzzz.ini
+    atom  /usr/local/etc/php/5.6/conf.d/zzzzzzzzzzzzzzzzzzzzzzzz.ini
 
 See my configuration:
 
@@ -293,15 +321,24 @@ First setup new password for root
     nodejs --version
     npm completion > /usr/local/etc/bash_completion.d/npm # bash code completation
 
-and modules
+Upgrade npm first
 
-    npm install -g bower
+    npm install -g npm
+    
+then install modules
+
+    npm install -g bower 
     npm install -g phantomjs
-    npm install -g yo
     npm install -g less
-    npm install -g grunt-cli
     npm install -g gulp
+    npm install -g grunt-cli
     npm install -g coffee-script
+    npm install -g babel
+    npm install -g webdriver
+    npm install -g chromedriver
+    npm install -g npm-check-updates
+    npm install -g phantomjs
+    npm install -g protractor
 
 ## bash (need to be upgrade for new Git)
 
@@ -309,7 +346,7 @@ and modules
 
 Open terminal ⌘+, setup path to new bash `/usr/local/bin/bash`
 
-    sudo subl /etc/shells
+    sudo atom /etc/shells
 
 add this line at the end of the list:
 
@@ -396,29 +433,31 @@ Install wget:
 
 See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more information
 
-
 # Software
 
-## Time saving
+Execute follow commands:
 
-- **Lunchy**: A friendly wrapper for launchctl
-https://github.com/eddiezane/lunchy
+    brew cask install disk-inventory-x
+    brew cask install rowanj-gitx
+    brew cask install rowanj-gitx
+    brew cask install sourcetree
+    brew cask install viscosity
+    brew cask install vlc
+    brew cask install virtualbox
+    brew cask install twitter
+    brew cask install tweetdeck
+    brew cask install robomongo
+    brew cask install google-chrome
+    brew cask install firefox
+    brew cask install macdown
+    brew cask install the-unarchiver
+    brew cask install slack
+    brew cask install poedit
+    
+## Others
+
 - **Window Magnet**: missing mac window organizer ([buy here](https://itunes.apple.com/cz/app/window-magnet/id441258766?mt=12
 ))
-
-## System
-- **Disk Inventory X** Disk Inventory X is a disk usage utility for Mac http://www.derlien.com/
-
-## DEV
-
-- **PhpStorm**: PHP IDE https://www.jetbrains.com/phpstorm/
-- **SourceTree**: a free Git & Mercurial client for Windows or Mac http://www.sourcetreeapp.com/
-- **Sublime Text**: A sophisticated text editor for code, markup and prose. You'll love the slick user interface, extraordinary features and amazing performance. https://www.sublimetext.com/
-- **Viscosity**: Viscosity is a first class OpenVPN client that lets you secure your network with ease & style. https://www.sparklabs.com/viscosity/
-
-
-## File processing
-
 - **MiroVideo Converter**: A beautiful, simple way to convert almost any video to MP4, WebM (vp8), Ogg Theora, or for Android, iPhone, and iPad. Batch conversion, custom sizing, and more!
 http://www.mirovideoconverter.com/
 - **HandBrake** is a tool for converting video from nearly any format to a selection of modern, widely supported codecs. https://handbrake.fr/
