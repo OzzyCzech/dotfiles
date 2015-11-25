@@ -244,30 +244,31 @@ See my configuration:
     date.timezone = "Europe/Prague"
     error_reporting = E_ALL
     memory_limit = 256M
-
-    log_errors=On
-    error_log=/tmp/php-error.log
-
-    mysql.default_socket=/tmp/mysql.sock
-    pdo_mysql.default_socket=/tmp/mysql.sock
-
+    phar.readonly = 0
+    max_execution_time = 300
+    always_populate_raw_post_data = -1
+    
+    log_errors = On
+    error_log = /tmp/php-error.log
+    
+    mysql.default_socket = /tmp/mysql.sock
+    pdo_mysql.default_socket = /tmp/mysql.sock
+    
     [opcache]
-    opcache.revalidate_freq=1
-
+    opcache.revalidate_freq = 0
+    
     [xdebug]
-    xdebug.remote_enable=1
-    xdebug.remote_connect_back=On
+    xdebug.remote_enable = 1
+    xdebug.remote_connect_back = On
     ;xdebug.remote_host=127.0.0.1
     ;xdebug.remote_port=9001
-    xdebug.remote_autostart=1
-    xdebug.idekey=PHPSTORM
-    xhprof.output_dir="/var/tmp/xhprof"
-
+    xdebug.remote_autostart = 1
+    xdebug.idekey = PHPSTORM
+    
     xdebug.profiler_enable = 0;
-    xdebug.profiler_output_name=cachegrind.out.%H.%t
+    xdebug.profiler_output_name = cachegrind.out.%H.%t
     xdebug.profiler_enable_trigger = 1;
     xdebug.profiler_output_dir = /Users/roman/.Trash
-
 
 ## mongodb
 
@@ -278,12 +279,12 @@ Setup to autostart after login
 
     ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 
-### Start & stop
+### Start & Stop
 
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
-## mysql
+## MySQL
 
     brew install mysql
 
@@ -304,12 +305,12 @@ Change rights
 
     sudo chown -R _mysql /usr/local/var/mysql
 
-### Start & restart
+### Start & Restart
 
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
-### Confugure
+### Configure
 
 First setup new password for root
 
@@ -474,7 +475,7 @@ Follow procedure fix a most of problems like: Segmentation fault, compile errors
      brew install -v --with-fpm --with-mysql --disable-opcache php56
      # etc.
 
-### Change local Forumlas
+### Change local Formulas
 
 All local formulas can be found in paths:
 
@@ -483,7 +484,7 @@ All local formulas can be found in paths:
 
 It's a git repo, you can checkout any older source from github.
 
-### Dubious ownership
+### Dubious Ownership
 
 If you get error like: `Dubious ownership on file...` need to change plist rights:
 
