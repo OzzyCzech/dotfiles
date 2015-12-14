@@ -1,4 +1,4 @@
-# How to install NGINX, PHP-FPM (5.6+), Mongodb, Redis, Nodejs, Mysql, Git
+# How to install NGINX, PHP-FPM (5.6+), Mongodb, Redis, Nodejs, Mariadb, Git
 
 ## Preparation
 
@@ -21,7 +21,7 @@ Then install [Atom editor](https://atom.io/) and chose from Atom menu *Install S
 ## Docker
 
 First install [VirtualBox](https://www.virtualbox.org/)
-    
+
     brew cask install virtualbox
 
 Then install docker and docker-machine:
@@ -29,7 +29,7 @@ Then install docker and docker-machine:
     brew install docker-machine
     brew install docker-compose
     brew install docker
-    
+
 Create your docker
 
     docker-machine create --driver virtualbox dev
@@ -247,16 +247,16 @@ See my configuration:
     phar.readonly = 0
     max_execution_time = 300
     always_populate_raw_post_data = -1
-    
+
     log_errors = On
     error_log = /tmp/php-error.log
-    
+
     mysql.default_socket = /tmp/mysql.sock
     pdo_mysql.default_socket = /tmp/mysql.sock
-    
+
     [opcache]
     opcache.revalidate_freq = 0
-    
+
     [xdebug]
     xdebug.remote_enable = 1
     xdebug.remote_connect_back = On
@@ -264,7 +264,7 @@ See my configuration:
     ;xdebug.remote_port=9001
     xdebug.remote_autostart = 1
     xdebug.idekey = PHPSTORM
-    
+
     xdebug.profiler_enable = 0;
     xdebug.profiler_output_name = cachegrind.out.%H.%t
     xdebug.profiler_enable_trigger = 1;
@@ -284,22 +284,22 @@ Setup to autostart after login
     launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
     launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
 
-## MySQL
+## Mariadb
 
-    brew install mysql
+    brew install mariadb
 
-Run the commands brew suggested
+Run the commands brew suggested and `mysql_install_db`
 
     unset TMPDIR
     mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
-    
-Start mysql use commands
+
+To start mysql use command:
 
     mysql.server start
 
 Setup to autostart after login
 
-    ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+    ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
 
 Change rights
 
@@ -325,10 +325,10 @@ First setup new password for root
 Upgrade npm first
 
     npm install -g npm
-    
+
 then install modules
 
-    npm install -g bower 
+    npm install -g bower
     npm install -g phantomjs
     npm install -g less
     npm install -g gulp
@@ -454,7 +454,7 @@ Execute follow commands:
     brew cask install the-unarchiver
     brew cask install slack
     brew cask install poedit
-    
+
 ## Others
 
 - **Window Magnet**: missing mac window organizer ([buy here](https://itunes.apple.com/cz/app/window-magnet/id441258766?mt=12
