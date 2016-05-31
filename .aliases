@@ -1,7 +1,6 @@
-########################################################################################################################
-# Easier navigation: .., ..., ~ and -
-########################################################################################################################
+#!/usr/bin/env bash
 
+# Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -9,24 +8,14 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-########################################################################################################################
-# Simplify life
-########################################################################################################################
-
-alias drives="df -h" # list all drives
-alias reload="source ~/.bash_profile"
-
-########################################################################################################################
 # Shortcuts
-########################################################################################################################
-
-alias downloads="cd ~/Downloads"
-alias desktop="cd ~/Desktop"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
 alias work="cd ~/Work"
 alias home="cd ~"
 alias g="git"
-alias j="jobs"
-
+alias a="atom"
+alias drives="df -h" # list all drives
 ########################################################################################################################
 # Programs
 ########################################################################################################################
@@ -49,10 +38,6 @@ alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop.app'
 
 # be nice
 alias please=sudo
-
-# be nice to dumb admins :-)
-alias apt-get="brew"
-
 # clean terminal history
 alias yolo="history -c && clear"
 
@@ -149,25 +134,26 @@ type -t md5sum > /dev/null || alias md5sum="md5"
 alias c="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
-alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
-
-# Shortcuts
-alias g="git"
-alias v="vim"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# ROT13-encode text. Works for decoding, too! ;)
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+# Empty the Trash on all mounted volumes and the main HDD.
+# Also, clear Apple’s System Logs to improve shell startup speed.
+# Finally, clear download history from quarantine. https://mths.be/bum
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
-# Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 ########################################################################################################################
 # Spotlight
@@ -183,17 +169,9 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
 
-# Make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
-
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Faster npm for europeans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
-
-# npm offline
-# install npm dependencies from cache
-# https://github.com/npm/npm/issues/2568#issuecomment-30626394
-alias npmo="sudo npm install --cache-min 999999999"
