@@ -545,10 +545,8 @@ brew cask install handbrake         # Video converter
 
 ## Others
 
-- **Window Magnet**: missing mac window organizer ([buy here](https://itunes.apple.com/cz/app/window-magnet/id441258766?mt=12
-))
-- **MiroVideo Converter**: A beautiful, simple way to convert almost any video to MP4, WebM (vp8), Ogg Theora, or for Android, iPhone, and iPad. Batch conversion, custom sizing, and more!
-http://www.mirovideoconverter.com/
+- **[Window Magnet](https://itunes.apple.com/cz/app/window-magnet/id441258766?mt=12)**: missing mac window organizer
+- **[MiroVideo Converter](http://www.mirovideoconverter.com/)**: A beautiful, simple way to convert almost any video to MP4, WebM (vp8), Ogg Theora, or for Android, iPhone, and iPad. Batch conversion, custom sizing, and more!
 
 # Troubleshooting
 
