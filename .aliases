@@ -118,7 +118,7 @@ alias npmrg="sudo npm uninstall -g"
 ########################################################################################################################
 
 # list all apps on ports
-alias listen="sudo lsof -i -P | grep -i \"listen\""
+alias listen="sudo lsof -iTCP -sTCP:LISTEN -n -P"
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
