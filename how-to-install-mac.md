@@ -585,12 +585,18 @@ Fix [SIP protection](https://support.apple.com/en-us/HT204899) on El Capitan:
 
 If you had created the `/usr/local` directory already, then run this command in terminal:
 
-`sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/local`
+```
+sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/local
+```
 
 If you are doing a fresh install or cannot create /usr/local directory anymore, then follow these steps:
 
 1. Reboot and hold on boot Cmd+R
 2. In recovery run in Terminal command run `csrutil disable`
 3. Reboot to El Capitan and run follow command in Terminal
-4. `sudo mkdir /usr/local && sudo chflags norestricted /usr/local && sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/local`
-5. Reboot to recovery again run `csrutil enable`
+
+```
+sudo mkdir /usr/local && sudo chflags norestricted /usr/local && sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/local
+```
+
+Then reboot to again recovery tool and return `csrutil enable`
