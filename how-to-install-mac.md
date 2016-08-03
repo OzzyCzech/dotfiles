@@ -1,4 +1,4 @@
-# How to install NGINX, PHP-FPM (7), Mongodb, Redis, Nodejs, Mariadb, Git
+# How to install NGINX, PHP-FPM, Mongodb, Redis, Nodejs, Mariadb, Git
 
 ## Preparation
 
