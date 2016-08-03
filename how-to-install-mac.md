@@ -31,24 +31,20 @@ brew tap homebrew/services
 
 ## NGINX
 
-### Install
-
 ```
 brew install nginx
 ```
 
-### Running
-
 ```
-SUDO brew services start nginx
+sudo brew services start nginx
 ```
 
 You can start nginx manually and check if running in browser
 
 ```
-SUDO brew services reload nginx
-SUDO brew services start nginx
-SUDO brew services stop nginx
+sudo brew services reload nginx
+sudo brew services start nginx
+sudo brew services stop nginx
 ```
 
 Check if running `open http://localhost:8080` or `open http://localhost:80`
@@ -126,7 +122,7 @@ Create first dev configuration:
 atom /usr/local/etc/nginx/sites-available/omdesign.dev
 ```
 
-Here is my example configuration:
+Here is an example configuration:
 
 ```
 server {
@@ -173,7 +169,7 @@ Update your `atom /etc/hosts` file with follow line:
 127.0.0.1   omdesign.dev
 ```
 
-Restart nginx (`brew service reload nginx`) and check if working (`open http://omdesign.dev`)
+Restart nginx (`sudo brew service reload nginx`) and check if working (`open http://omdesign.dev`)
 
 ## PHP-fpm
 
@@ -298,8 +294,8 @@ brew link mongodb
 Setup to autostart after login
 
 ```
-brew services start mongo
-brew services reload mongo
+sudo brew services start mongo
+sudo brew services reload mongo
 ```
 
 ## Mariadb
@@ -324,7 +320,7 @@ mysql.server start
 Setup to autostart after login
 
 ```
-ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
+sudo brew services start mariadb
 ```
 
 Change rights
@@ -412,7 +408,7 @@ echo $BASH_VERSION
 
 ```
 brew install redis
-brew services start redis
+sudo brew services start redis
 ```
 
 ## Git
@@ -425,13 +421,12 @@ brew install git-extra
 brew install git bash-completion
 ```
 
-And update your `~/.bash_profile` to add autocomplete and prompt:
+And update your `~/.bash_prompt` to add autocomplete and prompt:
 
 ```
 #############################################################################
-# My current prompt
+# current prompt
 #############################################################################
-
 # \d – Current date
 # \t – Current time
 # \h – Host name
@@ -448,18 +443,26 @@ export PS1="\w: "
 
 source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
 source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/npm
 
-# configure yout git and prompt
+# configure git and prompt
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM="git verbose legacy"
-export PSORIG="$PS1" # or remove if you don't have My custom prompt
+export PSORIG="$PS1" # pokud chcete zachovat puvodni PS1
 
 PS1=$PSORIG'$(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
+
+#############################################################################
+# Change Terminal tab name to dir basename
+#############################################################################
+
+PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
 ```
 
-Restart terminal (need to be relaunch with ⌘+Q). Get more info from my [.bash_profile](https://github.com/OzzyCzech/dotfiles/blob/master/.bash_profile) file.
+Restart terminal (need to be relaunch with ⌘+Q).
+Get more info from my [.bash_profile](https://github.com/OzzyCzech/dotfiles/blob/master/.bash_profile) and [.bash_prompt](https://github.com/OzzyCzech/dotfiles/blob/master/.bash_prompt) files.
 
 ## Others
 
