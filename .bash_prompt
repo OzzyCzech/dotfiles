@@ -9,7 +9,7 @@
 # \W – Current working directory (ie: Desktop/)
 # \w – Current working directory, full path (ie: /Users/Admin/Desktop)
 # export PS1="\u@\h\w: "
-export PS1="\w: " 
+export PS1="\w: "
 
 #############################################################################
 # git autocomplet and bash prompt

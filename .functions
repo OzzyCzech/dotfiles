@@ -15,7 +15,6 @@ function WikidiRelease {
 }
 
 # Clean up drive before unmount
-# http://www.nabito.net/how-to-clean-flash-drive-before-unmount-on-mac/
 function cleandrive() {
   if [ -n "$1" ] && [ -d "/Volumes/$1/" ]; then
     read -r -p "Clean /Volumes/$1/ and unmount? [y/N] " response

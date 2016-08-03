@@ -2,54 +2,54 @@
 # nginx aliases
 #############################################################################
 
-alias nginx-start="sudo nginx"
-alias nginx-restart="sudo nginx -s reload"
-alias nginx-stop="sudo nginx -s stop"
+alias nginx-start="sudo brew services start"
+alias nginx-restart="sudo brew services reload"
+alias nginx-stop="sudo brew services restart"
 
 #############################################################################
 # php-fpm aliases
 #############################################################################
 
-alias php-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
-alias php-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
-alias php-restart="php-stop && php-start"
+alias php-start="brew services start homebrew/php/php70"
+alias php-stop="brew services stop homebrew/php/php70"
+alias php-restart="brew services restart homebrew/php/php70"
 
 #############################################################################
 # mongo aliases
 #############################################################################
 
-alias mongo-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-alias mongo-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
-alias mongo-restart="mongo-stop && mongo-start"
+alias mongo-start="brew services start mongo"
+alias mongo-stop="brew services stop mongo"
+alias mongo-restart="brew services restart mongo"
 
 #############################################################################
 # redis
 #############################################################################
 
-alias redis-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-alias redis-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
-alias redis-restart="redis-stop && redis-start"
+alias redis-start="brew services start redis"
+alias redis-stop="brew services stop redis"
+alias redis-restart="brew services restart redis"
 
 #############################################################################
 # mysql
 #############################################################################
 
-alias mysql-start="sudo mysql.server start"
-alias mysql-stop="sudo mysql.server stop"
-alias mysql-restart="mysql-stop && mysql-start"
+alias mysql-start="brew services start mysql"
+alias mysql-stop="brew services start stop"
+alias mysql-restart="brew services restart mysql"
 
 #############################################################################
 # memcached
 #############################################################################
 
-alias memcached-start="sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
-alias memcached-stop="sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
-alias memcached-restart="memcached-stop && memcached-start"
+alias memcached-start="brew services start memcached"
+alias memcached-stop="brew services stop memcached"
+alias memcached-restart="brew services restart memcached"
 
 #############################################################################
 # Start everything :-)
 #############################################################################
 
-alias jarvis="memcached-start && mysql-start && redis-start && mongo-start && php-start && nginx-start"
-alias jarvis-stop="memcached-stop && mysql-stop && redis-stop && mongo-stop && php-stop && nginx-stop"
-alias jarvis-restart="memcached-restart && mysql-restart && redis-restart && mongo-restart && php-restart && nginx-restart"
+alias jarvis="sudo brew services start --all"
+alias jarvis-stop="sudo brew services stop --all"
+alias jarvis-restart="sudo brew services restart --all"

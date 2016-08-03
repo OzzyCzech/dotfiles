@@ -4,7 +4,7 @@
 
 Install [Homebrew](http://brew.sh/) package manager:
 
-```bash
+```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 ```
@@ -12,34 +12,44 @@ Read first [El Capitan & Homebrew](https://github.com/Homebrew/homebrew/blob/mas
 
 And install [Cask](http://caskroom.io/)
 
-```bash
-brew install caskroom/cask/brew-cask && brew cask update
 ```
+brew install caskroom/cask/brew-cask
+brew cask update
+```
+
 Then install [Atom editor](https://atom.io/) and chose from Atom menu *Install Shell Commands*
-```bash
+
+```
 brew cask install atom
+```
+
+Install [brew services](https://github.com/Homebrew/homebrew-services)
+
+```
+brew tap homebrew/services
 ```
 
 ## NGINX
 
 ### Install
 
-```bash
+```
 brew install nginx
 ```
+
 ### Running
 
-Follow command will autostart nginx after login
-
-```bash
-ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents
+```
+SUDO brew services start nginx
 ```
 
 You can start nginx manually and check if running in browser
 
-    sudo nginx            # start
-    sudo nginx -s stop    # stop
-    sudo nginx -s reload  # restart
+```
+SUDO brew services reload nginx
+SUDO brew services start nginx
+SUDO brew services stop nginx
+```
 
 Check if running `open http://localhost:8080` or `open http://localhost:80`
 
@@ -48,6 +58,7 @@ Check if running `open http://localhost:8080` or `open http://localhost:80`
 nginx configuration files can be found here `atom /usr/local/etc/nginx`
 
 Here is my basic `nginx.conf` file (do not forgot change root path):
+
 ```
 #user  nobody;
 worker_processes  1;
@@ -111,7 +122,7 @@ mkdir /usr/local/etc/nginx/sites-enabled
 
 Create first dev configuration:
 
-```bash
+```
 atom /usr/local/etc/nginx/sites-available/omdesign.dev
 ```
 
@@ -152,7 +163,7 @@ server {
 
 Create symlink to sites-enabled:
 
-```bash
+```
 sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-enabled/omdesign.dev
 ```
 
@@ -162,7 +173,7 @@ Update your `atom /etc/hosts` file with follow line:
 127.0.0.1   omdesign.dev
 ```
 
-Restart nginx (`sudo nginx -s reload`) and check if working (`open http://omdesign.dev`)
+Restart nginx (`brew service reload nginx`) and check if working (`open http://omdesign.dev`)
 
 ## PHP-fpm
 
@@ -170,7 +181,7 @@ Restart nginx (`sudo nginx -s reload`) and check if working (`open http://omdesi
 
 Start with taping formulas repositories:
 
-```bash
+```
 brew tap homebrew/dupes
 brew tap homebrew/versions
 brew tap homebrew/homebrew-php
@@ -178,42 +189,39 @@ brew tap homebrew/homebrew-php
 
 Remove all PHP dependencies (it's only safe way how to compile PHP successfully)
 
-```bash
+```
 brew remove libtool freetype gettext icu4c jpeg libpng unixodbc zlib
 ```
 
 Then install PHP
 
-```bash
-brew install -v --with-fpm --with-mysql --disable-opcache php56
+```
+brew install -v php70
 ```
 
 Launch after login
 
-```bash
-ln -sfv /usr/local/opt/php56/*.plist ~/Library/LaunchAgents
+```
+brew services start homebrew/php/php70
 ```
 
 ### Install PHP extensions
 
-```bash
-brew install php56-http
-brew install php56-mcrypt
-brew install php56-memcache
-brew install php56-memcached
-brew install php56-mongo
-brew install php56-opcache
-brew install php56-propro
-brew install php56-raphf
-brew install php56-tidy
-brew install php56-xdebug
+```
+brew install php70-apcu
+brew install php70-igbinary
+brew install php70-intl
+brew install php70-mcrypt
+brew install php70-memcache
+brew install php70-mongo
+# brew install php70-redis
+brew install php70-tidy
+brew install php70-xdebug
 # ...
 ```
 
-add launch agent for memcached
-
 ```
-ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents
+brew services start homebrew/php/php70
 ```
 
 or get others
@@ -222,14 +230,7 @@ or get others
 brew search php7
 ```
 
-What about APC? See [stackoverflow](http://stackoverflow.com/questions/9611676/is-apc-compatible-with-php-5-4-or-php-5-5) - APC have some problems but you can install emulated APC
-
-```
-brew install php56-apcu # APC
-```
-
 ### Replace OS X PHP
-
 
 change `~/.bash_profile` add follow line:
 
@@ -289,58 +290,52 @@ xdebug.profiler_output_dir = /Users/roman/.Trash
 
 ## mongodb
 
-```bash
+```
 brew install mongodb
 brew link mongodb
 ```
 
 Setup to autostart after login
 
-```bash
-ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 ```
-
-### Start & Stop
-
-```bash
-launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist
+brew services start mongo
+brew services reload mongo
 ```
 
 ## Mariadb
 
-```bash
+```
 brew install mariadb
 ```
 
 Run the commands brew suggested and `mysql_install_db`
 
-```bash
+```
 unset TMPDIR
 mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
 ```
 
 To start mysql use command:
 
-```bash
+```
 mysql.server start
 ```
 
 Setup to autostart after login
 
-```bash
+```
 ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
 ```
 
 Change rights
 
-```bash
+```
 sudo chown -R _mysql /usr/local/var/mysql
 ```
 
 ### Start & Restart
 
-```bash
+```
 launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 ```
@@ -349,13 +344,13 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 First setup new password for root
 
-```bash
+```
 mysqladmin -u root password
 ```
 
 ## nodejs & npm
 
-```bash
+```
 brew install nodejs
 nodejs --version
 npm completion > /usr/local/etc/bash_completion.d/npm # bash code completation
@@ -363,13 +358,13 @@ npm completion > /usr/local/etc/bash_completion.d/npm # bash code completation
 
 Upgrade npm first
 
-```bash
+```
 npm install -g npm
 ```
 
 then install modules
 
-```bash
+```
 npm install -g bower
 npm install -g phantomjs
 npm install -g less
@@ -385,13 +380,13 @@ npm install -g protractor
 
 ## bash (need to be upgrade for new Git)
 
-```bash
+```
 brew install bash
 ```
 
 Open terminal ⌘+, setup path to new bash `/usr/local/bin/bash`
 
-```bash
+```
 sudo atom /etc/shells
 ```
 
@@ -403,26 +398,26 @@ add this line at the end of the list:
 
 and
 
-```bash
+```
 chsh -s /usr/local/bin/bash YOUR_USER_NAME
 ```
 
 after that relaunch Terminal and check bash version
 
-```bash
+```
 echo $BASH_VERSION
 ```
 
 ## Redis
 
-```bash
+```
 brew install redis
-ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+brew services start redis
 ```
 
 ## Git
 
-```bash
+```
 brew install git
 brew unlink git && brew link git
 brew info git
@@ -432,7 +427,7 @@ brew install git bash-completion
 
 And update your `~/.bash_profile` to add autocomplete and prompt:
 
-```bash
+```
 #############################################################################
 # My current prompt
 #############################################################################
@@ -470,7 +465,7 @@ Restart terminal (need to be relaunch with ⌘+Q). Get more info from my [.bash_
 
 Install GNU core utilities (those that come with OS X are outdated):
 
-```bash
+```
 brew install coreutils
 ```
 
@@ -478,7 +473,7 @@ Don't forget add `/usr/local/Cellar/coreutils/8.21/libexec/gnubin` to $PATH
 
 Find, locate, tree, findutils etc. for mac
 
-```bash
+```
 brew install rename
 brew install findutils
 brew install tree
@@ -491,7 +486,7 @@ See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more inf
 
 Execute follow commands:
 
-```bash
+```
 
 # Editors
 brew cask install atom              # Atom editor
@@ -553,11 +548,11 @@ brew cask install handbrake         # Video converter
 ### Remove PHP and all dependencies
 
 Follow procedure fix a most of problems like: Segmentation fault, compile errors or dependencies problem.
-```bash
+```
 brew update
-brew rm $(brew deps php56)
+brew rm $(brew deps php70)
 brew cleanup
-brew install -v --with-fpm --with-mysql --disable-opcache php56
+brew install -v php70
 # etc.
 ```
 
@@ -565,7 +560,7 @@ brew install -v --with-fpm --with-mysql --disable-opcache php56
 
 All local formulas can be found in paths:
 
-```bash
+```
 /usr/local/Library/Formula
 /usr/local/Library/Taps/homebrew/
 ```
@@ -576,7 +571,23 @@ It's a git repo, you can checkout any older source from github.
 
 If you get error like: `Dubious ownership on file...` need to change plist rights:
 
-```bash
+```
 sudo chown root ~/Library/LaunchAgents/*.plist
 sudo chmod 644 ~/Library/LaunchAgents/*.plist
 ```
+
+### System Integrity Protection issue
+
+Fix [SIP protection](https://support.apple.com/en-us/HT204899) on El Capitan:
+
+If you had created the `/usr/local` directory already, then run this command in terminal:
+
+`sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/local`
+
+If you are doing a fresh install or cannot create /usr/local directory anymore, then follow these steps:
+
+1. Reboot and hold on boot Cmd+R
+2. In recovery run in Terminal command run `csrutil disable`
+3. Reboot to El Capitan and run follow command in Terminal
+4. `sudo mkdir /usr/local && sudo chflags norestricted /usr/local && sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/local`
+5. Reboot to recovery again run `csrutil enable`
