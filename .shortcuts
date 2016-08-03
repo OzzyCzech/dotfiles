@@ -10,41 +10,41 @@ alias nginx-stop="sudo brew services restart"
 # php-fpm aliases
 #############################################################################
 
-alias php-start="brew services start homebrew/php/php70"
-alias php-stop="brew services stop homebrew/php/php70"
-alias php-restart="brew services restart homebrew/php/php70"
+alias php-start="sudo brew services start homebrew/php/php70"
+alias php-stop="sudo brew services stop homebrew/php/php70"
+alias php-restart="sudo brew services restart homebrew/php/php70"
 
 #############################################################################
 # mongo aliases
 #############################################################################
 
-alias mongo-start="brew services start mongo"
-alias mongo-stop="brew services stop mongo"
-alias mongo-restart="brew services restart mongo"
+alias mongo-start="sudo brew services start mongo"
+alias mongo-stop="sudo brew services stop mongo"
+alias mongo-restart="sudo brew services restart mongo"
 
 #############################################################################
 # redis
 #############################################################################
 
-alias redis-start="brew services start redis"
-alias redis-stop="brew services stop redis"
-alias redis-restart="brew services restart redis"
+alias redis-start="sudo brew services start redis"
+alias redis-stop="sudo brew services stop redis"
+alias redis-restart="sudo brew services restart redis"
 
 #############################################################################
 # mysql
 #############################################################################
 
-alias mysql-start="brew services start mysql"
-alias mysql-stop="brew services start stop"
-alias mysql-restart="brew services restart mysql"
+alias mysql-start="sudo brew services start mysql"
+alias mysql-stop="sudo brew services start stop"
+alias mysql-restart="sudo brew services restart mysql"
 
 #############################################################################
 # memcached
 #############################################################################
 
-alias memcached-start="brew services start memcached"
-alias memcached-stop="brew services stop memcached"
-alias memcached-restart="brew services restart memcached"
+alias memcached-start="sudo brew services start memcached"
+alias memcached-stop="sudo brew services stop memcached"
+alias memcached-restart="sudo brew services restart memcached"
 
 #############################################################################
 # Start everything :-)
