@@ -483,7 +483,7 @@ brew install tree
 brew install wget --enable-iri
 ```
 
-See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/brew) for more information
+See [.brew](https://github.com/OzzyCzech/dotfiles/tree/master/extras/brew) for more information
 
 # Software
 
