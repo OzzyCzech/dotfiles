@@ -3,7 +3,7 @@
 ################################################################################
 
 # Remove all untag docker images
-alias docker-cleanup-none="docker rmi -f $(docker images | grep '^<none>' | awk '{print $3}')"
+alias docker-cleanup-none="docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi -f"
 
 # Remove all docker images
 alias docker-cleanup-all="docker rm `docker ps -aq`"
