@@ -33,8 +33,6 @@
     log = true
 
 [alias]
-    mergedone = merge --no-ff --no-commit
-
     c = commit -am
     co = commit
     fo = fetch origin
