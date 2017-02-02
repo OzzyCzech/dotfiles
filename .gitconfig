@@ -8,6 +8,9 @@
 [push]
     default = current
 
+[pull]
+    rebase = true
+
 [core]
     editor = nano
     excludesfile =  ~/.gitignore_global
@@ -71,7 +74,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
