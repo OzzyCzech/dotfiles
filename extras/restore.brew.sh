@@ -5,6 +5,10 @@
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 # tap
+brew tap ==> Auto-updated Homebrew!
+brew tap Updated 1 tap (homebrew/core).
+brew tap No changes to formulae.
+brew tap 
 brew tap caskroom/cask
 brew tap homebrew/core
 brew tap homebrew/dupes
@@ -33,7 +37,9 @@ brew install git ''
 brew install gnupg2 ''
 brew install go ''
 brew install gpg-agent ''
+brew install httpie ''
 brew install hugo ''
+brew install icdiff ''
 brew install icu4c ''
 brew install jpeg ''
 brew install libassuan ''
@@ -56,6 +62,7 @@ brew install pinentry ''
 brew install pkg-config ''
 brew install pth ''
 brew install python ''
+brew install python3 ''
 brew install readline ''
 brew install rename ''
 brew install ruby ''
