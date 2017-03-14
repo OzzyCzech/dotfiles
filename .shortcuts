@@ -5,13 +5,7 @@
 # Remove all untag docker images
 alias docker-cleanup-none="docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi -f"
 
-# Remove all docker images
-alias docker-cleanup-all="docker rm `docker ps -aq`"
-
-################################################################################
-# Start all services :-)
-################################################################################
-
-alias jarvis="sudo brew services start --all"
-alias jarvis-stop="sudo brew services stop --all"
-alias jarvis-restart="sudo brew services restart --all"
+function docker-cleanup-all() {
+  docker rm $(docker ps -a -q)
+  docker rmi -f $(docker images -q)
+}
