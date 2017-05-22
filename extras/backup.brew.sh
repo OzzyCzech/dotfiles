@@ -25,7 +25,7 @@ echo 'brew update && brew upgrade'
 echo ''
 echo '# install all items'
 brew list | while read item;
-do
+do  
   echo "brew install $item '$(brew info $item | /usr/bin/grep -m 1 'Built from source with:' | /usr/bin/sed 's/^[ \t]*Built from source with:/ /g; s/\,/ /g')'"
 done
 

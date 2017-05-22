@@ -5,10 +5,6 @@
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 # tap
-brew tap ==> Auto-updated Homebrew!
-brew tap Updated 1 tap (caskroom/cask).
-brew tap No changes to formulae.
-brew tap 
 brew tap caskroom/cask
 brew tap homebrew/core
 brew tap homebrew/dupes
