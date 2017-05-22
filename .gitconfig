@@ -35,6 +35,9 @@
 [merge]
     log = true
 
+[fetch]
+	prune = true # prune delete branches locally
+
 [alias]
     c = commit -am
     co = commit
@@ -71,14 +74,6 @@
     # last changes
     chlast = show --pretty="format:" --name-only
 	latest = branch -v
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 
 # git clone bb:user/repo
 [url "git@bitbucket.org:"]
