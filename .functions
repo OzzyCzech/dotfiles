@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Google from command line
 function wtf() {
   /usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
