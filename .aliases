@@ -28,8 +28,9 @@ alias filemerge="open -a '/Developer/Applications/Utilities/FileMerge.app'"
 alias safari="open -a safari"
 alias firefox="open -a firefox"
 alias opera="open -a opera"
-alias chrome="open -a google\ chrome"
-alias chromium="open -a chromium"
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 alias f='open -a Finder'
 alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop.app'"
 
