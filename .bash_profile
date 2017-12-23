@@ -25,8 +25,3 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/usr/local
 # Homebrew GitHub API rate limit exceeded
 # see https://github.com/settings/tokens put new token to follow line and uncomment
 # export HOMEBREW_GITHUB_API_TOKEN=XXXXXX
-
-# Configure right paths for gcc compiler to look on libs install with brew
-# same as run ./configure LDFLAGS=-L/usr/local/lib CPPFLAGS=-I/usr/local/include
-export CFLAGS="-I/usr/local/include"
-export LDFLAGS="-L/usr/local/lib"
