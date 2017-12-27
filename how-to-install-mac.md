@@ -8,19 +8,18 @@ Install [Homebrew](http://brew.sh/) package manager:
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 ```
-Read first [El Capitan & Homebrew](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md) and follow instruction.
 
 And install [Cask](http://caskroom.io/)
 
 ```
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 brew cask update
 ```
 
-Then install [Atom editor](https://atom.io/) and chose from Atom menu *Install Shell Commands*
+Install [Visual Studio Code](https://code.visualstudio.com/)
 
 ```
-brew cask install atom
+brew cask install visual-studio-code
 ```
 
 Install [brew services](https://github.com/Homebrew/homebrew-services)
@@ -51,7 +50,7 @@ Check if running `open http://localhost:8080` or `open http://localhost:80`
 
 ### Configuration
 
-nginx configuration files can be found here `atom /usr/local/etc/nginx`
+nginx configuration files can be found here `code /usr/local/etc/nginx`
 
 Here is my basic `nginx.conf` file (do not forgot change root path):
 
@@ -116,10 +115,10 @@ mkdir /usr/local/etc/nginx/sites-available
 mkdir /usr/local/etc/nginx/sites-enabled
 ```
 
-Create first dev configuration:
+Create first nginx configuration:
 
 ```
-atom /usr/local/etc/nginx/sites-available/omdesign.dev
+code /usr/local/etc/nginx/sites-available/omdesign.local
 ```
 
 Here is an example configuration:
@@ -127,9 +126,9 @@ Here is an example configuration:
 ```
 server {
   listen                *:80;
-  server_name           omdesign.dev;
-  #access_log           /Users/roman/Work/omdesign.cz/log/omdesign.dev.access.log;
-  #error_log            /Users/roman/Work/omdesign.cz/log/omdesign.dev.error.log;
+  server_name           omdesign.local;
+  #access_log           /Users/roman/Work/omdesign.cz/log/omdesign.local.access.log;
+  #error_log            /Users/roman/Work/omdesign.cz/log/omdesign.local.error.log;
 
   location / {
     root  /Users/roman/Work/omdesign.cz;
@@ -160,16 +159,16 @@ server {
 Create symlink to sites-enabled:
 
 ```
-sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.dev /usr/local/etc/nginx/sites-enabled/omdesign.dev
+sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.local /usr/local/etc/nginx/sites-enabled/omdesign.local
 ```
 
-Update your `atom /etc/hosts` file with follow line:
+Update your `code /etc/hosts` file with follow line:
 
 ```
-127.0.0.1   omdesign.dev
+127.0.0.1   omdesign.local
 ```
 
-Restart nginx (`sudo brew service reload nginx`) and check if working (`open http://omdesign.dev`)
+Restart nginx (`sudo brew service reload nginx`) and check if working (`open http://omdesign.local`)
 
 ## PHP-fpm
 
@@ -192,7 +191,7 @@ brew remove libtool freetype gettext icu4c jpeg libpng unixodbc zlib
 Then install PHP
 
 ```
-brew install -v php70
+brew install -v php72
 ```
 
 Launch after login
@@ -210,7 +209,6 @@ brew install php70-intl
 brew install php70-mcrypt
 brew install php70-memcache
 brew install php70-mongo
-# brew install php70-redis
 brew install php70-tidy
 brew install php70-xdebug
 # ...
@@ -238,12 +236,12 @@ Restart Terminal and check if working `php -v` or `php-fpm -v`
 
 ### Configuration and php.ini
 
-You can found basic php-fpm config file here `atom /usr/local/etc/php/7.0/php-fpm.conf`. Check especially `listen = 127.0.0.1:9000` everything else can be leave as is.
+You can found basic php-fpm config file here `code /usr/local/etc/php/7.0/php-fpm.conf`. Check especially `listen = 127.0.0.1:9000` everything else can be leave as is.
 
-PHP config files can be found here `atom /usr/local/etc/php/5.6/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
+PHP config files can be found here `code /usr/local/etc/php/5.6/conf.d/`. You can change `php.ini` but its more more easly keept change is spearate file:
 
 ```
-atom /usr/local/etc/php/7.0/conf.d/zzzzzzzzzzzzzzzzzzzzzzzz.ini
+code /usr/local/etc/php/7.0/conf.d/zzzzzzzzzzzzzzzzzzzzzzzz.ini
 ```
 
 See my configuration:
@@ -383,7 +381,7 @@ brew install bash
 Open terminal ⌘+, setup path to new bash `/usr/local/bin/bash`
 
 ```
-sudo atom /etc/shells
+sudo code /etc/shells
 ```
 
 add this line at the end of the list:
@@ -492,7 +490,7 @@ Execute follow commands:
 ```
 
 # Editors
-brew cask install atom              # Atom editor
+brew cask install visual-studio-code  # Visual studio code editor
 brew cask install macdown           # Markdown editor
 
 # Maintenance
@@ -501,7 +499,7 @@ brew cask install the-unarchiver    # Archive tool
 
 
 # Browsers
-brew cask install torbrowser        # Tor browser
+brew cask install torbrowser        # TorBrowser
 brew cask install firefox           # Firefox
 brew cask install google-chrome     # Chrome
 
@@ -523,15 +521,10 @@ brew cask install 1password         # 1Password
 brew cask install dropbox           # Dropbox
 brew cask install google-drive      # Google drive
 
-# Images
-brew cask install exifrenamer       # EXIF renamer
-brew cask install imageoptim        # Image optimization and EXIF remover
-
 # Chats
 brew cask install messenger         # Facebook Messenger
 brew cask install skype             # Skype
 brew cask install slack             # Slack
-brew cask install hipchat           # Hipchat
 
 # Video, fun & social...
 brew cask install vlc               # Video player
@@ -553,9 +546,9 @@ brew cask install handbrake         # Video converter
 Follow procedure fix a most of problems like: Segmentation fault, compile errors or dependencies problem.
 ```
 brew update
-brew rm $(brew deps php70)
+brew rm $(brew deps php72)
 brew cleanup
-brew install -v php70
+brew install -v php72
 # etc.
 ```
 
