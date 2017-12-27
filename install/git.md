@@ -2,18 +2,43 @@
 
 ```
 brew install git
-brew unlink git && brew link git
+brew link --overwrite git
 brew info git
-brew install git-extra
-brew install git bash-completion
 ```
 
 And update your `~/.bash_prompt` to add autocomplete and prompt:
 
 ```
+#!/bin/bash
+
 #############################################################################
-# current prompt
+# Change Terminal tab name to dir basename
 #############################################################################
+
+PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
+
+#############################################################################
+# Bash autocomplet
+#############################################################################
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+   . $(brew --prefix)/etc/bash_completion
+fi
+
+#############################################################################
+# GIT prompt
+#############################################################################
+
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_DESCRIBE_STYLE="contains"
+
+#############################################################################
+# Bash prompt
+#############################################################################
+
 # \d – Current date
 # \t – Current time
 # \h – Host name
@@ -22,28 +47,14 @@ And update your `~/.bash_prompt` to add autocomplete and prompt:
 # \W – Current working directory (ie: Desktop/)
 # \w – Current working directory, full path (ie: /Users/Admin/Desktop)
 # export PS1="\u@\h\w: "
-export PS1="\w: "
 
-#############################################################################
-# git autocomplet and bash prompt
-#############################################################################
+export PS1='\w: $(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
+```
 
-source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
-source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/npm
+## Git Extras
 
-# configure git and prompt
+Install [git extras](https://github.com/tj/git-extras):
 
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="git verbose legacy"
-export PSORIG="$PS1" # pokud chcete zachovat puvodni PS1
-
-PS1=$PSORIG'$(__git_ps1 "\[\033[01;31m\]%s \[\033[00m\]")'
-
-#############################################################################
-# Change Terminal tab name to dir basename
-#############################################################################
-
-PROMPT_COMMAND='echo -n -e "\033]0;${PWD##*/}\007"'
+```
+brew install git-extras
 ```
