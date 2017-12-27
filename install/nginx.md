@@ -4,6 +4,9 @@
 brew install nginx
 ```
 
+
+Start nginx (require [Brew services](./brew-services.md))
+
 ```
 sudo brew services start nginx
 ```
@@ -18,7 +21,7 @@ sudo brew services stop nginx
 
 Check if running `open http://localhost:8080` or `open http://localhost:80`
 
-### Configuration
+## Configuration
 
 nginx configuration files can be found here `code /usr/local/etc/nginx`
 
@@ -76,7 +79,7 @@ http {
 }
 ```
 
-### Setup virtuals
+## Setup virtuals
 
 First prepare follow dirs
 

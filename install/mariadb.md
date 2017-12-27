@@ -17,7 +17,7 @@ To start mysql use command:
 mysql.server start
 ```
 
-Setup to autostart after login (Require [Brew services](./brew-services.md))
+Setup to autostart after login (require [Brew services](./brew-services.md))
 
 ```
 sudo brew services start mariadb
