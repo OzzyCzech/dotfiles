@@ -42,9 +42,3 @@ function myip() {
   echo "IP4: `curl -sS http://v4.ident.me/`"
   echo "IP6: `curl -sS http://v6.ident.me/`"
 }
-
-# Turn that video into webm.
-# brew reinstall ffmpeg --with-libvpx
-to_webm() {
-	ffmpeg -i "$1" -vcodec libvpx -acodec libvorbis -isync -copyts -aq 80 -threads 3 -qmax 30 -y "$2" "$1.webm"
-}
