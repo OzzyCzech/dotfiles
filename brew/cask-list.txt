@@ -1,5 +1,6 @@
 1password
 appcleaner
+arduino
 burn
 commander-one
 cronnix
@@ -9,12 +10,17 @@ firefox
 gitup
 google-chrome
 handbrake
+hex-fiend
+install-disk-creator
 macdown
 phpstorm
+robo-3t
 rowanj-gitx
 sequel-pro
 slack
+telegram-desktop
 the-unarchiver
 viscosity
 visual-studio-code
 vlc
+vnc-viewer
