@@ -61,7 +61,7 @@
     # display most recent tag
     tag-latest = describe --tags --abbrev=0
     # list authors
-    show-authors =  short -e -s -n
+    show-authors =  shortlog -e -s -n
 
     # remove untracked dirs, ignored files with force !
     prune = clean -xdf
