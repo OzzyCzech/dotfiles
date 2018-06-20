@@ -5,8 +5,8 @@ function wtf() {
   /usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
 }
 
-# rename images with exiftool
-function rename-images() {
+# rename images, videos, audios with exiftool
+function mediarename() {
   exiftool -r -m -d "%Y-%m-%d %H.%M.%S%%-c.%%le" \
     "-filename<FileInodeChangeDate" "-filename<ModifyDate" "-filename<CreateDate" "-filename<CreationDate" "-filename<DateTimeOriginal" \
     -if '$filename !~ /^\./' \
