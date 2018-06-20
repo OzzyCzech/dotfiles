@@ -5,6 +5,22 @@ function wtf() {
   /usr/bin/open "http://www.google.com/search?q=$1"; # wtf mysql => google mysql
 }
 
+# rename images with exiftool
+function rename-images() {
+  exiftool -r -m -d "%Y-%m-%d %H.%M.%S%%-c.%%le" \
+    "-filename<FileInodeChangeDate" "-filename<ModifyDate" "-filename<CreateDate" "-filename<CreationDate" "-filename<DateTimeOriginal" \
+    -if '$filename !~ /^\./' \
+    -ext jpg -ext png -ext gif -ext tif -ext tiff \
+    -ext mp4 -ext avi -ext mov -ext mkv -ext m4v \
+    -ext cr2 -ext crw \
+    -ext nef -ext nrw \
+    -ext arw -ext srf -ext sr2 \
+    -ext raw -ext rw2 \
+    -ext raf \
+    -ext orf \
+    "$@"
+}
+
 # Clean up drive before unmount
 function cleandrive() {
   if [ -n "$1" ] && [ -d "/Volumes/$1/" ]; then
