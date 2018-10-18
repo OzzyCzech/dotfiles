@@ -10,7 +10,7 @@ function mediarename() {
   exiftool -r -m -d "%Y-%m-%d %H.%M.%S%%-c.%%le" \
     "-filename<FileInodeChangeDate" "-filename<ModifyDate" "-filename<CreateDate" "-filename<CreationDate" "-filename<DateTimeOriginal" \
     -if '$filename !~ /^\./' \
-    -ext jpg -ext png -ext gif -ext tif -ext tiff \
+    -ext jpg -ext jpeg  -ext png -ext gif -ext tif -ext tiff \
     -ext mp4 -ext avi -ext mov -ext mkv -ext m4v \
     -ext cr2 -ext crw \
     -ext nef -ext nrw \
