@@ -26,7 +26,6 @@ touch ~/.extra && code ~/.extra
 * [nodejs](https://github.com/OzzyCzech/dotfiles/blob/master/install/nodejs.md)
 * [php](https://github.com/OzzyCzech/dotfiles/blob/master/install/php.md)
 * [redis](https://github.com/OzzyCzech/dotfiles/blob/master/install/redis.md)
-* [redis](https://github.com/OzzyCzech/dotfiles/blob/master/install/redis.md)
 
 ## Credits - for more than simple inspiration
 
