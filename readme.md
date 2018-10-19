@@ -14,13 +14,19 @@ All private config can be save in `.extra` which you do not commit to this repo 
 touch ~/.extra && code ~/.extra
 ```
 
-## Others 
+## Install
 
-- [Install NGINX](https://github.com/OzzyCzech/dotfiles/blob/master/nginx.md)
-- [Install PHP-fpm](https://github.com/OzzyCzech/dotfiles/blob/master/php.md)
-- [Install bash](https://github.com/OzzyCzech/dotfiles/blob/master/bash.md)
-- [Install MariaDB](https://github.com/OzzyCzech/dotfiles/blob/master/mariadb.md)
-- [Install nodejs](https://github.com/OzzyCzech/dotfiles/blob/master/nodejs.md)
+* [bash](https://github.com/OzzyCzech/dotfiles/blob/master/install/bash.md)
+* [brew-services](https://github.com/OzzyCzech/dotfiles/blob/master/install/brew-services.md)
+* [brew-troubleshooting](https://github.com/OzzyCzech/dotfiles/blob/master/install/brew-troubleshooting.md)
+* [git](https://github.com/OzzyCzech/dotfiles/blob/master/install/git.md)
+* [mariadb](https://github.com/OzzyCzech/dotfiles/blob/master/install/mariadb.md)
+* [mongodb](https://github.com/OzzyCzech/dotfiles/blob/master/install/mongodb.md)
+* [nginx](https://github.com/OzzyCzech/dotfiles/blob/master/install/nginx.md)
+* [nodejs](https://github.com/OzzyCzech/dotfiles/blob/master/install/nodejs.md)
+* [php](https://github.com/OzzyCzech/dotfiles/blob/master/install/php.md)
+* [redis](https://github.com/OzzyCzech/dotfiles/blob/master/install/redis.md)
+* [redis](https://github.com/OzzyCzech/dotfiles/blob/master/install/redis.md)
 
 ## Credits - for more than simple inspiration
 
