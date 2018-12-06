@@ -1,3 +1,4 @@
-caskroom/cask
+homebrew/cask
 homebrew/core
 homebrew/php
+homebrew/services

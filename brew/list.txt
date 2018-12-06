@@ -1,6 +1,7 @@
 ack
 bash
 bash-completion
+boost
 coreutils
 exiftool
 ffmpeg
@@ -8,12 +9,17 @@ git
 git-extras
 httpd
 httpie
+imagemagick
+imap-uw
+libiconv
 libxml2
+node
 openssl@1.1
-homebrew/php/php72-mongodb
+php
 rclone
+rename
 ruby
 telnet
+tig
 tldr
 wget
-yarn
