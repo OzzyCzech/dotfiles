@@ -55,7 +55,7 @@
     
     view-contributors =  shortlog -e -s -n    
     branches = branch -av
-    view-branches = !git branches
+    view-branches = branch -av
     
 
     # Show verbose output about tags, branches or remotes
