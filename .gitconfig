@@ -56,6 +56,7 @@
     view-contributors =  shortlog -e -s -n    
     branches = branch -av
     view-branches = branch -av
+    view-remote-branches = branch -r
     
 
     # Show verbose output about tags, branches or remotes
