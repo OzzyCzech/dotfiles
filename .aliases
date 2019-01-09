@@ -92,8 +92,8 @@ alias undopush="git push -f origin HEAD^:master"
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias ip="dig @resolver1.opendns.com A myip.opendns.com +short -4"
+alias ip-local="ipconfig getifaddr en1"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
@@ -101,18 +101,6 @@ alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
-
-########################################################################################################################
-# npm
-########################################################################################################################
-
-alias npmp="sudo npm publish"
-alias npma="sudo npm adduser"
-alias npmi="sudo npm install"
-alias npmg="sudo npm install -g"
-alias npmu="sudo npm update"
-alias npmr="sudo npm uninstall"
-alias npmrg="sudo npm uninstall -g"
 
 ########################################################################################################################
 # network
@@ -155,6 +143,27 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+########################################################################################################################
+# Docker
+########################################################################################################################
+
+# delete all images, containers, cache, builds ...
+alias docker-prune-all="docker system prune --all && docker image prune -a"
+
+# delete only dangling images without tag
+alias docker-delete-untaged="docker rmi $(docker images -f "dangling=true" -q) --force"
+
+# exec bash in docker
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; } 
+
+########################################################################################################################
+# Docker compose
+########################################################################################################################
+
+alias dcup="docker-compose up -d"
+alias dcstop="docker-compose stop"
+dcbash () { docker-compose exec $1 bash; }
 
 ########################################################################################################################
 # Spotlight
