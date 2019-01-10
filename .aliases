@@ -43,8 +43,13 @@ alias brew-cask-upgrade="brew cask outdated | xargs brew cask reinstall"
 alias please=sudo
 # clean terminal history
 alias yolo="history -c && clear"
-# Yarn interactive upgrade
+
+########################################################################################################################
+# Yarn / npm
+########################################################################################################################
+
 alias yup="yarn upgrade-interactive --latest" 
+alias npm-list-globals="npm list -g --depth 0"
 
 ########################################################################################################################
 # List aliases
