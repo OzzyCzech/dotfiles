@@ -15,10 +15,10 @@
     up = !"git pull; git submodule foreach git pull origin master"
 
     # Switch to a branch, creating it if necessary
-    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+    go = "!fg() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; fg"
 
     # Commit ALL && push ALL
-    save  = "!gsave() { git add -A; git commit -am \"$1\"; git push; }; gsave"
+    save  = "!fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
 
     # Commit all changes
     commit-all = !git add -A && git commit -am    
