@@ -18,7 +18,7 @@
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
     # Commit ALL && push ALL
-    save  = "!f() { git add -A &&  git commit -am \"$1\" && git push; }; f"
+    save  = "!gs() { git add -A &&  git commit -am \"$1\" && git push; }; gs"
 
     # Commit all changes
     commit-all = !git add -A && git commit -am    
