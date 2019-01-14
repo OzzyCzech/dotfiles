@@ -3,46 +3,46 @@
     email = roman@omdesign.cz
     username = OzzyCzech
 
-[alias]    
+[alias]
+    
     c = commit -am
-
-    # Commit all changes
-	commit-all = !git add -A && git commit -am
-
-    # View the current working tree status using the short format
-	s = status -s
-
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-    
-    # Logs   
-    l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-        
-    fo = fetch origin --prune
-    
-    # Amend the currently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
-
-    # Pull in remote changes for the current repository and all its submodules
-	up = !"git pull; git submodule foreach git pull origin master"
-    
-    # Update submodules only
-    sup = submodule update --init
-
+    s = status -s
     p = push
+    l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
+    
+    # Pull in remote changes for the current repository and all its submodules
+    up = !"git pull; git submodule foreach git pull origin master"
 
     # Switch to a branch, creating it if necessary
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
+    # Commit ALL && push ALL
+    save  = "!f() { git add -A &&  git commit -am \"$1\" && git push; }; f"
+
+    # Commit all changes
+    commit-all = !git add -A && git commit -am    
+
+    fo = fetch origin --prune
+    
+    # Amend the currently staged files to the latest commit
+    amend = commit --amend --reuse-message=HEAD
+
+    # Update submodules only
+    sup = submodule update --init
+    
     # List aliases
     aliases = config --get-regexp alias
+
+    # Show verbose output about tags, branches or remotes
+    tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags	
 
     # delete branche
     delete-branch  = branch -D
 
     # Remove branches that have already been merged with master
     # a.k.a. ‘delete merged’
-    delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    delete-merged-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
     # prune local tags (delete not pushed tags)
     prunte-tags =  fetch --prune --tags
@@ -53,28 +53,29 @@
     # Thin out older metadata within the repository, reduceses filesystem footprint
     trim = !git reflog expire --expire=now --all && git gc --prune=now
     
-    view-contributors =  shortlog -e -s -n    
-    branches = branch -av
-    view-branches = branch -av
-    view-remote-branches = branch -r
-    
+    # show all remotes
+    remotes = remote -v
 
-    # Show verbose output about tags, branches or remotes
-    tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags	
+    # view branches
+    branches = branch -av
+
+    # Return the repository's root directory (usefull for shell prompts)
+    root = rev-parse --show-toplevel
+
+    # Show everything
+    view-branches = branch -av
+    view-remote-branches = branch -r    
     view-tags = !git tags
     view-latest-tag = describe --tags --abbrev=0
     view-remote-tags = ls-remote --tags origin
     view-local-tags = !git ls-remote --tags origin | git show-ref --tags --exclude-existing        
     view-latest-changes = show --pretty="format:" --name-only # show latest changes
-    view-url = !git config --get remote.origin.url
-    remotes = remote -v
-    view-remotes = !git remotes
-
+    view-url = !git config --get remote.origin.url    
+    view-remotes = !git remote -v
+    view-contributors =  shortlog -e -s -n
+    
     # show all conflicts
     conflicts = !git ls-files -u | cut -f 2 | sort -u    
-
-    # Return the repository's root directory (usefull for shell prompts)
-    root = rev-parse --show-toplevel
 
 	# Find branches containing commit
 	find-branch = "!f() { git branch -a --contains $1; }; f"
