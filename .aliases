@@ -159,6 +159,9 @@ alias docker-prune-all="docker system prune --all && docker image prune -a"
 # delete only dangling images without tag
 alias docker-delete-untaged="docker rmi $(docker images -f "dangling=true" -q) --force"
 
+# docker ps
+alias dps="docker ps"
+
 # exec bash in docker
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; } 
 
