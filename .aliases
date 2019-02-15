@@ -157,7 +157,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 alias docker-prune-all="docker system prune --all && docker image prune -a"
 
 # delete only dangling images without tag
-alias docker-delete-untaged="docker rmi $(docker images -f "dangling=true" -q) --force"
+alias docker-delete-dangling="docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force"
 
 # docker ps
 alias dps="docker ps"
