@@ -87,14 +87,16 @@ else
 fi
 
 ########################################################################################################################
-# GIT STUFF
+# GIT
 ########################################################################################################################
 
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
+alias git-root='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # cd to git root
+alias git-main-branch='basename $(git symbolic-ref refs/remotes/origin/HEAD)' # main branch 
+alias git-undo-push="git push -f origin HEAD^:master" # Undo a `git push`
 
-# git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+########################################################################################################################
+# Internet
+########################################################################################################################
 
 # IP addresses
 alias ip="dig @resolver1.opendns.com A myip.opendns.com +short -4"
