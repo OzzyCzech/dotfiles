@@ -5,8 +5,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
 
 # Shortcuts
 alias dl="cd ~/Downloads"
@@ -14,26 +12,17 @@ alias dt="cd ~/Desktop"
 alias work="cd ~/Work"
 alias home="cd ~"
 alias g="git"
-alias a="atom"
 alias drives="df -h" # list all drives
 
 ########################################################################################################################
 # Programs
 ########################################################################################################################
 
-alias subl='open -a "Sublime Text"'
 alias preview="open -a '$PREVIEW'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
-alias filemerge="open -a '/Developer/Applications/Utilities/FileMerge.app'"
 alias safari="open -a safari"
 alias firefox="open -a firefox"
-alias opera="open -a opera"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
-alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
-alias f='open -a Finder'
-alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop.app'"
-alias brew-cask-upgrade="brew cask outdated | xargs brew cask reinstall"
 
 ########################################################################################################################
 # Trololo
@@ -75,9 +64,6 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
-
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias ls="command ls -G"
@@ -107,7 +93,7 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache"
+alias dns-flush="dscacheutil -flushcache"
 
 ########################################################################################################################
 # network
@@ -164,30 +150,14 @@ alias docker-delete-dangling="docker rmi $(docker images --filter "dangling=true
 # docker ps
 alias dps="docker ps"
 
-# exec bash in docker
+# exec bash in docker e.g. dbash web 
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; } 
 
-########################################################################################################################
-# Docker compose
-########################################################################################################################
-
+# docker-compose
+alias dc="docker-compose "
 alias dcup="docker-compose up -d"
 alias dcstop="docker-compose stop"
-dcbash () { docker-compose exec $1 bash; }
-
-########################################################################################################################
-# Spotlight
-########################################################################################################################
-
-# Disable Spotlight
-alias spotoff="sudo mdutil -a -i off"
-# Enable Spotlight
-alias spoton="sudo mdutil -a -i on"
-
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
+alias dclogs="docker-compose logs -t -f --tail 30"
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
