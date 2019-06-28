@@ -65,6 +65,7 @@ function b64() {
 
 # Return current ip4 / ip6 address
 function myip() {
-  echo "IP4: `dig @resolver1.opendns.com A myip.opendns.com +short -4`";
+  echo "IP4: `dig @resolver1.opendns.com A myip.opendns.com +short -4`"
   echo "IP6: `dig @resolver1.opendns.com AAAA myip.opendns.com +short -6`"
+  echo "LOCAL: $(ipconfig getifaddr en1)"
 }
