@@ -70,7 +70,8 @@
     view-remote-tags = ls-remote --tags origin
     view-local-tags = !git ls-remote --tags origin | git show-ref --tags --exclude-existing        
     view-latest-changes = show --pretty="format:" --name-only # show latest changes
-    view-url = !git config --get remote.origin.url    
+    view-url = !git ls-remote --get-url
+    url = ls-remote --get-url
     view-remotes = !git remote -v
     view-contributors =  shortlog -e -s -n
     
