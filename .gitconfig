@@ -57,7 +57,7 @@
     remotes = remote -v
 
     # allow empty commit with message
-    empty = --allow-empty -m 
+    empty = commit --allow-empty -m 
 
     # view branches
     branches = branch -av
