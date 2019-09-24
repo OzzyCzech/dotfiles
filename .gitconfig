@@ -7,7 +7,7 @@
     
     c = commit -am
     s = status -s
-    p = push
+    p = push    
     l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
     
@@ -55,6 +55,9 @@
     
     # show all remotes
     remotes = remote -v
+
+    # allow empty commit with message
+    empty = --allow-empty -m 
 
     # view branches
     branches = branch -av
