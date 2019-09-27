@@ -20,6 +20,9 @@
     # Commit ALL && push ALL
     save  = "!fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
 
+    # Download bundle to Downloads folder
+    download="!gd() { bundle=$(echo ${1#*:} | tr / .); tmpdir=$(mktemp -d -t gitbundle); git clone --mirror ${1} ${tmpdir}; cd ${tmpdir}; git bundle create ~/Downloads/${bundle%%.git}.bundle --all; rm -rf ${tmpdir}; }; gd"
+
     # Commit all changes
     commit-all = !git add -A && git commit -am    
 
