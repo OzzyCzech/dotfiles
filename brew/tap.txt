@@ -1,4 +1,6 @@
 homebrew/cask
 homebrew/core
+homebrew/dupes
 homebrew/php
 homebrew/services
+homebrew/versions
