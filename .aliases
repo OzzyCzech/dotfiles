@@ -11,7 +11,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias work="cd ~/Work"
 alias home="cd ~"
-alias g="git"
 alias drives="df -h" # list all drives
 
 ########################################################################################################################
