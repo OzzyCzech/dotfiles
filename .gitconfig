@@ -1,6 +1,6 @@
 [user]
-	name = Roman Ožana
-	email = roman@omdesign.cz
+    name = Roman Ožana
+    email = roman@omdesign.cz
     username = OzzyCzech
 
 [alias]
@@ -84,20 +84,20 @@
     # show all conflicts
     conflicts = !git ls-files -u | cut -f 2 | sort -u
 
-	# Find branches containing commit
-	find-branch = "!f() { git branch -a --contains $1; }; f"
+    # Find branches containing commit
+    find-branch = "!f() { git branch -a --contains $1; }; f"
 
-	# Find tags containing commit
-	find-tag = "!f() { git describe --always --contains $1; }; f"
+    # Find tags containing commit
+    find-tag = "!f() { git describe --always --contains $1; }; f"
 
-	# Find commits by source code
-	find-commits = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+    # Find commits by source code
+    find-commits = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
 
-	# Find commits by commit message
-	find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+    # Find commits by commit message
+    find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
-	# yolo!!!
-	yolo = !git add -A && git commit -Am \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
+    # yolo!!!
+    yolo = !git add -A && git commit -Am \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
 
 [core]
     editor = nano
@@ -117,10 +117,10 @@
     # Prevent showing files whose names contain non-ASCII symbols as unversioned.
     # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
     precomposeunicode = false
-    
+
     # Speed up commands involving untracked files such as `git status`.
     # https://git-scm.com/docs/git-update-index#_untracked_cache
-    untrackedCache = true    
+    untrackedCache = true
 
 [color]
     # Use colors in Git commands that are capable of colored output when
@@ -165,7 +165,7 @@
     log = true
 
 [fetch]
-	prune = true # prune delete branches locally
+    prune = true # prune delete branches locally
 
 [log]
     date = short
@@ -174,7 +174,7 @@
 
     # Detect whitespace errors when applying a patch
     whitespace = fix
-    
+
 # Any GitHub repo with my username should be checked out r/w by default
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
 [url "git@github.com:OzzyCzech/"]
@@ -182,4 +182,4 @@
 
 # See https://help.github.com/articles/checking-out-pull-requests-locally
 [remote "origin"]
-	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
