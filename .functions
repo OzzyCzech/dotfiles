@@ -69,12 +69,3 @@ function myip() {
   echo "IP6: `dig @resolver1.opendns.com AAAA myip.opendns.com +short -6`"
   echo "LOCAL: $(ipconfig getifaddr en1)"
 }
-
-# Backup git to bundle
-# $ git_backup git@github.com:OzzyCzech/dotfiles.git ~/Downloads/
-function git_backup() {	
-	target=$(echo ${1#*:} | tr / _)		
-	git clone --mirror $1 ${target} && cd ${target}
-	git bundle create ${2-../}/${target%%.git}.bundle --all
-	cd - && rm -rf ${target}
-}
