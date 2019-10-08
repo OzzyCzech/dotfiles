@@ -7,11 +7,16 @@ sync:
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
 
-# Install brew packages
-install:
+install.brew:
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	touch ~/.extra # create .extra
-	cd brew && sh brew.sh
+
+install.ohmyzsh:
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+install: install.brew install.ohmyzsh
+	touch ~/.extra
+
+	echo "FINISH with: sh brew/brew.sh"
 	
 # Backup brew packages
 backup:
@@ -19,4 +24,4 @@ backup:
 	brew cask list >  brew/cask-list.txt
 	brew tap > brew/tap.txt
 
-.PHONY: sync backup install
+.PHONY: sync backup install install.brew install.ohmyzsh
