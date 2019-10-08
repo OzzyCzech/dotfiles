@@ -33,7 +33,6 @@ Execute follow commands:
 
 # Editors
 brew cask install visual-studio-code  # Visual studio code editor
-brew cask install macdown           # Markdown editor
 
 # Maintenance
 brew cask install disk-inventory-x  # analyze disk space
@@ -46,22 +45,16 @@ brew cask install firefox           # Firefox
 brew cask install google-chrome     # Chrome
 
 # dev
-brew cask install rowanj-gitx       # visual git tool
-brew cask install gitup             # visual git tool
-brew cask install virtualbox        # VM
+brew cask install fork              # visual git tool
+brew cask install forklif           # File manager 
 brew cask install viscosity         # VPN client
 brew cask install vnc-viewer        # VNC Viewer
-brew cask install cyberduck         # FTP Client
-brew cask install poedit            # Gettext editor
 brew cask install robomongo         # Mongo GUI client
 brew cask install rdm               # Redis client
-brew cask install cronnix           # Cron GUI
 
 # Drives & Archive & backup
 brew cask install burn              # CD, DVD, BR Burner
 brew cask install 1password         # 1Password
-brew cask install dropbox           # Dropbox
-brew cask install google-drive      # Google drive
 
 # Chats
 brew cask install messenger         # Facebook Messenger
