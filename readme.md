@@ -14,6 +14,15 @@ All private config can be save in `.extra` which you do not commit to this repo 
 touch ~/.extra && code ~/.extra
 ```
 
+```sh
+brew install zsh zsh-completions
+```
+To set zsh as your default shell, execute the following for **macOS High Sierra**
+```
+chsh -s /bin/zsh
+```
+
+
 ## Install
 
 * [bash](https://github.com/OzzyCzech/dotfiles/blob/master/install/bash.md)
