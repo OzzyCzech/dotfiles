@@ -1,16 +1,16 @@
 [user]
-    name = Roman Ožana
-    email = roman@omdesign.cz
+	name = Roman Ožana
+	email = roman@omdesign.cz
     username = OzzyCzech
 
 [alias]
-    
+
     c = commit -am
     s = status -s
-    p = push    
+    p = push
     l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
-    
+
     # Pull in remote changes for the current repository and all its submodules
     up = !"git pull; git submodule foreach git pull origin master"
 
@@ -24,21 +24,21 @@
     backup="!gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
 
     # Commit all changes
-    commit-all = !git add -A && git commit -am    
+    commit-all = !git add -A && git commit -am
 
     fo = fetch origin --prune
-    
+
     # Amend the currently staged files to the latest commit
     amend = commit --amend --reuse-message=HEAD
 
     # Update submodules only
     sup = submodule update --init
-    
+
     # List aliases
     aliases = config --get-regexp alias
 
     # Show verbose output about tags, branches or remotes
-    tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags	
+    tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
 
     # delete branche
     delete-branch  = branch -D
@@ -55,12 +55,12 @@
 
     # Thin out older metadata within the repository, reduceses filesystem footprint
     trim = !git reflog expire --expire=now --all && git gc --prune=now
-    
+
     # show all remotes
     remotes = remote -v
 
     # allow empty commit with message
-    empty = commit --allow-empty -m 
+    empty = commit --allow-empty -m
 
     # view branches
     branches = branch -av
@@ -70,19 +70,19 @@
 
     # Show everything
     view-branches = branch -av
-    view-remote-branches = branch -r    
+    view-remote-branches = branch -r
     view-tags = !git tags
     view-latest-tag = describe --tags --abbrev=0
     view-remote-tags = ls-remote --tags origin
-    view-local-tags = !git ls-remote --tags origin | git show-ref --tags --exclude-existing        
+    view-local-tags = !git ls-remote --tags origin | git show-ref --tags --exclude-existing
     view-latest-changes = show --pretty="format:" --name-only # show latest changes
     view-url = !git ls-remote --get-url
     url = ls-remote --get-url
     view-remotes = !git remote -v
     view-contributors =  shortlog -e -s -n
-    
+
     # show all conflicts
-    conflicts = !git ls-files -u | cut -f 2 | sort -u    
+    conflicts = !git ls-files -u | cut -f 2 | sort -u
 
 	# Find branches containing commit
 	find-branch = "!f() { git branch -a --contains $1; }; f"
@@ -95,6 +95,9 @@
 
 	# Find commits by commit message
 	find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+	# yolo!!!
+	yolo = !git add -A && git commit -Am \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
 
 [core]
     editor = nano
