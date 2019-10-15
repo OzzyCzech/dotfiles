@@ -22,7 +22,7 @@ export LANG=en_US.UTF-8
 # Homebrew
 #############################################################################
 
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Homebrew GitHub API rate limit exceeded
 # see https://github.com/settings/tokens put new token to follow line and uncomment
