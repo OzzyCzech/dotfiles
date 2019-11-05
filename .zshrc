@@ -29,7 +29,7 @@ export VISUAL=/usr/bin/nano
 # Homebrew
 #############################################################################
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Homebrew GitHub API rate limit exceeded
 # see https://github.com/settings/tokens put new token to follow line and uncomment
