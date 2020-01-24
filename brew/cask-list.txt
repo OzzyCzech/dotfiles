@@ -1,12 +1,13 @@
 appcleaner
+arduino
 balenaetcher
+bitwarden
 burn
-disk-inventory-x
 docker
 firefox
 fork
 forklift
-gitup
+google-backup-and-sync
 google-chrome
 handbrake
 kindlegen
@@ -17,6 +18,7 @@ phpstorm
 robo-3t
 sequel-pro
 slack
+telegram
 the-unarchiver
 viscosity
 visual-studio-code

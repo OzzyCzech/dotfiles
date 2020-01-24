@@ -3,6 +3,7 @@ bash
 boost
 coreutils
 exiftool
+fdupes
 ffmpeg
 git
 git-extras
@@ -13,7 +14,6 @@ imap-uw
 jq
 libiconv
 libxml2
-node
 php
 python@2
 qcachegrind
@@ -25,4 +25,6 @@ tig
 tldr
 watch
 wget
+yarn
 zsh
+zsh-completions
