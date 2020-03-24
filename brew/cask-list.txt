@@ -1,8 +1,4 @@
 appcleaner
-arduino
-balenaetcher
-bitwarden
-burn
 docker
 firefox
 fork
@@ -11,14 +7,12 @@ google-backup-and-sync
 google-chrome
 handbrake
 kindlegen
-macdown
-mongodb-compass-community
+typora
 now
 phpstorm
 robo-3t
 sequel-pro
 slack
-telegram
 the-unarchiver
 viscosity
 visual-studio-code

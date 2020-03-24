@@ -22,6 +22,7 @@ alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias safari="open -a safari"
 alias firefox="open -a firefox"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias typora="open -a typora"
 
 ########################################################################################################################
 # Trololo
