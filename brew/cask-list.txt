@@ -1,3 +1,4 @@
+aerial
 appcleaner
 docker
 firefox
