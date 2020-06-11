@@ -5,18 +5,14 @@ exiftool
 ffmpeg
 findutils
 git
+git-extras
 httpie
-imagemagick
 jq
 libiconv
 libsass
 libxml2
-<<<<<<< Updated upstream
-tldr
-=======
 mongodb/brew/mongodb-community-shell
 mongodb/brew/mongodb-database-tools
->>>>>>> Stashed changes
 php
 pkg-config
 python@2

@@ -1,13 +1,12 @@
 aerial
-appcleaner
-docker
-firefox
 cakebrew
+firefox
 fork
 forklift
 google-chrome
-handbrake
 kindlegen
+handbrake
+mongodb-compass
 now
 phpstorm
 robo-3t
@@ -17,5 +16,3 @@ the-unarchiver
 typora
 visual-studio-code
 vlc
-
-
