@@ -67,4 +67,4 @@ if [[ -x "$(brew outdated)" ]]; then
     fi;
 fi;
 
-brew cleanup && brew prune
+brew cleanup

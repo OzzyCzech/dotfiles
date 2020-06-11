@@ -1,11 +1,8 @@
 aerial
-<<<<<<< Updated upstream
 appcleaner
 docker
 firefox
-=======
 cakebrew
->>>>>>> Stashed changes
 fork
 forklift
 google-chrome
@@ -20,3 +17,5 @@ the-unarchiver
 typora
 visual-studio-code
 vlc
+
+
