@@ -1,21 +1,22 @@
 aerial
+<<<<<<< Updated upstream
 appcleaner
 docker
 firefox
+=======
+cakebrew
+>>>>>>> Stashed changes
 fork
 forklift
-google-backup-and-sync
 google-chrome
 handbrake
 kindlegen
-typora
 now
 phpstorm
 robo-3t
 sequel-pro
 slack
 the-unarchiver
-viscosity
+typora
 visual-studio-code
 vlc
-vnc-viewer

@@ -1,3 +1,4 @@
 homebrew/cask
 homebrew/core
 homebrew/services
+mongodb/brew

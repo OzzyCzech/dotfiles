@@ -141,6 +141,10 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 # Docker
 ########################################################################################################################
 
+# docker-compose
+alias dc="docker-compose "
+alias dclft="docker-compose logs -t -f --tail 50"
+
 # delete all images, containers, cache, builds ...
 alias docker-prune-all="docker system prune --all && docker image prune -a"
 
@@ -151,13 +155,7 @@ alias docker-delete-dangling="docker rmi $(docker images --filter "dangling=true
 alias dps="docker ps"
 
 # exec bash in docker e.g. dbash web 
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; } 
-
-# docker-compose
-alias dc="docker-compose "
-alias dcup="docker-compose up -d"
-alias dcstop="docker-compose stop"
-alias dclogs="docker-compose logs -t -f --tail 30"
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description

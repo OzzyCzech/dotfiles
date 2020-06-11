@@ -3,7 +3,7 @@ email = $(shell git config user.email)
 
 # Synchronize do local directory
 sync:
-	rsync -arv --exclude=".git/" --exclude=".DS_Store" --exclude="brew/" --exclude="install/" --exclude=*.md --exclude=Makefile . ~
+	rsync -arv --exclude=".git/" --exclude=".idea/" --exclude=".DS_Store" --exclude="brew/" --exclude="install/" --exclude=*.md --exclude=Makefile . ~
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
 
