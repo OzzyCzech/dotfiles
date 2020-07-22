@@ -7,7 +7,6 @@ findutils
 git
 git-extras
 httpie
-inetutils
 jq
 libiconv
 libsass
