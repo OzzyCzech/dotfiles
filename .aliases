@@ -1,16 +1,17 @@
 #!/bin/bash
 
-# Easier navigation: .., ..., ...., ....., ~ and -
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+########################################################################################################################
+# Paths
+########################################################################################################################
 
-# Shortcuts
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias work="cd ~/Work"
-alias home="cd ~"
+alias downloads="cd ~/Downloads"
+alias Desktop="cd ~/Desktop"
+alias work="cd /Volumes/Work"
+
+########################################################################################################################
+# System
+########################################################################################################################
+
 alias drives="df -h" # list all drives
 
 ########################################################################################################################
@@ -21,7 +22,7 @@ alias preview="open -a '$PREVIEW'"
 alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias safari="open -a safari"
 alias firefox="open -a firefox"
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome="open -a 'Google Chrome'"
 alias typora="open -a typora"
 
 ########################################################################################################################
@@ -30,6 +31,7 @@ alias typora="open -a typora"
 
 # be nice
 alias please=sudo
+
 # clean terminal history
 alias yolo="history -c && clear"
 
@@ -60,9 +62,6 @@ alias ll="ls -lha ${colorflag}"
 
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
-# Stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Always use color output for `ls`
 if [[ "$OSTYPE" =~ ^darwin ]]; then
@@ -96,7 +95,7 @@ alias whois="whois -h whois-servers.net"
 alias dns-flush="dscacheutil -flushcache"
 
 ########################################################################################################################
-# network
+# Network
 ########################################################################################################################
 
 # list all apps on ports
@@ -130,10 +129,6 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
-# Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
@@ -143,7 +138,7 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 # docker-compose
 alias dc="docker-compose "
-alias dclft="docker-compose logs -t -f --tail 50"
+alias dc-log="docker-compose logs -t -f --tail 50"
 
 # delete all images, containers, cache, builds ...
 alias docker-prune-all="docker system prune --all && docker image prune -a"
