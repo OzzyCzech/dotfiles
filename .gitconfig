@@ -12,7 +12,7 @@
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
 
     # Pull in remote changes for the current repository and all its submodules
-    up = !"git pull --progress --verbose --prune --tags --all --recurse-submodules"
+    up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules"
 
 
     # Switch to a branch, creating it if necessary
