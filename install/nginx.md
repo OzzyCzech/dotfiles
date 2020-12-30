@@ -14,7 +14,7 @@ sudo brew services start nginx
 You can start nginx manually and check if running in browser
 
 ```
-sudo brew services reload nginx
+sudo brew servic es reload nginx
 sudo brew services start nginx
 sudo brew services stop nginx
 ```
