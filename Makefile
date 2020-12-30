@@ -21,7 +21,7 @@ install: install.brew install.ohmyzsh
 # Backup brew packages
 backup:
 	brew leaves >  brew/list.txt
-	brew cask list >  brew/cask-list.txt
+	brew list --cask >  brew/cask-list.txt
 	brew tap > brew/tap.txt
 
 .PHONY: sync backup install install.brew install.ohmyzsh
