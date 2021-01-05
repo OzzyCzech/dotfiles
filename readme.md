@@ -24,7 +24,7 @@ To set zsh as your default shell, execute the following for **macOS Big Sur**
 chsh -s /bin/zsh
 ```
 
-Download my <a href="https://raw.githubusercontent.com/OzzyCzech/dotfiles/master/OzzyCzech.terminal" download="OzzyCzech.terminal">terminal settings</a>.
+Download my <a href="https://raw.githubusercontent.com/OzzyCzech/dotfiles/master/OzzyCzech.terminal" download="OzzyCzech.terminal">Terminal.app settings</a>.
 
 ## Install
 
