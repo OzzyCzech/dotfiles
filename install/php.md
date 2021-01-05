@@ -15,13 +15,13 @@ brew options php72
 
 Remove all PHP dependencies (it's only safe way how to compile PHP successfully)
 
-```
+```shell
 brew remove libtool freetype gettext icu4c jpeg libpng unixodbc zlib
 ```
 
 Then install PHP
 
-```
+```shell
 brew install -v php72
 ```
 

@@ -21,7 +21,7 @@ sudo chown $(whoami):admin /usr/local && sudo chown -R $(whoami):admin /usr/loca
 
 If you are doing a fresh install or cannot create /usr/local directory anymore, then follow these steps:
 
-1. Reboot and hold on boot Cmd+R
+1. Reboot and hold on boot `Cmd+R`
 2. In recovery run in Terminal command run `csrutil disable`
 3. Reboot to El Capitan and run follow command in Terminal
 

@@ -19,7 +19,7 @@ mysql.server start
 
 Setup to autostart after login (require [Brew services](./brew-services.md))
 
-```
+```shell
 sudo brew services start mariadb
 ```
 

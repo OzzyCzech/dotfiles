@@ -7,13 +7,13 @@ brew install nginx
 
 Start nginx (require [Brew services](./brew-services.md))
 
-```
+```shell
 sudo brew services start nginx
 ```
 
 You can start nginx manually and check if running in browser
 
-```
+```shell
 sudo brew servic es reload nginx
 sudo brew services start nginx
 sudo brew services stop nginx
@@ -27,7 +27,7 @@ nginx configuration files can be found here `code /usr/local/etc/nginx`
 
 Here is my basic `nginx.conf` file (do not forgot change root path):
 
-```
+```conf
 #user  nobody;
 worker_processes  1;
 
@@ -83,20 +83,20 @@ http {
 
 First prepare follow dirs
 
-```
+```shell
 mkdir /usr/local/etc/nginx/sites-available
 mkdir /usr/local/etc/nginx/sites-enabled
 ```
 
 Create first nginx configuration:
 
-```
+```shell
 code /usr/local/etc/nginx/sites-available/omdesign.local
 ```
 
 Here is an example configuration:
 
-```
+```conf
 server {
   listen                *:80;
   server_name           omdesign.local;
@@ -131,13 +131,13 @@ server {
 
 Create symlink to sites-enabled:
 
-```
+```shell
 sudo ln -s /usr/local/etc/nginx/sites-available/omdesign.local /usr/local/etc/nginx/sites-enabled/omdesign.local
 ```
 
 Update your `code /etc/hosts` file with follow line:
 
-```
+```shell
 127.0.0.1   omdesign.local
 ```
 

@@ -8,6 +8,6 @@ npm completion > /usr/local/etc/bash_completion.d/npm # bash code completation
 
 ## Yarn
 
-```
+```shell
 brew install yarn
 ```
