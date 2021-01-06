@@ -2,8 +2,8 @@
 
 ## Install/update dotfiles
 
-```
-git clone https://github.com/OzzyCzech/dotfiles.git && cd dotfiles && make sync && make install
+```shell
+git clone https://github.com/OzzyCzech/dotfiles.git dotfiles && cd $_ && make sync
 ```
 
 ## Add private config
@@ -24,7 +24,7 @@ To set zsh as your default shell, execute the following for **macOS Big Sur**
 chsh -s /bin/zsh
 ```
 
-Download my <a href="https://raw.githubusercontent.com/OzzyCzech/dotfiles/master/OzzyCzech.terminal" download="OzzyCzech.terminal">Terminal.app settings</a>.
+Download my [Terminal.app settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/master/OzzyCzech.terminal).
 
 ## Install
 
@@ -38,9 +38,8 @@ Download my <a href="https://raw.githubusercontent.com/OzzyCzech/dotfiles/master
 * [php](https://github.com/OzzyCzech/dotfiles/blob/master/install/php.md)
 * [redis](https://github.com/OzzyCzech/dotfiles/blob/master/install/redis.md)
 
-## Credits - for more than simple inspiration
+## Thanks for inspiration
 
 - https://github.com/addyosmani/dotfiles/
 - https://github.com/paulirish/dotfiles/
 - https://github.com/mathiasbynens/dotfiles/
-
