@@ -8,6 +8,7 @@ exiftool
 ffmpeg
 gh
 git
+git-lfs
 git-extras
 httpd
 httpie
