@@ -91,7 +91,7 @@ mkdir /usr/local/etc/nginx/sites-enabled
 Create first nginx configuration:
 
 ```shell
-code /usr/local/etc/nginx/sites-available/omdesign.local
+code /usr/local/etc/nginx/sites-available/ozana.local
 ```
 
 Here is an example configuration:
@@ -100,17 +100,17 @@ Here is an example configuration:
 server {
   listen                *:80;
   server_name           omdesign.local;
-  #access_log           /Users/roman/Work/omdesign.cz/log/omdesign.local.access.log;
-  #error_log            /Users/roman/Work/omdesign.cz/log/omdesign.local.error.log;
+  #access_log           /Users/roman/Work/ozana.cz/log/omdesign.local.access.log;
+  #error_log            /Users/roman/Work/ozana.cz/log/omdesign.local.error.log;
 
   location / {
-    root  /Users/roman/Work/omdesign.cz;
+    root  /Users/roman/Work/ozana.cz;
     try_files  $uri  $uri/  /index.php?$args;
     index index.php;
   }
 
   location ~ \.php$ {
-    root  /Users/roman/Work/omdesign.cz;
+    root  /Users/roman/Work/ozana.cz;
     try_files  $uri  $uri/  /index.php?$args;
     index  index.html index.htm index.php;
 
