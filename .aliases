@@ -133,7 +133,12 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 ########################################################################################################################
 
 alias dc="docker compose "
-alias dc-log="docker compose logs -t -f --tail 50"
+alias dcup="docker compose up -d --build"
+alias dcupp="docker compose up"
+alias dcstop="docker compose stop"
+alias dcbuild="docker compose build"
+alias dcpull="docker compose pull"
+alias dclog="docker compose logs -t -f --tail 50"
 
 # delete all images, containers, cache, builds ...
 alias docker-prune-all="docker system prune --all && docker image prune -a"
