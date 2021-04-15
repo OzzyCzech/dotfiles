@@ -9,11 +9,10 @@ ZSH_THEME="robbyrussell"
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dotenv
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/composer
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/forklift
-plugins=(git yarn httpie dotenv rsync docker docker-compose cp composer forklift)
+plugins=(git yarn httpie dotenv rsync docker cp composer forklift)
 
 source $ZSH/oh-my-zsh.sh
 
