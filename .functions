@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# concat multiple video files to single one
+# params video-concat *.MP4 output.mp4
+function video-concat() {
+  ffmpeg -f concat -safe 0 -i <(for f in ${@:1:${#}-1}; do echo "file '$PWD/$f'"; done) -c copy $_
+}
+
 # rename multimedia images, videos, audios with exiftool to date time format
 function rename-multimedia() {
   r=$'\e[31m'  nl=$'\n'  n=$'\e[0m' folder=${@:-.}  
