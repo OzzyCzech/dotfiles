@@ -12,7 +12,7 @@ maccy
 phpstorm
 rectangle
 robo-3t
-sequel-pro
+sequel-ace
 slack
 the-unarchiver
 typora
