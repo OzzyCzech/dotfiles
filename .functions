@@ -6,25 +6,20 @@ function video-concat() {
   ffmpeg -f concat -safe 0 -i <(for f in ${@:1:${#}-1}; do echo "file '$PWD/$f'"; done) -c copy $_
 }
 
-# rename multimedia images, videos, audios with exiftool to date time format
+# rename multimedia images, videos, audios with exiftool to date time format¨
+# rename-multimedia -ext jpg .
 function rename-multimedia() {
-  r=$'\e[31m'  nl=$'\n'  n=$'\e[0m' folder=${@:-.}  
-  read -r -p "${r}Rename all multimedia files in '$(realpath $folder)'${nl}${n}Are you sure? [y/N] " response
-  if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
-  then
-    exiftool -r -m -d "%Y-%m-%d %H.%M.%S%%-c.%%le" \
-      "-filename<FileInodeChangeDate" "-filename<ModifyDate" "-filename<CreateDate" "-filename<CreationDate" "-filename<DateTimeOriginal" \
-      -if '$filename !~ /^\./' \
-      -ext jpg -ext jpeg  -ext png -ext gif -ext tif -ext tiff \
-      -ext mp4 -ext avi -ext mov -ext mkv -ext m4v \
-      -ext cr2 -ext crw \
-      -ext nef -ext nrw \
-      -ext arw -ext srf -ext sr2 \
-      -ext raw -ext rw2 \
-      -ext raf \
-      -ext orf \
-      "$folder"
-    fi
+  exiftool -r -m -d "%Y-%m-%d %H.%M.%S%%-c.%%le" \
+    "-filename<FileInodeChangeDate" \
+    "-filename<ModifyDate" \
+    "-filename<CreateDate" \
+    "-filename<CreationDate" \
+    "-filename<DateTimeOriginal" \
+    -if '$filename !~ /^\./' \
+    -ext jpg -ext jpeg -ext png -ext gif -ext tif -ext tiff \
+    -ext mp4 -ext avi -ext mov -ext mkv -ext m4v \
+    -ext raf \
+    "$@"
 }
 
 # Rename all files in folder to sequential filenames
