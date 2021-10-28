@@ -1,5 +1,6 @@
 aerial
 appcleaner
+balenaetcher
 docker
 firefox
 fork
@@ -7,7 +8,6 @@ forklift
 google-chrome
 handbrake
 kap
-kindlegen
 maccy
 phpstorm
 rectangle
@@ -19,4 +19,3 @@ typora
 viscosity
 visual-studio-code
 vlc
-vnc-viewer
