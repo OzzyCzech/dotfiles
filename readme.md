@@ -24,7 +24,10 @@ To set `zsh` as your default shell, execute the following for **macOS Monterey**
 chsh -s /bin/zsh
 ```
 
-Download my [Terminal.app settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/master/OzzyCzech.terminal).
+## Terminal setup
+
+Set in Terminal configuration `⌘+,` in Advanced > Declarative terminal as `ansi` to enable numpad keyboard.
+Download my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/install/main/OzzyCzech.terminal).
 
 ## Install
 
