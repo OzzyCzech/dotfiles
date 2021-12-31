@@ -1,7 +1,8 @@
 [user]
     dname = Roman Ožana
-    email = roman@ozana.cz
+	name = Roman Ožana
     username = OzzyCzech
+	email = roman@ozana.cz
 
 [alias]
 
@@ -37,6 +38,9 @@
 
     # List aliases
     aliases = config --get-regexp alias
+
+    # Last year statistics
+    stats = shortlog -sn --no-merges --since "1 year ago"
 
     # Show verbose output about tags, branches or remotes
     tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags

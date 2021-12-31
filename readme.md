@@ -29,17 +29,13 @@ chsh -s /bin/zsh
 Set in Terminal configuration `⌘+,` in Advanced > Declarative terminal as `ansi` to enable numpad keyboard.
 Download my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/install/main/OzzyCzech.terminal).
 
-## Install
+## Install Docker
 
-* [brew-services](https://github.com/OzzyCzech/dotfiles/blob/master/install/brew-services.md)
-* [brew-troubleshooting](https://github.com/OzzyCzech/dotfiles/blob/master/install/brew-troubleshooting.md)
-* [git](https://github.com/OzzyCzech/dotfiles/blob/master/install/git.md)
-* [mariadb](https://github.com/OzzyCzech/dotfiles/blob/master/install/mariadb.md)
-* [mongodb](https://github.com/OzzyCzech/dotfiles/blob/master/install/mongodb.md)
-* [nginx](https://github.com/OzzyCzech/dotfiles/blob/master/install/nginx.md)
-* [nodejs](https://github.com/OzzyCzech/dotfiles/blob/master/install/nodejs.md)
-* [php](https://github.com/OzzyCzech/dotfiles/blob/master/install/php.md)
-* [redis](https://github.com/OzzyCzech/dotfiles/blob/master/install/redis.md)
+```shell
+open https://desktop.docker.com/mac/main/amd64/Docker.dmg # Intel
+open https://desktop.docker.com/mac/main/arm64/Docker.dmg # Apple Silicon
+```
+
 
 ## Thanks for inspiration
 
