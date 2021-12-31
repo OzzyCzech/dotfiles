@@ -10,7 +10,7 @@
     s = status -s
     p = push
     l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
-    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state    
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
 
     # Pull in remote changes for the current repository and all its submodules
     up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules"
@@ -39,8 +39,14 @@
     # List aliases
     aliases = config --get-regexp alias
 
-    # Last year statistics
-    stats = shortlog -sn --no-merges --since "1 year ago"
+    # show only last commit log
+    last = log -1 HEAD --stat
+
+    # show has
+    hash = rev-parse HEAD
+
+    # Last ... something    
+    last-year = shortlog -sn --no-merges --since '1 year ago'
 
     # Show verbose output about tags, branches or remotes
     tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
