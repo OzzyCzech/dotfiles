@@ -8,6 +8,7 @@ forklift
 google-chrome
 handbrake
 kap
+keepingyouawake
 maccy
 phpstorm
 rectangle

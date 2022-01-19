@@ -46,7 +46,7 @@
     hash = rev-parse HEAD
 
     # Last ... something    
-    last-year = shortlog -sn --no-merges --since '1 year ago'
+    last-year = shortlog -sn --all --no-merges --since '1 year ago'
 
     # Show verbose output about tags, branches or remotes
     tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
