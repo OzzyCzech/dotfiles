@@ -49,7 +49,7 @@
     last-year = shortlog -sn --all --no-merges --since '1 year ago'
 
     # show logs as markdown formated list
-    markdown = log --color --pretty=format:'* `%Cred%h%Creset` %s %C(bold blue)[%an](mailto:%ae)%Creset' --abbrev-commit --dense --no-merges
+    markdown = log --color --pretty=format:'* %Cred%h%Creset %s %C(bold blue)[%an](mailto:%ae)%Creset' --abbrev-commit --dense --no-merges
     
     # prepare release notes
     release-notes = !sh -c 'git markdown --reverse ...`git describe --tags --abbrev=0`'
