@@ -36,7 +36,6 @@ open https://desktop.docker.com/mac/main/amd64/Docker.dmg # Intel
 open https://desktop.docker.com/mac/main/arm64/Docker.dmg # Apple Silicon
 ```
 
-
 ## Thanks for inspiration
 
 - https://github.com/addyosmani/dotfiles/
