@@ -1,7 +1,6 @@
 [user]
-    dname = Roman Ožana
 	name = Roman Ožana
-    username = OzzyCzech
+	username = OzzyCzech
 	email = roman@ozana.cz
 
 [alias]
@@ -10,19 +9,27 @@
     s = status -s
     p = push
     l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
-    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat" # Show the diff between the latest commit and the current state
+
+     # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
     # Pull in remote changes for the current repository and all its submodules
-    up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules"
+    up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules; git submodule update --init "
 
     # Switch to a branch, creating it if necessary
     go = "switch -c"
 
-    # Commit ALL && push ALL
+    # Commit ALL && push ALL
     save  = "!fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
 
     # Backup whole git repo to bundle
-    backup="!gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
+    backup = "!gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
+
+    # Unstage last commit
+	  unstage = reset --soft HEAD~
+
+		# Undo last commit
+    undo = reset --hard HEAD~
 
     # Commit all changes
     commit-all = !git add -A && git commit -am
@@ -32,9 +39,6 @@
 
     # Amend the currently staged files to the latest commit
     amend = commit --amend --reuse-message=HEAD
-
-    # Update submodules only
-    sup = submodule update --init
 
     # List aliases
     aliases = config --get-regexp alias
@@ -48,7 +52,7 @@
     # Last ... something    
     last-year = shortlog -sn --all --no-merges --since '1 year ago'
 
-    # show logs as markdown formated list
+    # show logs as markdown formatted list
     markdown = log --color --pretty=format:'* %Cred%h%Creset %s %C(bold blue)[%an](mailto:%ae)%Creset' --abbrev-commit --dense --no-merges
     
     # prepare release notes
@@ -57,15 +61,15 @@
     # Show verbose output about tags, branches or remotes
     tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
 
-    # delete branche
+    # delete branch
     delete-branch  = branch -D
 
     # Remove branches that have already been merged with master
     # a.k.a. ‘delete merged’
-    delete-merged-branches = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
     # prune local tags (delete not pushed tags)
-    prune-tags =  fetch --prune --tags
+    prune-tags = fetch --prune --tags
 
     # remove untracked dirs, ignored files with force !
     prune-all = clean -xdf
@@ -82,7 +86,7 @@
     # view branches
     branches = branch -av
 
-    # Return the repository's root directory (usefull for shell prompts)
+    # Return the repository's root directory (useful for shell prompts)
     root = rev-parse --show-toplevel
 
     # Show everything
@@ -95,7 +99,7 @@
     view-latest-changes = show --pretty="format:" --name-only # show latest changes
     view-url = !git ls-remote --get-url
     view-remotes = !git remote -v
-    view-contributors =  shortlog -e -s -n
+    view-contributors = shortlog -e -s -n
 
     # show all conflicts
     conflicts = !git ls-files -u | cut -f 2 | sort -u
@@ -118,6 +122,7 @@
 [core]
     editor = nano
 
+		# Tell git you have a global .gitignore
     excludesfile =  ~/.gitignore
     attributesfile = ~/.gitattributes
 
