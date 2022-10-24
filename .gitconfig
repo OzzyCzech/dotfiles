@@ -10,6 +10,9 @@
     p = push
     l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
 
+		# Determinate what's default branch
+		main = !"basename $(git symbolic-ref refs/remotes/origin/HEAD)"
+
      # Show the diff between the latest commit and the current state
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 

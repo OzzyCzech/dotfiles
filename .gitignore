@@ -1,15 +1,24 @@
+# Temporary files
 *~
 
-# IDE configs files #
-######################
-.idea
+# git credential file
+.gitconfig.local
 
-# OS generated files #
-######################
+# Folder view configuration files
 .DS_Store
 .DS_Store?
+Desktop.ini
+
+# Thumbnail cache files
 ._*
+Thumbs.db
+
+# Files that might appear on external disks
 .Spotlight-V100
 .Trashes
-ehthumbs.db
-Thumbs.db
+
+# IDE configs files
+.idea
+
+# never let it happen :)
+node_modules

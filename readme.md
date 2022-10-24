@@ -8,7 +8,7 @@ git clone https://github.com/OzzyCzech/dotfiles.git dotfiles && cd $_ && make sy
 
 ## Add private config
 
-All private config can be save in `.extra` which you do not commit to this repo and just keep in your `~/`
+All private config can be saved in `.extra` which you do not commit to this repo and just keep in your `~/`
 
 ```shell
 touch ~/.extra && code ~/.extra
@@ -18,7 +18,7 @@ touch ~/.extra && code ~/.extra
 brew install zsh zsh-completions
 ```
 
-To set `zsh` as your default shell, execute the following for **macOS Monterey**
+To set `zsh` as your default shell:
 
 ```shell
 chsh -s /bin/zsh
