@@ -1,11 +1,13 @@
 name = $(shell git config user.name)
 email = $(shell git config user.email)
+username = $(shell git config user.username)
 
 # Synchronize do local directory
 sync:
 	rsync -arv --exclude=.git/ --exclude=.idea/ --exclude=icns/ --exclude=.DS_Store --exclude=*.md --exclude=install --exclude=Makefile . ~
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
+	git config --global user.username $(username)
 
 install.brew:
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
