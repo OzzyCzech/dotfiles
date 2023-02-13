@@ -137,8 +137,11 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # mute all sounds, incl volume change feedback
-defaults write "com.apple.sound.beep.feedback" -int 0
-defaults write "com.apple.systemsound" "com.apple.sound.uiaudio.enabled" -int 0
+defaults write com.apple.sound.beep.feedback -int 0
+defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -int 0
+
+# change default alert sound
+defaults write .GlobalPreferences com.apple.sound.beep.sound /System/Library/Sounds/Tink.aiff
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -502,6 +505,7 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
 # Update extensions automatically
 defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
 ###############################################################################
 # Mail                                                                        #
 ###############################################################################

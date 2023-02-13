@@ -10,6 +10,7 @@ gh
 git
 git-extras
 git-lfs
+gobject-introspection
 httpd
 httpie
 imagemagick
@@ -27,6 +28,7 @@ rclone
 redis
 rename
 ruby
+rust
 telnet
 tig
 tldr
@@ -35,5 +37,6 @@ trash
 watch
 wget
 yarn
+yt-dlp
 zsh
 zsh-completions
