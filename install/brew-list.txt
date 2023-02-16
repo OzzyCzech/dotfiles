@@ -21,8 +21,6 @@ mongodb/brew/mongodb-community-shell
 mongodb/brew/mongodb-database-tools
 mongosh
 nghttp2
-node
-node@14
 php
 rclone
 redis

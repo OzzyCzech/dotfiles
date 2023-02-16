@@ -1,4 +1,1 @@
-homebrew/cask
-homebrew/cask-versions
-homebrew/core
 mongodb/brew
