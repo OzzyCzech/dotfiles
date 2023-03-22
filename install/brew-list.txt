@@ -1,9 +1,11 @@
 ack
 awscli
 bash
+bat
 coreutils
 docker
 exiftool
+fd
 fdupes
 ffmpeg
 gh
@@ -21,12 +23,14 @@ mongodb/brew/mongodb-community-shell
 mongodb/brew/mongodb-database-tools
 mongosh
 nghttp2
+node
 php
 rclone
 redis
 rename
 ruby
 rust
+sd
 telnet
 tig
 tldr
