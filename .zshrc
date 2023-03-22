@@ -58,7 +58,9 @@ zstyle ':completion:*:ssh:*' hosts off
 #
 # https://zsh.sourceforge.io/Doc/Release/Options.html#Prompting
 
-PROMPT_EOL_MARK=''
+setopt PROMPT_CR
+setopt PROMPT_SP
+export PROMPT_EOL_MARK=""
 
 #############################################################################
 # Homebrew
