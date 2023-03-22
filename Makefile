@@ -4,7 +4,7 @@ username = $(shell git config user.username)
 
 # Synchronize do local directory
 sync:
-	rclone copy . ~ --include={/.ackrc,/.aliases,/.exports,/.functions,/.gitconfig,/.gitignore,/.zshrc/,.config/yt-dlp.conf}
+	rclone copy . ~ --include={.ackrc,.aliases,.exports,.functions,.gitconfig,.gitignore,.zshrc,.config/yt-dlp.conf}
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
 	git config --global user.username $(username)
