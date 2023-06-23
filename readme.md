@@ -21,7 +21,7 @@ chsh -s /bin/zsh
 ## Install/update dotfiles
 
 ```shell
-git clone https://github.com/OzzyCzech/dotfiles.git dotfiles && cd $_ && make sync
+git clone git@github.com:OzzyCzech/dotfiles.git dotfiles && cd $_ && make sync
 ```
 
 ## Add private config
