@@ -12,9 +12,11 @@ handbrake
 keepingyouawake
 maccy
 medis
+microsoft-edge
 obsidian
 phpstorm
 poedit
+raspberry-pi-imager
 rectangle
 robo-3t
 sequel-ace
@@ -23,3 +25,4 @@ the-unarchiver
 viscosity
 visual-studio-code
 vlc
+zed

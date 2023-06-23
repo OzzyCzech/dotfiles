@@ -1,5 +1,4 @@
 ack
-awscli
 bash
 bat
 coreutils
@@ -25,6 +24,7 @@ mongosh
 nghttp2
 node
 php
+python@3.10
 rclone
 redis
 rename
