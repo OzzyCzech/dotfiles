@@ -18,13 +18,13 @@ To set `zsh` as your default shell:
 chsh -s /bin/zsh
 ```
 
-Install [Oh My Zsh](https://ohmyz.sh/):
+## Install [Oh My Zsh](https://ohmyz.sh/):
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Install/update dotfiles
+## Download/clonse dotfiles
 
 ```shell
 git clone git@github.com:OzzyCzech/dotfiles.git dotfiles && cd $_ && make sync
@@ -41,6 +41,7 @@ touch ~/.extra && zed ~/.extra
 ## Terminal setup
 
 Set in Terminal configuration `⌘+,` in Advanced > Declarative terminal as `ansi` to enable numpad keyboard.
+
 Download my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/install/main/OzzyCzech.terminal).
 
 ## Thanks for inspiration

@@ -52,15 +52,15 @@
     # show has
     hash = rev-parse HEAD
 
-    # Last ... something    
+    # Last ... something
     last-year = shortlog -sn --all --no-merges --since '1 year ago'
 
     # show logs as markdown formatted list
     markdown = log --color --pretty=format:'* %Cred%h%Creset %s %C(bold blue)[%an](mailto:%ae)%Creset' --abbrev-commit --dense --no-merges
-    
+
     # prepare release notes
     release-notes = !sh -c 'git markdown --reverse ...`git describe --tags --abbrev=0`'
-    
+
     # Show verbose output about tags, branches or remotes
     tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
 
@@ -206,5 +206,5 @@
 [remote "origin"]
     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 
-[init]    
+[init]
     defaultBranch = main

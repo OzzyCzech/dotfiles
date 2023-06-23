@@ -21,7 +21,7 @@ install.ohmyzsh:
 install: install.brew install.ohmyzsh
 	touch ~/.extra
 	echo "FINISH with: sh brew/brew.sh"
-	
+
 description:
 	brew leaves --installed-on-request | xargs -n1 brew desc > install/installed.md
 
