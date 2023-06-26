@@ -23,9 +23,13 @@ description:
 	brew leaves --installed-on-request | xargs -n1 brew desc > install/installed.md
 
 # Backup brew packages
-backup:
+backup.brew:
 	brew leaves --installed-on-request >  brew/brew-list.txt
 	brew list --cask >  brew/brew-list-cask.txt
 	brew tap > brew/brew-tap.txt
 
-.PHONY: sync backup install install.brew install.ohmyzsh
+backup.terminal:
+	cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist
+	plutil -convert xml1 terminal/com.apple.Terminal.plist
+
+.PHONY: install sync backup.brew backup.terminal install.brew install.ohmyzsh

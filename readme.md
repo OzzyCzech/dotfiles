@@ -38,12 +38,6 @@ All private config can be saved in `.extra` which you do not commit to this repo
 touch ~/.extra && zed ~/.extra
 ```
 
-## Terminal setup
-
-Set in Terminal configuration `⌘+,` in Advanced > Declarative terminal as `ansi` to enable numpad keyboard.
-
-Download my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/install/main/OzzyCzech.terminal).
-
 ## Thanks for inspiration
 
 - https://github.com/addyosmani/dotfiles/
