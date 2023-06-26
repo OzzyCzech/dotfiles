@@ -13,9 +13,14 @@ If you need to restore the backup TO `~/Library/Preferences/com.apple.Terminal.p
 ```shell  
 plutil -convert binary1 terminal/com.apple.Terminal.plist
 cp terminal/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
+```
+
+Do not forget kill Terminal:
+
+```shell
 killall Terminal &> /dev/null
 ```
 
-Download my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/terminal/main/OzzyCzech.terminal).
+You can also download only my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/terminal/main/OzzyCzech.terminal).
 
 Set in Terminal configuration `⌘+,` in **Advanced > Declarative terminal** as `ansi` to enable numpad keyboard.
