@@ -24,7 +24,7 @@ chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Download/clonse dotfiles
+## Download/clone dotfiles
 
 ```shell
 git clone git@github.com:OzzyCzech/dotfiles.git dotfiles && cd $_ && make sync
