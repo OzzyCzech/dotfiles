@@ -12,7 +12,17 @@ ZSH_THEME="robbyrussell"
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/composer
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/forklift
-plugins=(git yarn httpie dotenv rsync docker cp composer forklift)
+plugins=(
+    git
+    yarn
+    httpie
+    dotenv
+    rsync
+    docker
+    cp
+    composer
+    forklift
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,6 +57,13 @@ export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$P
 
 zstyle ':completion:*:ssh:*' hosts off
 
+
+#############################################################################
+# Automatic update without confirmation prompt
+# https://github.com/ohmyzsh/ohmyzsh#getting-updates
+#############################################################################
+
+zstyle ':omz:update' mode auto
 
 #############################################################################
 # ZSH prompt
