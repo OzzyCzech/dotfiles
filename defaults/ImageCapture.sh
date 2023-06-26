@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###############################################################################
-# ImageCapture                                                                      #
+# ImageCapture
 ###############################################################################
 
 # Prevent Photos from opening automatically when devices are plugged in
