@@ -4,9 +4,6 @@
 # Dock
 ###############################################################################
 
-# Enable highlight hover effect for the grid view of a stack (Dock)
-defaults write com.apple.dock mouse-over-hilite-stack -bool true
-
 # Set the icon size of Dock items to 48 pixels
 defaults write com.apple.Dock tilesize -int 48
 
