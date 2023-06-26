@@ -27,7 +27,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ## Download/clone dotfiles
 
 ```shell
-git clone git@github.com:OzzyCzech/dotfiles.git dotfiles && cd $_ && make sync
+git clone git@github.com:OzzyCzech/dotfiles.git .dotfiles && cd $_ && make sync
 ```
 
 ## Add private config

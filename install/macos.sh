@@ -60,7 +60,7 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 # Disable the crash reporter
-#defaults write com.apple.CrashReporter DialogType -string "none"
+defaults write com.apple.CrashReporter DialogType -string "none"
 
 # Set Help Viewer windows to non-floating mode
 defaults write com.apple.helpviewer DevMode -bool true
@@ -677,13 +677,13 @@ for app in "Activity Monitor" \
 	"cfprefsd" \
 	"Contacts" \
 	"Dock" \
-	"Finder" \	
+	"Finder" \
 	"Mail" \
-	"Messages" \	
+	"Messages" \
 	"Photos" \
-	"Safari" \		
+	"Safari" \
 	"SystemUIServer" \
-	"Terminal" \		
+	"Terminal" \
 	"iCal"; do
 	killall "${app}" &> /dev/null
 done
