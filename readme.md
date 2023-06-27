@@ -38,6 +38,12 @@ All private config can be saved in `.extra` which you do not commit to this repo
 touch ~/.extra && zed ~/.extra
 ```
 
+## Set lock screen Message
+
+```sh
+./defaults/LoginText.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
+```
+
 ## Thanks for inspiration
 
 - https://github.com/addyosmani/dotfiles/
