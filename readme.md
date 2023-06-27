@@ -41,7 +41,7 @@ touch ~/.extra && zed ~/.extra
 ## Set lock screen Message
 
 ```sh
-./defaults/LoginText.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
+./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
 ```
 
 ## Thanks for inspiration
