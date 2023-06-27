@@ -6,8 +6,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Install prerequisites
-
 ```shell
 brew install git zsh zsh-completions rclone zed
 ```
@@ -24,10 +22,16 @@ chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Download/clone dotfiles
+## Clone dotfiles
 
 ```shell
 git clone git@github.com:OzzyCzech/dotfiles.git .dotfiles && cd $_ && make sync
+```
+
+## Set lock screen Message
+
+```sh
+./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
 ```
 
 ## Add private config
@@ -36,12 +40,6 @@ All private config can be saved in `.extra` which you do not commit to this repo
 
 ```shell
 touch ~/.extra && zed ~/.extra
-```
-
-## Set lock screen Message
-
-```sh
-./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
 ```
 
 ## Thanks for inspiration
