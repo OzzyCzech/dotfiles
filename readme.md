@@ -28,12 +28,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone git@github.com:OzzyCzech/dotfiles.git .dotfiles && cd $_ && make sync
 ```
 
-## Set lock screen Message
-
-```sh
-./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
-```
-
 ## Add private config
 
 All private config can be saved in `.extra` which you do not commit to this repo and just keep in your `~/`
@@ -42,12 +36,29 @@ All private config can be saved in `.extra` which you do not commit to this repo
 touch ~/.extra && zed ~/.extra
 ```
 
-## Backup and restore Mac settings with [Mackup](https://github.com/lra/mackup)
+## Settings
+
+### Backup your `.ssh` keys
+
+Do not forget to back up your `.ssh` keys:
+
+```shell
+zip -r ~/Downloads/ssh.zip ~/.ssh
+```
+
+### Backup all your settings with [Mackup](https://github.com/lra/mackup)
 
 ```shell
 brew install mackup
 mackup backup
-mackup restore
+```
+
+### Set lock screen Message
+
+Lock screen message can be set with:
+
+```sh
+./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
 ```
 
 ## Thanks for inspiration
