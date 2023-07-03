@@ -42,15 +42,13 @@ All private config can be saved in `.extra` which you do not commit to this repo
 touch ~/.extra && zed ~/.extra
 ```
 
-## Backup and restore Mac settings
+## Backup and restore Mac settings with [Mackup](https://github.com/lra/mackup)
 
 ```shell
 brew install mackup
 mackup backup
 mackup restore
 ```
-
-* https://github.com/lra/mackup
 
 ## Thanks for inspiration
 
