@@ -1,5 +1,13 @@
 # Brew
 
+## Backup
+
+```shell
+brew leaves --installed-on-request >brew/brew-list.txt
+brew list --cask >brew/brew-list-cask.txt
+brew tap >brew/brew-tap.txt
+```
+
 ## Install
 
 ```shell
