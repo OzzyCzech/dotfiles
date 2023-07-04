@@ -1,6 +1,6 @@
 # Brew
 
-Brew is a [package manager](https://brew.sh) for macOS. 
+Brew is a [package manager](https://brew.sh) for macOS.
 
 ## Backup everything
 
