@@ -8,10 +8,11 @@ sync:
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
 	git config --global user.username $(username)
+	touch ~/.config/rclone/rclone.conf
+	touch ~/.extra
 
 install.brew:
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
-
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 install.ohmyzsh:
 	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
