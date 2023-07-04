@@ -1,210 +1,210 @@
 [user]
-	name = Roman Ožana
-	username = OzzyCzech
-	email = roman@ozana.cz
+name = Roman Ožana
+username = OzzyCzech
+email = roman@ozana.cz
 
 [alias]
 
-    c = commit -am
-    s = status -s
-    p = push
-    l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
+c = commit -am
+s = status -s
+p = push
+l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
 
-		# Determinate what's default branch
-		main = !"basename $(git symbolic-ref refs/remotes/origin/HEAD)"
+# Determinate what's default branch
+main = !"basename $(git symbolic-ref refs/remotes/origin/HEAD)"
 
-     # Show the diff between the latest commit and the current state
-    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+# Show the diff between the latest commit and the current state
+d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
-    # Pull in remote changes for the current repository and all its submodules
-    up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules; git submodule update --init "
+# Pull in remote changes for the current repository and all its submodules
+up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules; git submodule update --init "
 
-    # Switch to a branch, creating it if necessary
-    go = "switch -c"
+# Switch to a branch, creating it if necessary
+go = "switch -c"
 
-    # Commit ALL && push ALL
-    save  = "!fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
+# Commit ALL && push ALL
+save = "!fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
 
-    # Backup whole git repo to bundle
-    backup = "!gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
+# Backup whole git repo to bundle
+backup = "!gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
 
-    # Unstage last commit
-	  unstage = reset --soft HEAD~
+# Unstage last commit
+unstage = reset --soft HEAD~
 
-		# Undo last commit
-    undo = reset --hard HEAD~
+# Undo last commit
+undo = reset --hard HEAD~
 
-    # Commit all changes
-    commit-all = !git add -A && git commit -am
+# Commit all changes
+commit-all = !git add -A && git commit -am
 
-    # show current remote url
-    url = ls-remote --get-url
+# show current remote url
+url = ls-remote --get-url
 
-    # Amend the currently staged files to the latest commit
-    amend = commit --amend --reuse-message=HEAD
+# Amend the currently staged files to the latest commit
+amend = commit --amend --reuse-message=HEAD
 
-    # List aliases
-    aliases = config --get-regexp alias
+# List aliases
+aliases = config --get-regexp alias
 
-    # show only last commit log
-    last = log -1 HEAD --stat
+# show only last commit log
+last = log -1 HEAD --stat
 
-    # show has
-    hash = rev-parse HEAD
+# show has
+hash = rev-parse HEAD
 
-    # Last ... something
-    last-year = shortlog -sn --all --no-merges --since '1 year ago'
+# Last ... something
+last-year = shortlog -sn --all --no-merges --since '1 year ago'
 
-    # show logs as markdown formatted list
-    markdown = log --color --pretty=format:'* %Cred%h%Creset %s %C(bold blue)[%an](mailto:%ae)%Creset' --abbrev-commit --dense --no-merges
+# show logs as markdown formatted list
+markdown = log --color --pretty=format:'* %Cred%h%Creset %s %C(bold blue)[%an](mailto:%ae)%Creset' --abbrev-commit --dense --no-merges
 
-    # prepare release notes
-    release-notes = !sh -c 'git markdown --reverse ...`git describe --tags --abbrev=0`'
+# prepare release notes
+release-notes = !sh -c 'git markdown --reverse ...`git describe --tags --abbrev=0`'
 
-    # Show verbose output about tags, branches or remotes
-    tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
+# Show verbose output about tags, branches or remotes
+tags = for-each-ref --format='%(refname:short) (%(committerdate:relative))' --sort=committerdate refs/tags
 
-    # delete branch
-    delete-branch  = branch -D
+# delete branch
+delete-branch = branch -D
 
-    # Remove branches that have already been merged with master
-    # a.k.a. ‘delete merged’
-    delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+# Remove branches that have already been merged with master
+# a.k.a. ‘delete merged’
+delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
-    # prune local tags (delete not pushed tags)
-    prune-tags = fetch --prune --tags
+# prune local tags (delete not pushed tags)
+prune-tags = fetch --prune --tags
 
-    # remove untracked dirs, ignored files with force !
-    prune-all = clean -xdf
+# remove untracked dirs, ignored files with force !
+prune-all = clean -xdf
 
-    # Thin out older metadata within the repository, reduceses filesystem footprint
-    trim = !git reflog expire --expire=now --all && git gc --prune=now
+# Thin out older metadata within the repository, reduceses filesystem footprint
+trim = !git reflog expire --expire=now --all && git gc --prune=now
 
-    # show all remotes
-    remotes = remote -v
+# show all remotes
+remotes = remote -v
 
-    # allow empty commit with message
-    empty = commit --allow-empty -m
+# allow empty commit with message
+empty = commit --allow-empty -m
 
-    # view branches
-    branches = branch -av
+# view branches
+branches = branch -av
 
-    # Return the repository's root directory (useful for shell prompts)
-    root = rev-parse --show-toplevel
+# Return the repository's root directory (useful for shell prompts)
+root = rev-parse --show-toplevel
 
-    # Show everything
-    view-branches = branch -av
-    view-remote-branches = branch -r
-    view-tags = !git tags
-    view-latest-tag = describe --tags --abbrev=0
-    view-remote-tags = ls-remote --tags origin
-    view-local-tags = !git ls-remote --tags origin | git show-ref --tags --exclude-existing
-    view-latest-changes = show --pretty="format:" --name-only # show latest changes
-    view-url = !git ls-remote --get-url
-    view-remotes = !git remote -v
-    view-contributors = shortlog -e -s -n
+# Show everything
+view-branches = branch -av
+view-remote-branches = branch -r
+view-tags = !git tags
+view-latest-tag = describe --tags --abbrev=0
+view-remote-tags = ls-remote --tags origin
+view-local-tags = !git ls-remote --tags origin | git show-ref --tags --exclude-existing
+view-latest-changes = show --pretty="format:" --name-only # show latest changes
+view-url = !git ls-remote --get-url
+view-remotes = !git remote -v
+view-contributors = shortlog -e -s -n
 
-    # show all conflicts
-    conflicts = !git ls-files -u | cut -f 2 | sort -u
+# show all conflicts
+conflicts = !git ls-files -u | cut -f 2 | sort -u
 
-    # Find branches containing commit
-    find-branch = "!f() { git branch -a --contains $1; }; f"
+# Find branches containing commit
+find-branch = "!f() { git branch -a --contains $1; }; f"
 
-    # Find tags containing commit
-    find-tag = "!f() { git describe --always --contains $1; }; f"
+# Find tags containing commit
+find-tag = "!f() { git describe --always --contains $1; }; f"
 
-    # Find commits by source code
-    find-commits = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+# Find commits by source code
+find-commits = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
 
-    # Find commits by commit message
-    find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+# Find commits by commit message
+find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
-    # yolo!!!
-    yolo = !git commit -am \"$(curl --silent --fail http://whatthecommit.com/index.txt)\" && git push origin
+# yolo!!!
+yolo = !git commit -am \"$(curl --silent --fail http://whatthecommit.com/index.txt)\" && git push origin
 
 [core]
-    editor = nano
+editor = nano
 
-		# Tell git you have a global .gitignore
-    excludesfile =  ~/.gitignore
-    attributesfile = ~/.gitattributes
+# Tell git you have a global .gitignore
+excludesfile = ~/.gitignore
+attributesfile = ~/.gitattributes
 
-    # Treat spaces before tabs and all kinds of trailing whitespace as an error
-    # [default] trailing-space: looks for spaces at the end of a line
-    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-    # whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+# Treat spaces before tabs and all kinds of trailing whitespace as an error
+# [default] trailing-space: looks for spaces at the end of a line
+# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+# whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-    # Make `git rebase` safer on macOS
-    # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-    trustctime = false
+# Make `git rebase` safer on macOS
+# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+trustctime = false
 
-    # Prevent showing files whose names contain non-ASCII symbols as unversioned.
-    # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
-    precomposeunicode = false
+# Prevent showing files whose names contain non-ASCII symbols as unversioned.
+# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+precomposeunicode = false
 
-    # Speed up commands involving untracked files such as `git status`.
-    # https://git-scm.com/docs/git-update-index#_untracked_cache
-    untrackedCache = true
+# Speed up commands involving untracked files such as `git status`.
+# https://git-scm.com/docs/git-update-index#_untracked_cache
+untrackedCache = true
 
 [color]
-    # Use colors in Git commands that are capable of colored output when
-    # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-    ui = auto
+# Use colors in Git commands that are capable of colored output when
+# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+ui = auto
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+current = yellow reverse
+local = yellow
+remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold # line info
-    old = red # deletions
-    new = green # additions
+meta = yellow bold
+frag = magenta bold # line info
+old = red           # deletions
+new = green         # additions
 
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+added = yellow
+changed = green
+untracked = cyan
 
 [diff]
 
-    # Detect copies as well as renames
-    renames = copies
+# Detect copies as well as renames
+renames = copies
 
 [diff "bin"]
 
-    # Use `hexdump` to diff binary files
-    textconv = hexdump -v -C
+# Use `hexdump` to diff binary files
+textconv = hexdump -v -C
 
 [push]
-    default = current
-    # Make `git push` push relevant annotated tags when pushing branches out.
-    followTags = true
+default = current
+# Make `git push` push relevant annotated tags when pushing branches out.
+followTags = true
 
 [pull]
-    rebase = true
+rebase = true
 
 [merge]
-    log = true
+log = true
 
 [fetch]
-    prune = true # prune delete branches locally
+prune = true # prune delete branches locally
 
 [log]
-    date = short
+date = short
 
 [apply]
-    whitespace = fix # Detect whitespace errors when applying a patch
+whitespace = fix # Detect whitespace errors when applying a patch
 
 # Any GitHub repo with my username should be checked out r/w by default
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
 [url "git@github.com:OzzyCzech/"]
-    insteadOf = "git://github.com/OzzyCzech/"
+insteadOf = "git://github.com/OzzyCzech/"
 
 # See https://help.github.com/articles/checking-out-pull-requests-locally
 [remote "origin"]
-    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 
 [init]
-    defaultBranch = main
+defaultBranch = main
