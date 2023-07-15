@@ -1,21 +1,25 @@
 #!/bin/bash
 
 ########################################################################################################################
-# Trololo
+# Be nice
 ########################################################################################################################
 
-# be nice
 alias please=sudo
 
+########################################################################################################################
 # clean terminal history
+########################################################################################################################
+
 alias yolo="history -c && clear"
 
 ########################################################################################################################
 # Paths
 ########################################################################################################################
 
-alias Downloads="cd ~/Downloads"
-alias Desktop="cd ~/Desktop"
+alias home="cd ~"
+alias desktop="cd ~/Desktop"
+alias downloads="cd ~/Downloads"
+alias documents="cd ~/Documents"
 alias work="cd /Volumes/Work"
 
 ########################################################################################################################
@@ -25,14 +29,28 @@ alias work="cd /Volumes/Work"
 alias drives="df -h" # list all drives
 
 ########################################################################################################################
-# Programs
+# Browsers
 ########################################################################################################################
 
-alias preview="open -a '$PREVIEW'"
-alias xcode="open -a '/Developer/Applications/Xcode.app'"
 alias safari="/Applications/Safari.app/Contents/MacOS/Safari"
-alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
+
+########################################################################################################################
+# Print website to pdf
+# function accept two parametters first is url and second is optional filename
+# e.g. pdf https://google.com ~/Downloads/google.pdf
+# e.h. png https://google.com ~/Downloads/google.png
+########################################################################################################################
+
+pdf() { chrome --headless --disable-gpu --no-pdf-header-footer --no-margins --run-all-compositor-stages-before-draw --print-to-pdf=${2:-print.pdf} $1 > /dev/null 2>&1; }
+png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --window-size=1920,1428 --screenshot=${2:-screenshot.png} $1 > /dev/null 2>&1; }
+
+########################################################################################################################
+# Applications
+########################################################################################################################
+
+alias xcode="open -a '/Developer/Applications/Xcode.app'"
 
 ########################################################################################################################
 # Yarn / npm
@@ -45,15 +63,13 @@ alias npm-list-globals="npm list -g --depth 0"
 # List aliases
 ########################################################################################################################
 
-# List all files colorized in long format
-alias l="ls -l"
-
-# List all files colorized in long format, including dot files
-alias la="ls -lha"
-alias ll="ls -lha"
-
 # Always use color output for `ls`
 alias ls="command ls -G"
+
+# List all files colorized in long format, including dot files
+alias l="ls -l"
+alias la="ls -lha"
+alias ll="ls -lha"
 
 # List only directories
 alias lsd="ls -lF | grep --color=never '^d'"
@@ -115,7 +131,7 @@ alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && kill
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+alias url-encode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 ########################################################################################################################
 # Docker
@@ -141,5 +157,7 @@ alias dps="docker ps"
 # exec bash in docker e.g. dbash web 
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 
+########################################################################################################################
 # Faster npm for europeans
+########################################################################################################################
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
