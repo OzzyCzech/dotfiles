@@ -49,6 +49,11 @@ function cleandrive() {
   fi
 }
 
+# Convert all images to HEIC
+# example: heic *.jpg
+function heic() {
+  for i in "$@"; do sips -s format heic -s formatOptions 80 "$i" --out "${i%.*}.heic";done
+}
 
 # Create a new directory and enter it
 function md() {
