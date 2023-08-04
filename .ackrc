@@ -16,4 +16,4 @@
 --sort-files
 
 # Custom file types
---type-add=markdown:ext:md
+--type-add=md:ext:md
