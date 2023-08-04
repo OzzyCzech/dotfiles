@@ -1,6 +1,19 @@
+# Ignore files
+
 --ignore-dir=log
 --ignore-dir=tmp
 --ignore-dir=vendor
 --ignore-dir=_next
 --ignore-dir=.idea
+--ignore-dir=.vscode
+--ignore-dir=.git
+--ignore-dir=.next
+--ignore-dir=node_modules
+
+# Only search with case sensitivity if there is mixed case
+
+--smart-case
 --sort-files
+
+# Custom file types
+--type-add=markdown:ext:md
