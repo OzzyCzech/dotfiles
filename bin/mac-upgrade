@@ -15,4 +15,10 @@ brew cleanup
 printf "\e[1;34m%s\e[0m\n" "🍺 Homebrew's doctor"
 brew doctor
 
+printf "\e[1;34m%s\e[0m\n" "💅 omz update"
+omz update
+
+printf "\e[1;34m%s\e[0m\n" "🖥️ Upgrade macOS software"
+softwareupdate -i -a
+
 printf "\e[1;32m%s\e[0m\n" "✅ Done! Your system is up to date!"
