@@ -26,10 +26,10 @@ size = count-objects -v --human-readable
 up = !git fetch origin --prune --prune-tags && git pull --rebase --prune --tags --all && git submodule sync --recursive && git submodule update --init --recursive
 
 # Commit ALL && push ALL
-save = !fs() { git add -A; git commit -am "$@"; git push; }; fs
+save = !"fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
 
 # Backup whole git repo to bundle
-backup = !gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb
+backup = !"gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
 
 # Unstage last commit
 unstage = reset --soft HEAD~
