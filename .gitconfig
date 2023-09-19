@@ -75,7 +75,7 @@ delete-branch = branch -D
 delete-merged = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 
 # prune local tags (delete not pushed tags)
-prune = fetch --prune --tags
+prune = fetch --prune --prune-tags
 
 # remove untracked dirs, ignored files with force !
 cleanup = !git fetch --prune --tags && git clean -xdf
