@@ -10,23 +10,26 @@ s = status -s
 p = push
 l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # logs
 
-# Determinate what's default branch
-main = !"basename $(git symbolic-ref refs/remotes/origin/HEAD)"
-
 # Show the diff between the latest commit and the current state
-d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-
-# Pull in remote changes for the current repository and all its submodules
-up = !"git pull --rebase --progress --verbose --prune --tags --all --recurse-submodules; git submodule update --init "
+d = !git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat
 
 # Switch to a branch, creating it if necessary
-go = "switch -c"
+go = switch -c
+
+# Determinate what's default branch
+main = !basename $(git symbolic-ref refs/remotes/origin/HEAD)
+
+# Displays repo disk consumption
+size = count-objects -v --human-readable
+
+# Pull in remote changes for the current repository and all its submodules
+up = !git fetch origin --prune --prune-tags && git pull --rebase --prune --tags --all && git submodule sync --recursive && git submodule update --init --recursive
 
 # Commit ALL && push ALL
-save = "!fs() { git add -A; git commit -am \"$@\"; git push; }; fs"
+save = !fs() { git add -A; git commit -am "$@"; git push; }; fs
 
 # Backup whole git repo to bundle
-backup = "!gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb"
+backup = !gb() { target=$(echo ${1#*:} | tr / _); git clone --mirror $1 ${target} && cd ${target}; git bundle create ${2-../}/${target%%.git}.bundle --all; cd - && rm -rf ${target}; }; gb
 
 # Unstage last commit
 unstage = reset --soft HEAD~
@@ -69,13 +72,13 @@ delete-branch = branch -D
 
 # Remove branches that have already been merged with master
 # a.k.a. ‘delete merged’
-delete-merged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+delete-merged = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 
 # prune local tags (delete not pushed tags)
-prune-tags = fetch --prune --tags
+prune = fetch --prune --tags
 
 # remove untracked dirs, ignored files with force !
-prune-all = clean -xdf
+cleanup = !git fetch --prune --tags && git clean -xdf
 
 # Thin out older metadata within the repository, reduceses filesystem footprint
 trim = !git reflog expire --expire=now --all && git gc --prune=now
@@ -91,6 +94,12 @@ branches = branch -av
 
 # Return the repository's root directory (useful for shell prompts)
 root = rev-parse --show-toplevel
+
+# yolo (commit with random message)!!!
+yolo = !git commit -am \"$(curl --silent --fail http://whatthecommit.com/index.txt)\" && git push origin
+
+# Commits as Work in Progress.
+wip = commit -am "WIP"
 
 # Show everything
 view-branches = branch -av
@@ -118,9 +127,6 @@ find-commits = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset
 
 # Find commits by commit message
 find-message = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
-
-# yolo!!!
-yolo = !git commit -am \"$(curl --silent --fail http://whatthecommit.com/index.txt)\" && git push origin
 
 [core]
 editor = nano
