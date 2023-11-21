@@ -45,13 +45,13 @@
 	<key>NSWindow Frame TTAppPreferences</key>
 	<string>1281 861 667 554 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow</key>
-	<string>623 117 1690 1155 0 0 2560 1415 </string>
+	<string>565 147 1690 1155 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow Basic</key>
 	<string>617 164 1285 665 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow Man Page</key>
 	<string>140 460 570 707 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow OzzyCzech</key>
-	<string>721 397 1270 833 0 0 2560 1415 </string>
+	<string>720 425 1270 805 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow Pro</key>
 	<string>393 349 1396 727 0 0 2560 1417 </string>
 	<key>PMPrintingExpandedStateForPrint2</key>

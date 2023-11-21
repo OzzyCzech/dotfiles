@@ -9,28 +9,16 @@ ZSH_THEME="robbyrussell"
 
 #############################################################################
 # ZSH plugins
-#
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/yarn
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/httpie
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dotenv
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/rsync
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/composer
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/forklift
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
 #############################################################################
 
 plugins=(
     git
-    yarn
+    gitfast
+    docker # docker autocomplete
     httpie
     dotenv
     rsync
-    docker
-    cp
-    composer
-    forklift
 )
 
 source $ZSH/oh-my-zsh.sh

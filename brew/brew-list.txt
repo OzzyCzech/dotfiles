@@ -3,6 +3,7 @@ bash
 bat
 coreutils
 docker
+exa
 exiftool
 fd
 fdupes
@@ -11,7 +12,6 @@ gh
 git
 git-extras
 git-lfs
-gobject-introspection
 httpd
 httpie
 imagemagick

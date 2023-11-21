@@ -1,6 +1,5 @@
 1password
 appcleaner
-balenaetcher
 ccleaner
 docker
 fig
@@ -14,6 +13,7 @@ maccy
 medis
 microsoft-edge
 obsidian
+onyx
 phpstorm
 poedit
 raspberry-pi-imager
