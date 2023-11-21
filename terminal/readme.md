@@ -1,7 +1,8 @@
-
 # Terminal
 
-You can backup the current terminal settings using the `make backup.terminal` command, the file is converted to XML format during backup.
+## Terminal.app
+
+You can back up the current terminal settings using the `make backup.terminal` command, the file is converted to XML format during backup.
 
 ```shell
 cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist
@@ -24,3 +25,8 @@ killall Terminal &> /dev/null
 You can also download only my [Terminal.app color settings](https://raw.githubusercontent.com/OzzyCzech/dotfiles/terminal/main/OzzyCzech.terminal).
 
 Set in Terminal configuration `⌘+,` in **Advanced > Declarative terminal** as `ansi` to enable numpad keyboard.
+
+## iTherm2
+
+There is iTerm2 color scheme in the `OzzyCzech.itermcolors` file
+and while profile backup in `OzzyCzech.json` file.
