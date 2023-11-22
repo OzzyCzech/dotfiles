@@ -8,14 +8,21 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 #############################################################################
+# Change default ZSH_COMPDUMP directory to ZSH_CACHE_DIR
+# https://github.com/ohmyzsh/ohmyzsh/pull/9090
+#############################################################################
+
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
+
+#############################################################################
 # ZSH plugins
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
 #############################################################################
 
 plugins=(
     git
+    docker
     gitfast
-    docker # docker autocomplete
     httpie
     dotenv
     rsync
@@ -60,13 +67,6 @@ zstyle ':completion:*:ssh:*' hosts off
 #############################################################################
 
 zstyle ':omz:update' mode auto
-
-#############################################################################
-# Change default ZSH_COMPDUMP directory to ZSH_CACHE_DIR
-# https://github.com/ohmyzsh/ohmyzsh/pull/9090
-#############################################################################
-
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 #############################################################################
 # ZSH prompt
