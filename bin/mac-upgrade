@@ -1,24 +1,15 @@
 #!/usr/bin/env bash
 
-printf "\e[1;34m%s\e[0m\n" "🍺 Homebrew's update"
-brew update
+if ! command -v brew &> /dev/null
+then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
-printf "\e[1;34m%s\e[0m\n" "🍺 Homebrew's upgrade"
-brew upgrade
+printf "\e[1;34m%s\e[0m\n" "🍺 Brew update and upgrade"
+brew update && brew upgrade && brew upgrade --cask --greedy
+brew cleanup && brew autoremove && brew doctor
 
-printf "\e[1;34m%s\e[0m\n" "🍺 Homebrew's upgrade cask"
-brew upgrade --cask --greedy
-
-printf "\e[1;34m%s\e[0m\n" "🍺 Homebrew's cleanup"
-brew cleanup
-
-printf "\e[1;34m%s\e[0m\n" "🍺 Homebrew's doctor"
-brew doctor
-
-printf "\e[1;34m%s\e[0m\n" "💅 omz update"
-omz update
-
-printf "\e[1;34m%s\e[0m\n" "🖥️ Upgrade macOS software"
+printf "\e[1;34m%s\e[0m\n" "💻 Update macOS"
 softwareupdate -i -a
 
 printf "\e[1;32m%s\e[0m\n" "✅ Done! Your system is up to date!"
