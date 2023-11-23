@@ -64,12 +64,13 @@ alias npm-list-globals="npm list -g --depth 0"
 ########################################################################################################################
 
 # Always use color output for `ls`
-alias ls="exa --grid"
+# https://eza.rocks/
+alias ls="eza"
 
 # List all files colorized in long format, including dot files
-alias l="exa --long"
-alias la="exa --long --header"
-alias ll="exa -lha"
+alias l="eza --long"
+alias la="eza --long --header"
+alias ll="eza -lha"
 
 # List only directories
 alias lsd="ls -lF | grep --color=never '^d'"
