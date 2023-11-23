@@ -2,9 +2,8 @@ ack
 bash
 bat
 coreutils
-docker
-exa
 exiftool
+eza
 fd
 fdupes
 ffmpeg
@@ -21,8 +20,8 @@ mas
 mongodb/brew/mongodb-community-shell
 mongodb/brew/mongodb-database-tools
 mongosh
+netpbm
 nghttp2
-node
 php
 python@3.10
 rclone
@@ -34,7 +33,6 @@ sd
 telnet
 tig
 tldr
-tmux-xpanes
 trash
 watch
 wget

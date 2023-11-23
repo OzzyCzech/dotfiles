@@ -2,7 +2,6 @@
 appcleaner
 ccleaner
 docker
-fig
 firefox
 fork
 forklift
@@ -11,7 +10,6 @@ handbrake
 keepingyouawake
 maccy
 medis
-microsoft-edge
 obsidian
 onyx
 phpstorm
@@ -21,7 +19,6 @@ rectangle
 robo-3t
 sequel-ace
 slack
-the-unarchiver
 viscosity
 visual-studio-code
 vlc
