@@ -8,6 +8,11 @@ fi
 # empty the trash
 rm -rf ~/.Trash/*
 
+# check if brew is installed
+if command -v brew &>/dev/null; then
+  brew cleanup -s
+fi
+
 # https://github.com/mac-cleanup/mac-cleanup-sh/tree/main
 # https://github.com/fengzmg/clean-my-mac/blob/master/clean_my_mac.sh
 # https://github.com/beingfranklin/Clean-Your-Mac/blob/master/script.sh
