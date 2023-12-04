@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# check if docker is installed
+if command -v docker &>/dev/null; then
+  docker system prune -a -f
+fi
+
+# empty the trash
+rm -rf ~/.Trash/*
 
 # https://github.com/mac-cleanup/mac-cleanup-sh/tree/main
 # https://github.com/fengzmg/clean-my-mac/blob/master/clean_my_mac.sh
