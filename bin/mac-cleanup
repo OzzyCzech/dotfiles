@@ -18,6 +18,9 @@ fi
 # delete Apple System Logs to speed up Terminal.app
 sudo rm -rfv /private/var/log/asl/*.asl &>/dev/null
 
+# delete all logs from /Library/Logs/DiagnosticReports/
+sudo rm -rfv /Library/Logs/DiagnosticReports/* &>/dev/null
+
 # https://github.com/mac-cleanup/mac-cleanup-sh/tree/main
 # https://github.com/fengzmg/clean-my-mac/blob/master/clean_my_mac.sh
 # https://github.com/beingfranklin/Clean-Your-Mac/blob/master/script.sh
