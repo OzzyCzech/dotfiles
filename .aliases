@@ -86,15 +86,17 @@ alias git-root='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show
 ########################################################################################################################
 
 # IP addresses
-alias ip="dig @resolver1.opendns.com A myip.opendns.com +short -4"
 alias ip-local="ipconfig getifaddr en1"
+alias ip-v4="dig @resolver1.opendns.com A myip.opendns.com +short -4"
+alias ip-v6="dig @resolver1.opendns.com AAAA myip.opendns.com +short -6"
+alias ip="echo IPv4: `ip-v4` && echo IPv6: `ip-v6` && echo Local: `ip-local`"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias dns-flush="dscacheutil -flushcache"
+alias dns-flush="dscacheutil -flushcache; killall -HUP mDNSResponder;"
 
 ########################################################################################################################
 # Network
