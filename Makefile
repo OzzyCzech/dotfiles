@@ -10,7 +10,6 @@ sync:
 
 	cp {.ackrc,.aliases,.exports,.functions,.gitconfig,.gitignore,.zshrc} ~
 
-	touch ~/.config/rclone/rclone.conf
 	touch ~/.extra
 
 	git config --global user.name "$(name)"
