@@ -1,5 +1,7 @@
 # OzzyCzech's dotfiles for macOS
 
+This is a collection of my personal dotfiles for configuring macOS.
+
 ## Install [brew](https://brew.sh)
 
 ```shell
@@ -7,7 +9,7 @@
 ```
 
 ```shell
-brew install git zsh zsh-completions rclone zed
+brew install git zsh zsh-completions zed
 ```
 
 To set `zsh` as your default shell:
@@ -23,6 +25,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 
 ## Clone dotfiles
+
+First, you need to clone this repo and run the `make sync` command:
 
 ```shell
 git clone git@github.com:OzzyCzech/dotfiles.git .dotfiles && cd $_ && make sync
@@ -55,11 +59,13 @@ mackup backup
 
 ### Set lock screen Message
 
-Lock screen message can be set with:
+Your lock screen message can be set by running the following command:
 
-```sh
+```shell
 ./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
 ```
+
+The lock screen message can help you to get your lost device back.
 
 ## Thanks for inspiration
 

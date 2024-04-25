@@ -4,12 +4,18 @@ username = $(shell git config user.username)
 
 # Synchronize do local directory
 sync:
-	rclone copy . ~ --include={.ackrc,.aliases,.exports,.functions,.gitconfig,.gitignore,.zshrc,.config/yt-dlp.conf,.config/zed/settings.json}
+	mkdir -p ~/.config/ ~/.config/zed/
+	cp .config/zed/settings.json ~/.config/zed/settings.json
+	cp .config/yt-dlp.conf ~/.config/yt-dlp.conf
+
+	cp {.ackrc,.aliases,.exports,.functions,.gitconfig,.gitignore,.zshrc} ~
+
+	touch ~/.config/rclone/rclone.conf
+	touch ~/.extra
+
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
 	git config --global user.username $(username)
-	touch ~/.config/rclone/rclone.conf
-	touch ~/.extra
 
 install.brew:
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -19,9 +25,6 @@ install.ohmyzsh:
 
 install: install.brew install.ohmyzsh
 	touch ~/.extra
-
-description:
-	brew leaves --installed-on-request | xargs -n1 brew desc > install/installed.md
 
 # Backup brew packages
 backup.brew:
@@ -33,4 +36,4 @@ backup.terminal:
 	cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist
 	plutil -convert xml1 terminal/com.apple.Terminal.plist
 
-.PHONY: install sync backup.brew backup.terminal install.brew install.ohmyzsh
+.PHONY: $(MAKECMDGOALS)

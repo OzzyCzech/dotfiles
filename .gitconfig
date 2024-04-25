@@ -200,6 +200,9 @@ prune = true # prune delete branches locally
 [log]
 date = short
 
+[tag]
+	sort = -taggerdate # sort tags by taggerdate reverse
+
 [apply]
 whitespace = fix # Detect whitespace errors when applying a patch
 
