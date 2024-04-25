@@ -12,7 +12,7 @@ This is a collection of my personal dotfiles for configuring macOS.
 brew install git zsh zsh-completions zed
 ```
 
-To set `zsh` as your default shell:
+To set `zsh` as your default shell with `chsh` command:
 
 ```shell
 chsh -s /bin/zsh
@@ -57,15 +57,14 @@ brew install mackup
 mackup backup
 ```
 
-### Set lock screen Message
+### Setup lock screen message
 
-Your lock screen message can be set by running the following command:
+The lock screen message can help you to get your lost device back.
+Can be set by running the following command:
 
 ```shell
 ./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
 ```
-
-The lock screen message can help you to get your lost device back.
 
 ## Thanks for inspiration
 
