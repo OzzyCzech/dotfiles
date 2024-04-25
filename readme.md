@@ -24,7 +24,7 @@ chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Clone dotfiles
+## Clone this repo
 
 First, you need to clone this repo and run the `make sync` command:
 
@@ -32,29 +32,10 @@ First, you need to clone this repo and run the `make sync` command:
 git clone git@github.com:OzzyCzech/dotfiles.git .dotfiles && cd $_ && make sync
 ```
 
-## Add private config
-
 All private config can be saved in `.extra` which you do not commit to this repo and just keep in your `~/`
 
 ```shell
 touch ~/.extra && zed ~/.extra
-```
-
-## Settings
-
-### Backup your `.ssh` keys
-
-Do not forget to back up your `.ssh` keys:
-
-```shell
-zip -r ~/Downloads/ssh.zip ~/.ssh
-```
-
-### Backup all your settings with [Mackup](https://github.com/lra/mackup)
-
-```shell
-brew install mackup
-mackup backup
 ```
 
 ### Setup lock screen message
@@ -64,6 +45,23 @@ Can be set by running the following command:
 
 ```shell
 ./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
+```
+
+## Backup your settings
+
+### Backup `.ssh` keys
+
+Do not forget to backup your `.ssh` keys, you can use the following command:
+
+```shell
+zip -r ~/Downloads/ssh.zip ~/.ssh
+```
+
+### Backup application settings with [Mackup](https://github.com/lra/mackup)
+
+```shell
+brew install mackup
+mackup backup
 ```
 
 ## Thanks for inspiration
