@@ -1,12 +1,32 @@
-# Temporary files
-*~
-
 # git credential file
 .gitconfig.local
 
+
+# Temporary files
+*.cache
+*.log
+*~
+*#
+*.bak
+*.BAK
+*.old
+*.OLD
+*.off
+*.OFF
+*.dist
+*.DIST
+*.orig
+*.ORIG
+*.rej
+*.REJ
+*.swp
+*.swo
+*.swn
+*.swm
+*.tmp
+
 # Folder view configuration files
-.DS_Store
-.DS_Store?
+.DS_Store*
 Desktop.ini
 
 # Thumbnail cache files

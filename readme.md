@@ -69,3 +69,4 @@ mackup backup
 - https://github.com/addyosmani/dotfiles/
 - https://github.com/paulirish/dotfiles/
 - https://github.com/mathiasbynens/dotfiles/
+- https://github.com/alfunx/.dotfiles
