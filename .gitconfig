@@ -47,11 +47,8 @@ prune = true
 output = compact
 
 [status]
-short = true
-branch = true
 showStash = true
 submoduleSummary = true
-renames = copy
 
 [rebase]
 missingCommitsCheck = warn
