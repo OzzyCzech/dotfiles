@@ -9,7 +9,7 @@ This is a collection of my personal dotfiles for configuring macOS.
 ```
 
 ```shell
-brew install git zsh zsh-completions zed
+brew install git zsh zsh-completions zed antodi
 ```
 
 To set `zsh` as your default shell with `chsh` command:
@@ -18,10 +18,10 @@ To set `zsh` as your default shell with `chsh` command:
 chsh -s /bin/zsh
 ```
 
-## Install [Oh My Zsh](https://ohmyz.sh/)
+## Install [Antidote](https://getantidote.github.io)
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 ```
 
 ## Clone this repo
