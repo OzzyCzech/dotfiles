@@ -1,7 +1,6 @@
 # git credential file
 .gitconfig.local
 
-
 # Temporary files
 *.cache
 *.log
