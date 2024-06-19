@@ -1,22 +1,5 @@
 #!/bin/bash
 
-########################################################################################################################
-# Be nice
-########################################################################################################################
-
-alias please=sudo
-
-########################################################################################################################
-# clean terminal history
-########################################################################################################################
-
-alias yolo="history -c && clear"
-
-########################################################################################################################
-# Paths
-########################################################################################################################
-
-alias home="cd ~"
 alias desktop="cd ~/Desktop"
 alias downloads="cd ~/Downloads"
 alias documents="cd ~/Documents"
@@ -38,19 +21,13 @@ alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
 
 ########################################################################################################################
 # Print website to pdf
-# function accept two parametters first is url and second is optional filename
-# e.g. pdf https://google.com ~/Downloads/google.pdf
-# e.h. png https://google.com ~/Downloads/google.png
+# function accept two parameters first is url and second is optional filename
+# e.g. print-to-pdf https://google.com ~/Downloads/google.pdf
+# e.h. print-to-png https://google.com ~/Downloads/google.png
 ########################################################################################################################
 
-pdf() { chrome --headless --disable-gpu --no-pdf-header-footer --no-margins --run-all-compositor-stages-before-draw --print-to-pdf=${2:-print.pdf} $1 > /dev/null 2>&1; }
-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --window-size=1920,1428 --screenshot=${2:-screenshot.png} $1 > /dev/null 2>&1; }
-
-########################################################################################################################
-# Applications
-########################################################################################################################
-
-alias xcode="open -a '/Developer/Applications/Xcode.app'"
+print-to-pdf() { chrome --headless --disable-gpu --no-pdf-header-footer --no-margins --run-all-compositor-stages-before-draw --print-to-pdf="${2:-print.pdf}" "$1" > /dev/null 2>&1; }
+print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --window-size=1920,1428 --screenshot="${2:-screenshot.png}" "$1" > /dev/null 2>&1; }
 
 ########################################################################################################################
 # Yarn / npm
@@ -66,20 +43,10 @@ alias npm-list-globals="npm list -g --depth 0"
 # Always use color output for `ls`
 # https://eza.rocks/
 alias ls="eza"
-
-# List all files colorized in long format, including dot files
 alias l="eza --long"
 alias la="eza --long --header"
 alias ll="eza -lha"
-
-# List only directories
 alias lsd="ls -lF | grep --color=never '^d'"
-
-########################################################################################################################
-# GIT
-########################################################################################################################
-
-alias git-root='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`' # cd to git root
 
 ########################################################################################################################
 # Internet
@@ -87,10 +54,10 @@ alias git-root='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show
 
 # IP addresses
 alias ip-local="ipconfig getifaddr en1"
-alias ip-v4="dig @resolver1.opendns.com A myip.opendns.com +short -4"
-alias ip-v6="dig @resolver1.opendns.com AAAA myip.opendns.com +short -6"
-alias myip="echo IPv4: `ip-v4` && echo IPv6: `ip-v6` && echo Local: `ip-local`"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+ip-v4() { dig @resolver1.opendns.com A "${1:-myip.opendns.com}" +short -4; }
+ip-v6() { dig @resolver1.opendns.com AAAA "${1:-myip.opendns.com}" +short -6; }
+alias ip="echo -e \"IPv4: $(ip-v4)\nIPv6: $(ip-v6)\nLocal: $(ip-local)\""
+alias ips="ifconfig -a | grep -oE '\d+\.\d+\.\d+\.\d+' | sort | uniq"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
@@ -138,29 +105,17 @@ alias url-encode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.a
 
 ########################################################################################################################
 # Docker
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose
 ########################################################################################################################
 
+# docker compose
 alias dc="docker compose "
-alias dcup="docker compose up -d --build"
-alias dcupp="docker compose up"
-alias dcstop="docker compose stop"
-alias dcbuild="docker compose build"
-alias dcpull="docker compose pull"
-alias dclog="docker compose logs -t -f --tail 50"
+function dce() { docker compose exec "$1" @2; }
+function dcei() { docker compose exec -it "$1" /bin/bash; }
 
-# delete all images, containers, cache, builds ...
-alias docker-prune-all="docker system prune --all && docker image prune -a"
-
-# delete only dangling images without tag
-alias docker-delete-dangling="docker rmi $(docker images --filter "dangling=true" -q --no-trunc) --force"
-
-# docker ps
+# docker
 alias dps="docker ps"
-
-# exec bash in docker e.g. dbash web
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
-
-########################################################################################################################
-# Faster npm for europeans
-########################################################################################################################
-command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
+alias dpa="docker system prune --all --force && docker image prune --all --force"
+function de() { docker exec "$1" @2; }
+function dei() { docker exec -it "$1" /bin/bash; }
