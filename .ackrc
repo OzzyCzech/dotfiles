@@ -17,3 +17,4 @@
 
 # Custom file types
 --type-add=md:ext:md
+--type-add=strings=.strings
