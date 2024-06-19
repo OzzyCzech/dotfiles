@@ -14,5 +14,5 @@ ohmyzsh/ohmyzsh path:plugins/dotenv
 ohmyzsh/ohmyzsh path:plugins/rsync
 ohmyzsh/ohmyzsh path:plugins/wd
 
-# theme
+# https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ohmyzsh/ohmyzsh path:themes/robbyrussell.zsh-theme
