@@ -3,6 +3,7 @@ zsh-users/zsh-syntax-highlighting
 
 # oh-my-zsh plugins
 ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/gitfast
 ohmyzsh/ohmyzsh path:plugins/docker kind:fpath
 ohmyzsh/ohmyzsh path:plugins/docker-compose
@@ -12,3 +13,6 @@ ohmyzsh/ohmyzsh path:plugins/httpie/_httpie kind:fpath
 ohmyzsh/ohmyzsh path:plugins/dotenv
 ohmyzsh/ohmyzsh path:plugins/rsync
 ohmyzsh/ohmyzsh path:plugins/wd
+
+# theme
+ohmyzsh/ohmyzsh path:themes/robbyrussell.zsh-theme

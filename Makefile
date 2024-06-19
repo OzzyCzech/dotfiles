@@ -7,8 +7,8 @@ install:
 	mkdir -p ~/.config && cp -R config/ ~/.config/
 
 	cp -R {.ackrc,.gitconfig,.gitignore,.zshrc,.zsh_plugins.txt} ~
-	cp -R zsh/ ~/.zsh/ && touch ~/.zsh/extra.zsh
-	cp -R bin/ ~/.bin
+	rm -rf ~/.zsh/ && cp -R zsh/ ~/.zsh/
+	cp -R bin/* ~/.bin
 
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
