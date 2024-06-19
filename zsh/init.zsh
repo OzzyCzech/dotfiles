@@ -9,5 +9,9 @@ source "$SOURCE/aliases.zsh"
 # Functions
 source "$SOURCE/functions.zsh"
 
+# Libraries
+source "$SOURCE/history.zsh"
+source "$SOURCE/prompt.zsh"
+
 # Load extra (if available
 [[ -f "$SOURCE/extra.zsh" ]] && source "$SOURCE/extra.zsh"
