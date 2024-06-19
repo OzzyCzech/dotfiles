@@ -2,30 +2,20 @@ name = $(shell git config user.name)
 email = $(shell git config user.email)
 username = $(shell git config user.username)
 
-# Synchronize do local directory
-sync:
-	mkdir -p ~/.config/ ~/.config/zed/
-	cp .config/zed/settings.json ~/.config/zed/settings.json
-	cp .config/yt-dlp.conf ~/.config/yt-dlp.conf
+install:
+	touch ~/.hushlogin
+	mkdir -p ~/.config && cp -R config/ ~/.config/
 
-	cp {.ackrc,.aliases,.exports,.functions,.gitconfig,.gitignore,.zshrc} ~
-
-	touch ~/.extra
+	cp -R {.ackrc,.gitconfig,.gitignore,.zshrc,.zsh_plugins.txt} ~
+	cp -R zsh/ ~/.zsh/ && touch ~/.zsh/extra.zsh
+	cp -R bin/ ~/.bin
 
 	git config --global user.name "$(name)"
 	git config --global user.email $(email)
 	git config --global user.username $(username)
 
-install.brew:
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+backup: backup.brew backup.terminal
 
-install.ohmyzsh:
-	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-install: install.brew install.ohmyzsh
-	touch ~/.extra
-
-# Backup brew packages
 backup.brew:
 	brew leaves --installed-on-request >  brew/brew-list.txt
 	brew list --cask >  brew/brew-list-cask.txt
