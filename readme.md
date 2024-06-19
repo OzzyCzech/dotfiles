@@ -14,18 +14,18 @@ Then install the following packages:
 brew install git zsh zsh-completions antidote zed
 ```
 
+Then set Zsh as your default shell:
+
+```shell
+chsh -s /bin/zsh
+```
+
 - [Zsh](https://www.zsh.org/) - shell designed for interactive use
 - [Zsh Completions](https://github.com/zsh-users/zsh-completions) - additional completion definitions for Zsh
 - [Oh My Zsh](https://ohmyz.sh/) - framework for managing your Zsh configuration
 - [Antidote](https://getantidote.github.io) - fast zsh plugin manager
 - [Git](https://git-scm.com/) - version control system
 - [Zed](https://zed.dev/) - code editor for the 21st century
-
-To set `zsh` as your default shell with `chsh` command:
-
-```shell
-chsh -s /bin/zsh
-```
 
 ## Install dotfiles
 
