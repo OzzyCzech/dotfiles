@@ -15,6 +15,8 @@ brew install git zsh zsh-completions antidote zed
 ```
 
 - [Zsh](https://www.zsh.org/) - shell designed for interactive use
+- [Zsh Completions](https://github.com/zsh-users/zsh-completions) - additional completion definitions for Zsh
+- [Oh My Zsh](https://ohmyz.sh/) - framework for managing your Zsh configuration
 - [Antidote](https://getantidote.github.io) - fast ZSH plugin manager
 - [Git](https://git-scm.com/) - version control system
 - [Zed](https://zed.dev/) - code editor for the 21st century
