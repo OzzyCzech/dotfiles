@@ -1,4 +1,4 @@
 autoload -U compinit && compinit
 source ~/.zsh/init.zsh
-source /usr/local/opt/antidote/share/antidote/antidote.zsh
+source $(brew --prefix antidote)/share/antidote/antidote.zsh
 antidote load
