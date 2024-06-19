@@ -8,9 +8,16 @@ This is a collection of my personal dotfiles for configuring macOS.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+Then install the following packages:
+
 ```shell
-brew install git zsh zsh-completions zed antodi
+brew install git zsh zsh-completions antidote zed
 ```
+
+- [Zsh](https://www.zsh.org/) - shell designed for interactive use
+- [Antidote](https://getantidote.github.io) - fast ZSH plugin manager
+- [Git](https://git-scm.com/) - version control system
+- [Zed](https://zed.dev/) - code editor for the 21st century
 
 To set `zsh` as your default shell with `chsh` command:
 
@@ -18,24 +25,10 @@ To set `zsh` as your default shell with `chsh` command:
 chsh -s /bin/zsh
 ```
 
-## Install [Antidote](https://getantidote.github.io)
+## Install dotfiles
 
 ```shell
-
-```
-
-## Clone this repo
-
-First, you need to clone this repo and run the `make sync` command:
-
-```shell
-git clone git@github.com:OzzyCzech/dotfiles.git .dotfiles && cd $_ && make sync
-```
-
-All private config can be saved in `.extra` which you do not commit to this repo and just keep in your `~/`
-
-```shell
-touch ~/.extra && zed ~/.extra
+git clone git@github.com:OzzyCzech/dotfiles.git ~/.dotfiles && cd $_ && make
 ```
 
 ### Setup lock screen message
@@ -51,7 +44,7 @@ Can be set by running the following command:
 
 ### Backup `.ssh` keys
 
-Do not forget to backup your `.ssh` keys, you can use the following command:
+Do not forget to back up your `.ssh` keys, you can use the following command:
 
 ```shell
 zip -r ~/Downloads/ssh.zip ~/.ssh
@@ -63,10 +56,3 @@ zip -r ~/Downloads/ssh.zip ~/.ssh
 brew install mackup
 mackup backup
 ```
-
-## Thanks for inspiration
-
-- https://github.com/addyosmani/dotfiles/
-- https://github.com/paulirish/dotfiles/
-- https://github.com/mathiasbynens/dotfiles/
-- https://github.com/alfunx/.dotfiles
