@@ -14,7 +14,7 @@ Then install the following packages:
 brew install git zsh zsh-completions antidote zed
 ```
 
-Then set Zsh as your default shell:
+Then set zsh as your default shell:
 
 ```shell
 chsh -s /bin/zsh
