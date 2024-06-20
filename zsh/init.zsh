@@ -8,6 +8,8 @@ source "$SOURCE/aliases.zsh"
 
 # Functions
 source "$SOURCE/functions.zsh"
+source "$SOURCE/password.zsh"
+source "$SOURCE/encode64.zsh"
 
 # Libraries
 source "$SOURCE/history.zsh"
