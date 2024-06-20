@@ -1,23 +1,19 @@
 # OzzyCzech's dotfiles for macOS
 
-This is a collection of my personal dotfiles for configuring macOS.
+This is a collection of my personal **dotfiles** for configuring macOS.
 
-## Install [brew](https://brew.sh)
+## Before you start
+
+You need to install [Homebrew](https://brew.sh/) first:
 
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Then install the following packages:
+then some basic tools:
 
 ```shell
 brew install git zsh zsh-completions antidote zed
-```
-
-Then set zsh as your default shell:
-
-```shell
-chsh -s /bin/zsh
 ```
 
 - [Zsh](https://www.zsh.org/) - shell designed for interactive use
@@ -27,22 +23,37 @@ chsh -s /bin/zsh
 - [Git](https://git-scm.com/) - version control system
 - [Zed](https://zed.dev/) - code editor for the 21st century
 
-## Install dotfiles
+and set zsh as your default shell:
+
+```shell
+chsh -s /bin/zsh
+```
+
+## Dotfiles installation
 
 ```shell
 git clone git@github.com:OzzyCzech/dotfiles.git ~/.dotfiles && cd $_ && make
 ```
 
-### Setup lock screen message
+## Docs
+
+### Setup defaults
+
+There is a bunch of setup scripts in the `setup` directory. You can run them one by one:
+
+```shell
+source ./setup/defaults.zsh
+```
+
+#### Setup lock screen message 
 
 The lock screen message can help you to get your lost device back.
 Can be set by running the following command:
 
 ```shell
-./defaults/ScreenMessage.sh " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
+set-lock-message " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
+set-screen-capture ~/Downloads
 ```
-
-## Backup your settings
 
 ### Backup `.ssh` keys
 
