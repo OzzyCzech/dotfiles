@@ -88,20 +88,3 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 # URL-encode strings
 alias url-encode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
-########################################################################################################################
-# Docker
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose
-########################################################################################################################
-
-# docker compose
-alias dc="docker compose "
-function dce() { docker compose exec "$1" @2; }
-function dcei() { docker compose exec -it "$1" /bin/bash; }
-
-# docker
-alias dps="docker ps"
-alias dpa="docker system prune --all --force && docker image prune --all --force"
-function de() { docker exec "$1" @2; }
-function dei() { docker exec -it "$1" /bin/bash; }
