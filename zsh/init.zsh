@@ -4,12 +4,14 @@ SOURCE=${0%/*}
 source "$SOURCE/paths.zsh"
 
 # Aliases
+source "$SOURCE/eza.zsh"
 source "$SOURCE/aliases.zsh"
 
 # Functions
 source "$SOURCE/functions.zsh"
 source "$SOURCE/password.zsh"
 source "$SOURCE/encode64.zsh"
+source "$SOURCE/autoenv.zsh"
 
 # Libraries
 source "$SOURCE/history.zsh"

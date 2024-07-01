@@ -1,5 +1,3 @@
-#!/bin/bash
-
 alias desktop="cd ~/Desktop"
 alias downloads="cd ~/Downloads"
 alias documents="cd ~/Documents"
@@ -35,18 +33,6 @@ print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-tim
 
 alias yup="yarn upgrade-interactive --latest"
 alias npm-list-globals="npm list -g --depth 0"
-
-########################################################################################################################
-# List aliases
-########################################################################################################################
-
-# Always use color output for `ls`
-# https://eza.rocks/
-alias ls="eza"
-alias l="eza --long"
-alias la="eza --long --header"
-alias ll="eza -lha"
-alias lsd="ls -lF | grep --color=never '^d'"
 
 ########################################################################################################################
 # Internet

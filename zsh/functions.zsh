@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # concat multiple video files to single one
 # params video-concat *.MP4 output.mp4
 function video-concat() {
