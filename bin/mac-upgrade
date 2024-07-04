@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 if ! command -v brew &> /dev/null
 then
@@ -8,6 +8,12 @@ fi
 printf "\e[1;34m%s\e[0m\n" "🍺 Brew update and upgrade"
 brew update && brew upgrade && brew upgrade --cask --greedy
 brew cleanup && brew autoremove && brew doctor
+
+if [[ -f "$(brew --prefix antidote)/share/antidote/antidote.zsh" ]]; then
+  printf "\e[1;34m%s\e[0m\n" "Antidote update"
+  source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
+  antidote update
+fi
 
 printf "\e[1;34m%s\e[0m\n" "💻 Update macOS"
 softwareupdate -i -a
