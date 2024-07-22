@@ -55,25 +55,30 @@ function heic() {
 # Set cover image to audio files
 # example: set-cover -i cover.png *.mp3
 function set-cover() {
-  if [ "$1" != "-i" ] || [ -z "$2" ] || [ -z "$3" ]; then
-    echo "Usage: set-cover -i cover.png *.mp3|*.m4a"
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: set-cover cover.png|jpg *.mp3|*.m4a"
     return 1
   fi
 
-  cover="$2"
-  shift 2
+  # Check if ffmpeg is installed
+  if ! command -v ffmpeg &>/dev/null; then
+    echo "Error: ffmpeg is not installed."
+    return 1
+  fi
+
+  cover="$1"
+  shift
   files=("$@")
 
-  for i in "${files[@]}"; do
-    extension="${i##*.}"
-    if [ "$extension" == "mp3" ]; then
-      ffmpeg -y -loglevel error -hide_banner -nostats -i "$i" -i "$cover" -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "tmp.${extension}"
-    elif [ "$extension" == "m4a" ]; then
-      ffmpeg -y -loglevel error -hide_banner -nostats -i "$i" -i "$cover" -map 0:0 -map 1:0 -c copy -disposition:v:0 attached_pic "tmp.${extension}"
-    else
-      echo "Unsupported file type: $i"
+  for file in "${files[@]}"; do
+    ext="${file##*.}"
+    output="out.${ext}"
+    args=(-y -loglevel error -hide_banner -nostats -i "$file" -i "$cover" -codec copy -map 0:a -map 1)
+    if [ "$ext" = "mp3" ]; then
+      ffmpeg "${args[@]}" -metadata:s:v title="Album Cover" -metadata:s:v comment="Cover (front)" "$output" && mv "$output" "$file"
+    elif [ "$ext" = "m4a" ]; then
+      ffmpeg "${args[@]}" -disposition:v:0 attached_pic "$output" && mv "$output" "$file"
     fi
-    mv "tmp.${extension}" "$i"
   done
 }
 
