@@ -22,10 +22,9 @@ function rename-multimedia() {
 
 # Rename all files in folder to sequential filenames
 function rename-sequenced() {
-  r=$'\e[31m'  nl=$'\n'  n=$'\e[0m' files=$(ls -1 | wc -l)
+  r=$'\e[31m' nl=$'\n' n=$'\e[0m' files=$(ls -1 | wc -l)
   read -r -p "${r}All ${files} files in folder '$(pwd)' will be sequentially renamed${nl}${n}Are you sure? [y/N] " response
-  if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
-  then
+  if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
     rename --counter-format 000001 --lower-case --keep-extension --expr='$_ = "$N" if @EXT' *
   fi
 }
@@ -34,14 +33,14 @@ function rename-sequenced() {
 function cleandrive() {
   if [ -n "$1" ] && [ -d "/Volumes/$1/" ]; then
     read -r -p "Clean /Volumes/$1/ and unmount? [y/N] " response
-      if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-        find "/Volumes/$1/" -name "._*" -type f -delete
-        find "/Volumes/$1/" -name "*.DS_Store" -type f -ls -delete
-        rm -rf "/Volumes/$1/.Spotlight-V100/"
-        rm -rf "/Volumes/$1/.Trashes/"
-        diskutil unmount "/Volumes/$1/"
-        echo "Done..."
-      fi
+    if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+      find "/Volumes/$1/" -name "._*" -type f -delete
+      find "/Volumes/$1/" -name "*.DS_Store" -type f -ls -delete
+      rm -rf "/Volumes/$1/.Spotlight-V100/"
+      rm -rf "/Volumes/$1/.Trashes/"
+      diskutil unmount "/Volumes/$1/"
+      echo "Done..."
+    fi
   else
     echo "Drive '$1' missing"
   fi
@@ -50,7 +49,32 @@ function cleandrive() {
 # Convert all images to HEIC
 # example: heic *.jpg
 function heic() {
-  for i in "$@"; do sips -s format heic -s formatOptions 80 "$i" --out "${i%.*}.heic";done
+  for i in "$@"; do sips -s format heic -s formatOptions 80 "$i" --out "${i%.*}.heic"; done
+}
+
+# Set cover image to audio files
+# example: set-cover -i cover.png *.mp3
+function set-cover() {
+  if [ "$1" != "-i" ] || [ -z "$2" ] || [ -z "$3" ]; then
+    echo "Usage: set-cover -i cover.png *.mp3|*.m4a"
+    return 1
+  fi
+
+  cover="$2"
+  shift 2
+  files=("$@")
+
+  for i in "${files[@]}"; do
+    extension="${i##*.}"
+    if [ "$extension" == "mp3" ]; then
+      ffmpeg -y -loglevel error -hide_banner -nostats -i "$i" -i "$cover" -map 0:0 -map 1:0 -c copy -id3v2_version 3 -metadata:s:v title="Album cover" -metadata:s:v comment="Cover (front)" "tmp.${extension}"
+    elif [ "$extension" == "m4a" ]; then
+      ffmpeg -y -loglevel error -hide_banner -nostats -i "$i" -i "$cover" -map 0:0 -map 1:0 -c copy -disposition:v:0 attached_pic "tmp.${extension}"
+    else
+      echo "Unsupported file type: $i"
+    fi
+    mv "tmp.${extension}" "$i"
+  done
 }
 
 # Create a new directory and enter it
