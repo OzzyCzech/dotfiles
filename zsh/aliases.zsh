@@ -49,7 +49,7 @@ alias ips="ifconfig -a | grep -oE '\d+\.\d+\.\d+\.\d+' | sort | uniq"
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias dns-flush="dscacheutil -flushcache; killall -HUP mDNSResponder;"
+alias dns-flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder;"
 
 ########################################################################################################################
 # Network
