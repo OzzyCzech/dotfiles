@@ -1,5 +1,5 @@
-zsh-users/zsh-completions
-zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions kind:fpath path:src
+zsh-users/zsh-syntax-highlighting kind:defer
 
 # oh-my-zsh plugins
 ohmyzsh/ohmyzsh path:lib
@@ -11,6 +11,7 @@ ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/httpie/_httpie kind:fpath
 ohmyzsh/ohmyzsh path:plugins/rsync
 ohmyzsh/ohmyzsh path:plugins/aliases
+ohmyzsh/ohmyzsh path:plugins/yarn
 ohmyzsh/ohmyzsh path:plugins/wd
 
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
