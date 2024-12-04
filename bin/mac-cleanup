@@ -2,7 +2,7 @@
 
 set -e
 
-# empty the trash.swift
+# clear trash
 rm -rf ~/.Trash/*
 
 # check if docker is installed

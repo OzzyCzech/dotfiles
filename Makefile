@@ -15,7 +15,7 @@ install:
 	git config --global user.username $(username)
 
 utils:
-	swiftc utils/trash.swift -o ~/.bin/trash
+	swiftc utils/del.swift -o ~/.bin/del
 
 backup: backup.brew backup.terminal
 
