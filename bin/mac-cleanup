@@ -7,12 +7,27 @@ rm -rf ~/.Trash/*
 
 # check if docker is installed
 if command -v docker &>/dev/null; then
-  docker system prune -a -f
+  docker system prune --all --force
 fi
 
 # check if brew is installed
 if command -v brew &>/dev/null; then
   brew cleanup -s
+fi
+
+# check if npm is installed
+if command -v npm &>/dev/null; then
+  npm cache clean --force
+fi
+
+# check if yarn is installed
+if command -v yarn &>/dev/null; then
+  yarn cache clean
+fi
+
+# check if composer is installed
+if command -v composer &>/dev/null; then
+  composer clear-cache
 fi
 
 # delete Apple System Logs to speed up Terminal.app
