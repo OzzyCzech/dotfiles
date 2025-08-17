@@ -31,7 +31,8 @@ print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-tim
 # Yarn / npm
 ########################################################################################################################
 
-alias yup="yarn upgrade-interactive --latest"
+alias yup="echo 'Please use pup instead :)' && pup"
+alias pup="npx taze minor --write --recursive --install --interactive --include-locked"
 alias npm-list-globals="npm list -g --depth 0"
 
 ########################################################################################################################
