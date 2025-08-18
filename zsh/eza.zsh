@@ -30,5 +30,3 @@ alias ls-modified='la --sort=modified'
 alias ls-size='la --sort=size'
 # Long, sort extension
 alias ls-extension='la --sort=extension'
-
-
