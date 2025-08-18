@@ -1,6 +1,6 @@
-alias desktop="cd ~/Desktop"
-alias downloads="cd ~/Downloads"
-alias documents="cd ~/Documents"
+alias des="cd ~/Desktop"
+alias dwn="cd ~/Downloads"
+alias doc="cd ~/Documents"
 alias work="cd /Volumes/Work"
 
 ########################################################################################################################
@@ -28,11 +28,11 @@ print-to-pdf() { chrome --headless --disable-gpu --no-pdf-header-footer --no-mar
 print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-time-budget=2000 --window-size=1920,1428 --screenshot="${2:-screenshot.png}" "$1" > /dev/null 2>&1; }
 
 ########################################################################################################################
-# Yarn / npm
+# Package management
 ########################################################################################################################
 
-alias yup="echo 'Please use pup instead :)' && pup"
 alias pup="npx taze minor --write --recursive --install --interactive --include-locked"
+alias pup-globals="npx taze major --write --recursive --install --interactive --include-locked --global"
 alias npm-list-globals="npm list -g --depth 0"
 
 ########################################################################################################################
@@ -84,8 +84,8 @@ alias fs="stat -f \"%z bytes\""
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
 
 # Show/hide hidden files in Finder
-alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias show-hidden-files="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide-hidden-files="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # URL-encode strings
 alias url-encode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
