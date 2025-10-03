@@ -34,6 +34,7 @@ print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-tim
 alias pup="npx taze minor --write --recursive --install --interactive --include-locked"
 alias pup-globals="npx taze major --write --recursive --install --interactive --include-locked --global"
 alias npm-list-globals="npm list -g --depth 0"
+alias composer="composer --ignore-platform-reqs"
 
 ########################################################################################################################
 # Internet
