@@ -13,6 +13,7 @@ fi
 # check if brew is installed
 if command -v brew &>/dev/null; then
   brew cleanup -s
+  brew autoremove
 fi
 
 # check if npm is installed
@@ -35,6 +36,12 @@ sudo rm -rfv /private/var/log/asl/*.asl &>/dev/null
 
 # delete all logs from /Library/Logs/DiagnosticReports/
 sudo rm -rfv /Library/Logs/DiagnosticReports/* &>/dev/null
+
+# check if path exists
+if [ -d ~/.cache/puppeteer/chrome/ ]; then
+  rm -rf ~/.cache/puppeteer/chrome/*
+  killall Finder
+fi
 
 # https://github.com/mac-cleanup/mac-cleanup-sh/tree/main
 # https://github.com/fengzmg/clean-my-mac/blob/master/clean_my_mac.sh
