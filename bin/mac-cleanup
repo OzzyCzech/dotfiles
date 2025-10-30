@@ -12,7 +12,7 @@ fi
 
 # check if brew is installed
 if command -v brew &>/dev/null; then
-  brew cleanup -s
+  brew cleanup --prune=all
   brew autoremove
 fi
 
