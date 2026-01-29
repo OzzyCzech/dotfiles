@@ -26,7 +26,7 @@ You can also download only my [Terminal.app color settings](https://raw.githubus
 
 Set in Terminal configuration `⌘+,` in **Advanced > Declarative terminal** as `ansi` to enable numpad keyboard.
 
-## iTherm2
+## iTerm2
 
 There is iTerm2 color scheme in the `OzzyCzech.itermcolors` file
 and while profile backup in `OzzyCzech.json` file.
