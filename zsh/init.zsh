@@ -17,5 +17,5 @@ source "$SOURCE/docker.zsh"
 source "$SOURCE/history.zsh"
 source "$SOURCE/prompt.zsh"
 
-# Load extra (if available
+# Load extra (if available)
 [[ -f "$SOURCE/extra.zsh" ]] && source "$SOURCE/extra.zsh"

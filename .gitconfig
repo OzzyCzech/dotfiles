@@ -155,7 +155,6 @@ open = "!f() { open $(git config remote.${1:-origin}.url | sed -E 's/:([^\\/])/\
 who = shortlog --summary --numbered --no-merges
 which = branch --all --contains
 which-tag = describe --always --contains
-who = shortlog --summary --numbered --no-merges
 whoami = "!echo $(git config --get user.name) '<'$(git config --get user.email)'>'"
 
 
@@ -165,7 +164,7 @@ d = !git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-s
 # Switch to a branch, creating it if necessary
 go = switch -c
 
-# Determinate what's default branch
+# Determine what's default branch
 main = !basename $(git symbolic-ref --short refs/remotes/origin/HEAD)
 
 # Show latest hash short

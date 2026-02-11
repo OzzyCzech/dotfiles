@@ -1,6 +1,6 @@
-name = $(shell git config user.name)
-email = $(shell git config user.email)
-username = $(shell git config user.username)
+name := $(shell git config user.name)
+email := $(shell git config user.email)
+username := $(shell git config user.username)
 
 install:
 	touch ~/.hushlogin
@@ -20,7 +20,7 @@ utils:
 backup: backup.brew backup.terminal
 
 backup.brew:
-	brew leaves --installed-on-request >  brew/brew-list.txt
+	brew leaves --installed-on-request > brew/brew-list.txt
 	brew list --cask >  brew/brew-list-cask.txt
 	brew tap > brew/brew-tap.txt
 

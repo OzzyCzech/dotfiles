@@ -1,1 +1,3 @@
+hashicorp/tap
 mongodb/brew
+oven-sh/bun
