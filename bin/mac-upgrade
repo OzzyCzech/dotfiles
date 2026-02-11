@@ -18,4 +18,15 @@ fi
 printf "\e[1;34m%s\e[0m\n" "💻 Update macOS"
 softwareupdate -i -a
 
+# VS Code and Cursor extensions update
+if [[ -f "code" ]]; then
+  printf "\e[1;34m%s\e[0m\n" "💻 VS Code extensions update"
+  code --update-extensions
+fi
+
+if [[ -f "cursor" ]]; then
+  printf "\e[1;34m%s\e[0m\n" "💻 Cursor extensions update"
+  cursor --update-extensions
+fi
+
 printf "\e[1;32m%s\e[0m\n" "✅ Done! Your system is up to date!"
