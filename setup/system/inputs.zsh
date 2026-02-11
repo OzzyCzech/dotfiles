@@ -9,7 +9,7 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 # Automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Disable the “Are you sure you want to open this application?” dialog
+# Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Disable Resume system-wide
@@ -45,7 +45,7 @@ defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 1
 
-# Disable „natural” scrolling
+# Disable „natural" scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 ###############################################################################

@@ -3,7 +3,7 @@
 # TextEdit                                                                     #
 ###############################################################################
 
-# Disable smart quotes as they’re annoying when typing code
+# Disable smart quotes as they're annoying when typing code
 defaults write com.apple.TextEdit SmartQuotes -int 0
 
 # Use plain text mode for new TextEdit documents

@@ -19,7 +19,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 
-# Minimize windows into their application’s icon
+# Minimize windows into their application's icon
 defaults write com.apple.dock minimize-to-application -bool true
 
 # Remove the auto-hiding Dock delay
