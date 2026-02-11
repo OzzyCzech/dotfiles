@@ -1,199 +1,247 @@
 #!/usr/bin/env swift
 //
-// Backup utility: copies files and directories to an output directory.
+// backup — backs up files and directories to the output directory while preserving structure.
 //
 // Usage:
-//   backup -c <config.json> <out>        — sources from JSON config
-//   backup <source1> <source2> ... <out> — copy listed paths into out/
+//   backup -c <config.json> <output_directory>
+//   backup <path1> <path2> ... <output_directory>
 //
-// Config (JSON): ["path1", "path2"] | { "sources": [...] } | { "zed": [...], "vscode": [...] }
-//                | [ { "name": "Zed", "paths": ["~/.config/zed/settings.json", ...] }, ... ]
-//
-// Only existing files/directories are copied. Paths with ~ are expanded.
+// Configuration (JSON): array of objects { "name": "Name", "paths": ["~/path", ...] }
+// Supports: ["path"], { "sources": [...] }, { "key": [paths] }
 //
 
 import Foundation
 
-let manager = FileManager.default
+// MARK: - Cesty
 
-func expandPath(_ path: String) -> String {
-    (path as NSString).expandingTildeInPath
-}
+enum Paths {
+    static let home = (NSString(string: "~").expandingTildeInPath as NSString).standardizingPath
 
-let homePath = expandPath("~")
-
-/// Display path: under home → "~/" + relative; else absolute.
-func shortPath(absolutePath: String) -> String {
-    let abs = (absolutePath as NSString).standardizingPath
-    if abs.hasPrefix(homePath) {
-        let suffix = String(abs.dropFirst(homePath.count))
-        return "~" + (suffix.hasPrefix("/") ? suffix : "/" + suffix)
+    static func expand(_ path: String) -> String {
+        (path as NSString).expandingTildeInPath
     }
-    return abs
-}
 
-/// Returns path to preserve under backup root: under home → relative to home; else → relative to /.
-func relativeBackupPath(absolutePath: String) -> String {
-    let abs = (absolutePath as NSString).standardizingPath
-    if abs.hasPrefix(homePath) {
-        let suffix = String(abs.dropFirst(homePath.count))
-        return suffix.hasPrefix("/") ? String(suffix.dropFirst(1)) : suffix
+    /// For display: under home → ~/..., otherwise absolute
+    static func short(_ absolute: String) -> String {
+        let abs = (absolute as NSString).standardizingPath
+        if abs.hasPrefix(home) {
+            let suffix = String(abs.dropFirst(home.count))
+            return "~" + (suffix.hasPrefix("/") ? suffix : "/" + suffix)
+        }
+        return abs
     }
-    return abs.hasPrefix("/") ? String(abs.dropFirst(1)) : abs
-}
 
-func copyItem(at src: URL, to dest: URL) throws {
-    try manager.createDirectory(at: dest.deletingLastPathComponent(), withIntermediateDirectories: true)
-    if manager.fileExists(atPath: dest.path) {
-        try manager.removeItem(at: dest)
+    /// Relative path under backup root (under home → relative to home)
+    static func relativeToBackupRoot(absolute: String) -> String {
+        let abs = (absolute as NSString).standardizingPath
+        if abs.hasPrefix(home) {
+            let suffix = String(abs.dropFirst(home.count))
+            return suffix.hasPrefix("/") ? String(suffix.dropFirst(1)) : suffix
+        }
+        return abs.hasPrefix("/") ? String(abs.dropFirst(1)) : abs
     }
-    try manager.copyItem(at: src, to: dest)
 }
 
-/// One source entry: optional group name (folder under out), and absolute path.
-struct BackupItem {
-    let group: String?
-    let path: String
+// MARK: - Configuration
+
+struct BackupGroup {
+    var name: String?
+    var paths: [String]
 }
 
-/// Parse JSON object/array into backup items.
-/// Supports: array of paths, { "sources": [...] }, { "key": [paths] }, or [ { "name", "paths" } ].
-func parseBackupJSON(_ json: Any) -> [BackupItem]? {
-    if let arr = json as? [String] {
-        return arr.map { BackupItem(group: nil, path: expandPath($0)) }
+struct BackupConfig {
+    var groups: [BackupGroup]
+}
+
+extension BackupConfig {
+    /// Load configuration from JSON file
+    static func load(from path: String) -> BackupConfig? {
+        let fullPath = Paths.expand(path)
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: fullPath)),
+              let json = try? JSONSerialization.jsonObject(with: data) else { return nil }
+        return parse(json)
     }
-    // New format: [ { "name": "Zed", "paths": ["...", ...] }, ... ]
-    if let arr = json as? [[String: Any]] {
-        var items: [BackupItem] = []
-        for entry in arr {
-            guard let paths = entry["paths"] as? [String] else { continue }
-            let name = entry["name"] as? String
-            for p in paths {
-                items.append(BackupItem(group: name, path: expandPath(p)))
+
+    /// Parse JSON into a uniform format [ { name, paths } ]
+    static func parse(_ json: Any) -> BackupConfig? {
+        if let arr = json as? [String] {
+            return BackupConfig(groups: [BackupGroup(name: nil, paths: arr)])
+        }
+        if let arr = json as? [[String: Any]] {
+            let groups = arr.compactMap { entry -> BackupGroup? in
+                guard let paths = entry["paths"] as? [String], !paths.isEmpty else { return nil }
+                let name = entry["name"] as? String
+                return BackupGroup(name: name, paths: paths)
             }
+            return groups.isEmpty ? nil : BackupConfig(groups: groups)
         }
-        return items.isEmpty ? nil : items
+        guard let obj = json as? [String: Any] else { return nil }
+        if let arr = obj["sources"] as? [String] {
+            return BackupConfig(groups: [BackupGroup(name: nil, paths: arr)])
+        }
+        var groups: [BackupGroup] = []
+        for (name, value) in obj {
+            guard let paths = value as? [String], !paths.isEmpty else { continue }
+            groups.append(BackupGroup(name: name, paths: paths))
+        }
+        return groups.isEmpty ? nil : BackupConfig(groups: groups)
     }
-    guard let obj = json as? [String: Any] else { return nil }
-    if let arr = obj["sources"] as? [String] {
-        return arr.map { BackupItem(group: nil, path: expandPath($0)) }
-    }
-    var items: [BackupItem] = []
-    for (name, value) in obj {
-        guard let paths = value as? [String] else { continue }
-        for p in paths {
-            items.append(BackupItem(group: name, path: expandPath(p)))
+
+    /// All items (group + path) in order for backup
+    func items() -> [(group: String?, path: String)] {
+        groups.flatMap { g in
+            g.paths.map { (g.name, Paths.expand($0)) }
         }
     }
-    return items.isEmpty ? nil : items
 }
 
-/// Load backup items from a JSON config file.
-func loadBackupItems(fromConfigPath path: String) -> [BackupItem]? {
-    let expanded = expandPath(path)
-    guard let data = try? Data(contentsOf: URL(fileURLWithPath: expanded)),
-          let json = try? JSONSerialization.jsonObject(with: data) else { return nil }
-    return parseBackupJSON(json)
+// MARK: - Backup
+
+enum CopyOutcome {
+    case copied
+    case skipped(reason: String)
+    case failed(Error)
 }
 
-func run() {
-    var args = Array(CommandLine.arguments.dropFirst())
-    if args.first?.hasSuffix(".swift") == true {
-        args.removeFirst()
+final class BackupRunner {
+    private let fileManager = FileManager.default
+    private let outputDir: URL
+    private let dryRun: Bool
+
+    init(outputDir: URL, dryRun: Bool = false) {
+        self.outputDir = outputDir
+        self.dryRun = dryRun
     }
 
-    let usage = "Usage: backup -c <config.json> <out>  or  backup <source1> <source2> ... <out>\n"
-    guard !args.isEmpty else {
-        fputs(usage, stderr)
-        exit(1)
-    }
+    func run(config: BackupConfig) -> (copied: Int, skipped: Int, failed: Int) {
+        try? fileManager.createDirectory(at: outputDir, withIntermediateDirectories: true)
+        var copied = 0, skipped = 0, failed = 0
+        var lastGroup: String? = nil
+        let items = config.items()
 
-    var outDirArg: String
-    var items: [BackupItem]
+        for (group, path) in items {
+            if group != lastGroup {
+                if lastGroup != nil { print() }
+                lastGroup = group
+                if let name = group, !name.isEmpty { print(name) }
+            }
 
-    if args.first == "-c" || args.first == "--config" {
-        args.removeFirst()
-        guard args.count >= 2 else {
-            fputs("With -c: provide config path and output dir.\n" + usage, stderr)
-            exit(1)
-        }
-        let configPath = args.removeFirst()
-        outDirArg = args.removeLast()
-        guard args.isEmpty else {
-            fputs("With -c: only config path and output dir allowed.\n" + usage, stderr)
-            exit(1)
-        }
-        guard let loaded = loadBackupItems(fromConfigPath: configPath) else {
-            fputs("Failed to load config from \(configPath). Use JSON: array of paths, { \"sources\": [...] }, { \"key\": [paths] }, or [ { \"name\", \"paths\" } ].\n", stderr)
-            exit(1)
-        }
-        items = loaded
-    } else {
-        guard args.count >= 2 else {
-            fputs("Provide at least one source and output dir.\n" + usage, stderr)
-            exit(1)
-        }
-        outDirArg = args.removeLast()
-        items = args.map { BackupItem(group: nil, path: expandPath($0)) }
-    }
+            let displayPath = Paths.short(path)
+            let outcome = copyItem(absolutePath: path)
 
-    let outDirPath = expandPath(outDirArg)
-    let outDir = URL(fileURLWithPath: outDirPath)
-
-    if items.isEmpty {
-        fputs("No sources to backup.\n", stderr)
-        exit(1)
-    }
-
-    do {
-        try manager.createDirectory(at: outDir, withIntermediateDirectories: true)
-    } catch {
-        fputs("Cannot create output directory \(outDirPath): \(error)\n", stderr)
-        exit(1)
-    }
-
-    var copied = 0
-    var skipped = 0
-    var lastGroup: String? = nil
-
-    for item in items {
-        if item.group != lastGroup {
-            if lastGroup != nil { print() }
-            lastGroup = item.group
-            if let name = item.group, !name.isEmpty {
-                print("\(name)")
+            switch outcome {
+            case .copied:
+                print("  ✓ \(displayPath)")
+                copied += 1
+            case .skipped(let reason):
+                print("  − \(displayPath)  (\(reason))")
+                skipped += 1
+            case .failed(let error):
+                fputs("  ✗ \(displayPath)  \(error.localizedDescription)\n", stderr)
+                failed += 1
             }
         }
 
-        let url = URL(fileURLWithPath: item.path)
-        let displaySrc = shortPath(absolutePath: item.path)
-
-        guard manager.fileExists(atPath: url.path) else {
-            print("  − \(displaySrc)  (not found)")
-            skipped += 1
-            continue
+        if copied + skipped + failed > 0 {
+            print()
+            var parts: [String] = []
+            if copied > 0 { parts.append("Copied: \(copied)") }
+            if skipped > 0 { parts.append("Skipped: \(skipped)") }
+            if failed > 0 { parts.append("Failed: \(failed)") }
+            print(parts.joined(separator: "  "))
         }
 
-        let relative = relativeBackupPath(absolutePath: url.path)
-        // Keep original directory structure only; no subfolders per config name
-        let destPath = (outDir.path as NSString).appendingPathComponent(relative)
-        let dest = URL(fileURLWithPath: destPath)
+        return (copied, skipped, failed)
+    }
+
+    private func copyItem(absolutePath: String) -> CopyOutcome {
+        let src = URL(fileURLWithPath: (absolutePath as NSString).standardizingPath)
+        guard fileManager.fileExists(atPath: src.path) else {
+            return .skipped(reason: "not found")
+        }
+        let relative = Paths.relativeToBackupRoot(absolute: src.path)
+        let dest = outputDir.appendingPathComponent(relative)
+
+        if dryRun {
+            return .copied
+        }
         do {
-            try copyItem(at: url, to: dest)
-            print("  ✓ \(displaySrc)")
-            copied += 1
+            try fileManager.createDirectory(at: dest.deletingLastPathComponent(), withIntermediateDirectories: true)
+            if fileManager.fileExists(atPath: dest.path) {
+                try fileManager.removeItem(at: dest)
+            }
+            try fileManager.copyItem(at: src, to: dest)
+            return .copied
         } catch {
-            fputs("  ✗ \(displaySrc)  \(error)\n", stderr)
+            return .failed(error)
         }
-    }
-
-    if copied > 0 || skipped > 0 {
-        print()
-        var parts: [String] = []
-        if copied > 0 { parts.append("Copied: \(copied)") }
-        if skipped > 0 { parts.append("Skipped: \(skipped)") }
-        print(parts.joined(separator: "  "))
     }
 }
 
-run()
+// MARK: - CLI
+
+struct CLI {
+    static let usage = """
+        Usage: backup -c <config.json> <output_dir>
+               backup <path1> <path2> ... <output_dir>
+
+        Options:
+          -c, --config <file>   load sources from JSON
+          --dry-run             only print, do not copy
+        """
+
+    static func run() {
+        var args = Array(CommandLine.arguments.dropFirst())
+        if args.first?.hasSuffix(".swift") == true { args.removeFirst() }
+
+        guard !args.isEmpty else {
+            fputs(usage + "\n", stderr)
+            exit(1)
+        }
+
+        let dryRun = args.contains("--dry-run")
+        args.removeAll { $0 == "--dry-run" }
+
+        let config: BackupConfig
+        let outputDirArg: String
+
+        if args.first == "-c" || args.first == "--config" {
+            args.removeFirst()
+            guard args.count >= 2 else {
+                fputs("When using -c, the config path and output directory are required.\n" + usage + "\n", stderr)
+                exit(1)
+            }
+            let configPath = args.removeFirst()
+            outputDirArg = args.removeLast()
+            guard args.isEmpty else {
+                fputs("When using -c, only the config and output directory are required.\n" + usage + "\n", stderr)
+                exit(1)
+            }
+            guard let loaded = BackupConfig.load(from: configPath) else {
+                fputs("Cannot load config: \(configPath). Expected JSON: [ { \"name\", \"paths\" } ] or equivalent.\n", stderr)
+                exit(1)
+            }
+            config = loaded
+        } else {
+            guard args.count >= 2 else {
+                fputs("At least one source path and output directory are required.\n" + usage + "\n", stderr)
+                exit(1)
+            }
+            outputDirArg = args.removeLast()
+            config = BackupConfig(groups: [BackupGroup(name: nil, paths: args)])
+        }
+
+        if config.groups.isEmpty || config.items().isEmpty {
+            fputs("No sources to backup.\n", stderr)
+            exit(1)
+        }
+
+        let outputDir = URL(fileURLWithPath: Paths.expand(outputDirArg))
+        let runner = BackupRunner(outputDir: outputDir, dryRun: dryRun)
+        let (_, _, failed) = runner.run(config: config)
+
+        if failed > 0 { exit(2) }
+    }
+}
+
+CLI.run()
