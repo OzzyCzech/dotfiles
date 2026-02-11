@@ -22,6 +22,16 @@ func expandPath(_ path: String) -> String {
 
 let homePath = expandPath("~")
 
+/// Display path: under home → "~/" + relative; else absolute.
+func shortPath(absolutePath: String) -> String {
+    let abs = (absolutePath as NSString).standardizingPath
+    if abs.hasPrefix(homePath) {
+        let suffix = String(abs.dropFirst(homePath.count))
+        return "~" + (suffix.hasPrefix("/") ? suffix : "/" + suffix)
+    }
+    return abs
+}
+
 /// Returns path to preserve under backup root: under home → relative to home; else → relative to /.
 func relativeBackupPath(absolutePath: String) -> String {
     let abs = (absolutePath as NSString).standardizingPath
@@ -142,22 +152,47 @@ func run() {
         exit(1)
     }
 
+    var copied = 0
+    var skipped = 0
+    var lastGroup: String? = nil
+
     for item in items {
+        if item.group != lastGroup {
+            if lastGroup != nil { print() }
+            lastGroup = item.group
+            if let name = item.group, !name.isEmpty {
+                print("\(name)")
+            }
+        }
+
         let url = URL(fileURLWithPath: item.path)
+        let displaySrc = shortPath(absolutePath: item.path)
+
         guard manager.fileExists(atPath: url.path) else {
-            fputs("Skipping (not found): \(item.path)\n", stderr)
+            print("  − \(displaySrc)  (not found)")
+            skipped += 1
             continue
         }
+
         let relative = relativeBackupPath(absolutePath: url.path)
         // Keep original directory structure only; no subfolders per config name
         let destPath = (outDir.path as NSString).appendingPathComponent(relative)
         let dest = URL(fileURLWithPath: destPath)
         do {
             try copyItem(at: url, to: dest)
-            print("Copied: \(item.path) → \(dest.path)")
+            print("  ✓ \(displaySrc)")
+            copied += 1
         } catch {
-            fputs("Error copying \(item.path): \(error)\n", stderr)
+            fputs("  ✗ \(displaySrc)  \(error)\n", stderr)
         }
+    }
+
+    if copied > 0 || skipped > 0 {
+        print()
+        var parts: [String] = []
+        if copied > 0 { parts.append("Copied: \(copied)") }
+        if skipped > 0 { parts.append("Skipped: \(skipped)") }
+        print(parts.joined(separator: "  "))
     }
 }
 
