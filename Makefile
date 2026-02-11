@@ -19,15 +19,16 @@ utils:
 	swiftc utils/password.swift -o ~/.bin/password
 	swiftc utils/encode64.swift -o ~/.bin/encode64
 
-backup: backup.brew backup.terminal
+backup: backup.apps backup.terminal
 
 backup.zed.settings:
 	cp ~/.config/zed/settings.json config/zed/settings.json
 
-backup.brew:
-	brew leaves --installed-on-request > brew/brew-list.txt
-	brew list --cask >  brew/brew-list-cask.txt
-	brew tap > brew/brew-tap.txt
+backup.apps:
+	brew leaves --installed-on-request > apps/brew-list.txt
+	brew list --cask > apps/brew-list-cask.txt
+	brew tap > apps/brew-tap.txt
+	mas list > apps/mas-list.txt
 
 backup.terminal:
 	cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist
