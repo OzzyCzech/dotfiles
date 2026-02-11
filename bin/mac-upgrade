@@ -29,4 +29,9 @@ if [[ -f "cursor" ]]; then
   cursor --update-extensions
 fi
 
+if [[ -f "mas" ]]; then
+  printf "\e[1;34m%s\e[0m\n" "💻 Mac App Store apps update"
+  mas upgrade
+fi
+
 printf "\e[1;32m%s\e[0m\n" "✅ Done! Your system is up to date!"
