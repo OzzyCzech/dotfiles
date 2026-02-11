@@ -16,8 +16,13 @@ install:
 
 utils:
 	swiftc utils/del.swift -o ~/.bin/del
+	swiftc utils/password.swift -o ~/.bin/password
+	swiftc utils/encode64.swift -o ~/.bin/encode64
 
 backup: backup.brew backup.terminal
+
+backup.zed.settings:
+	cp ~/.config/zed/settings.json config/zed/settings.json
 
 backup.brew:
 	brew leaves --installed-on-request > brew/brew-list.txt

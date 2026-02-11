@@ -36,7 +36,12 @@ chsh -s /bin/zsh
 
 ## Setup scripts
 
-Scripts live in `setup/`. Run individually, e.g.:
+Scripts live in `setup/` (see `setup/README.md` for layout):
+
+- **apps/** — app-specific defaults (Dock, Finder, Mail, …): run e.g. `zsh setup/apps/finder.zsh`
+- **system/** — system & input (keyboard, screensaver, updates); some define functions loaded via `defaults.zsh`
+
+Load helper functions and run one-off tweaks:
 
 ```shell
 source ./setup/defaults.zsh
@@ -63,3 +68,7 @@ zip -r ~/Downloads/ssh.zip ~/.ssh
 brew install mackup
 mackup backup
 ```
+
+### Get inspired
+
+https://dotfiles.github.io/inspiration/
