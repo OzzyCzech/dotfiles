@@ -12,7 +12,7 @@
 
 import Foundation
 
-// MARK: - Cesty
+// MARK: - Paths
 
 enum Paths {
     static let home = (NSString(string: "~").expandingTildeInPath as NSString).standardizingPath
