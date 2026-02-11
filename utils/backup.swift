@@ -178,9 +178,9 @@ final class BackupRunner {
     }
 }
 
-// MARK: - CLI
+// MARK: - Command Line Interface
 
-struct CLI {
+struct CommandLineInterface {
     static let usage = """
         Usage: backup -c <config.json> <output_dir>
                backup <path1> <path2> ... <output_dir>
@@ -244,4 +244,4 @@ struct CLI {
     }
 }
 
-CLI.run()
+CommandLineInterface.run()
