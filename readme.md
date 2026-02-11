@@ -62,12 +62,25 @@ set-screen-capture ~/Downloads
 zip -r ~/Downloads/ssh.zip ~/.ssh
 ```
 
-### Backup app settings with [Mackup](https://github.com/lra/mackup)
+### Backup with backup utility
 
-```shell
-brew install mackup
-mackup backup
-```
+A Swift-based backup utility is included for saving your configuration files and important data. It supports backing up specified files or files listed in a JSON config, only including files and directories that exist. The utility is found in `utils/backup.swift` and is available in `~/.bin/backup` after running `make utils`.
+
+**Usage:**
+
+- To backup specific files or directories:
+  ```shell
+  backup <source1> <source2> ... <out-directory>
+  ```
+
+- To backup paths defined in a JSON configuration:
+  ```shell
+  backup -c <config.json> <out-directory>
+  ```
+
+The JSON config supports lists of paths or groupings for organizing backups. Only files/directories that exist (paths with `~` are supported) will be copied into the backup output directory, retaining relative structure.
+
+For more details and config examples, refer to comments in `utils/backup.swift`.
 
 ### Get inspired
 

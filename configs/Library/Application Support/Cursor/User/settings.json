@@ -1,0 +1,16 @@
+{
+    "window.commandCenter": true,
+    "editor.fontLigatures": false,
+    "editor.fontSize": 16,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "editor.fontFamily": "Menlo",
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "**/.idea": true
+    },
+    "git.postCommitCommand": "push",
+    "workbench.colorTheme": "PhpStorm Dark",
+    "php.completion.docblock": false
+}

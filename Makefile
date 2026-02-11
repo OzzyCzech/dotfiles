@@ -18,11 +18,9 @@ utils:
 	swiftc utils/del.swift -o ~/.bin/del
 	swiftc utils/password.swift -o ~/.bin/password
 	swiftc utils/encode64.swift -o ~/.bin/encode64
+	swiftc utils/backup.swift -o ~/.bin/backup
 
 backup: backup.apps backup.terminal
-
-backup.zed.settings:
-	cp ~/.config/zed/settings.json config/zed/settings.json
 
 backup.apps:
 	brew leaves --installed-on-request > apps/brew-list.txt
@@ -31,7 +29,7 @@ backup.apps:
 	mas list > apps/mas-list.txt
 
 backup.terminal:
-	cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist
+	cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist	
 	plutil -convert xml1 terminal/com.apple.Terminal.plist
 
 .PHONY: $(MAKECMDGOALS)

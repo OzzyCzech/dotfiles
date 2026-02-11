@@ -1,0 +1,50 @@
+{
+  "mermaid.vscode.light" : "neutral",
+  "mermaid.vscode.dark" : "neutral",
+  "team.showWelcomeMessage" : false,
+  "git.confirmSync" : false,
+  "editor.inlineSuggest.enabled" : true,
+  "python.pythonPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/usr\/bin\/python3",
+"editor.renderWhitespace": "all",
+  "explorer.confirmDragAndDrop" : false,
+  "files.associations" : {
+    ".env" : "dotenv"
+  },
+  "hediet.vscode-drawio.local-storage" : "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltcIkwuc2NyYXRjaHBhZFwiXSxcInBsdWdpbnNcIjpbXSxcInJlY2VudENvbG9yc1wiOltdLFwiZm9ybWF0V2lkdGhcIjpcIjI0MFwiLFwiY3JlYXRlVGFyZ2V0XCI6ZmFsc2UsXCJwYWdlRm9ybWF0XCI6e1wieFwiOjAsXCJ5XCI6MCxcIndpZHRoXCI6ODI3LFwiaGVpZ2h0XCI6MTE2OX0sXCJzZWFyY2hcIjp0cnVlLFwic2hvd1N0YXJ0U2NyZWVuXCI6dHJ1ZSxcImdyaWRDb2xvclwiOlwiI2QwZDBkMFwiLFwiZGFya0dyaWRDb2xvclwiOlwiIzZlNmU2ZVwiLFwiYXV0b3NhdmVcIjp0cnVlLFwicmVzaXplSW1hZ2VzXCI6bnVsbCxcIm9wZW5Db3VudGVyXCI6MCxcInZlcnNpb25cIjoxOCxcInVuaXRcIjoxLFwiaXNSdWxlck9uXCI6ZmFsc2UsXCJ1aVwiOlwiXCJ9In0=",
+  "workbench.editorAssociations" : {
+    "*.ipynb" : "jupyter.notebook.ipynb"
+  },
+  "git.postCommitCommand" : "push",
+  "editor.fontSize" : 16,
+  "explorer.confirmDelete" : false,
+  "git.enableSmartCommit" : true,
+  "github.copilot.enable" : {
+    "markdown" : false,
+    "*" : true,
+    "plaintext" : true,
+    "yaml" : false
+  },
+  "editor.tabSize" : 2,
+  "settingsSync.ignoredExtensions" : [
+    "slevesque.vscode-hexdump"
+  ],
+  "editor.accessibilitySupport" : "off",
+  "git.autofetch": true,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "redhat.telemetry.enabled": true,
+  "files.autoSave": "afterDelay",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "files.exclude": {
+    "**/.idea": true
+  },
+  "workbench.colorTheme": "PhpStorm Dark",
+  "makefile.configureOnOpen": true,
+  "workbench.settings.applyToAllProfiles": [
+    "editor.fontSize"
+  ]
+}
