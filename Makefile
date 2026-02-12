@@ -21,6 +21,7 @@ utils:
 	swiftc utils/backup.swift -o ~/.bin/backup
 
 backup: backup.apps backup.terminal
+	backup -c backup.json configs
 
 backup.apps:
 	brew leaves --installed-on-request > apps/brew-list.txt
