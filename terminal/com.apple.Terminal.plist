@@ -54,15 +54,15 @@
 	<key>NSWindow Frame New Command Panel</key>
 	<string>471 667 499 128 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTAppPreferences</key>
-	<string>905 532 667 572 0 0 2560 1410 </string>
+	<string>1339 446 667 572 0 0 2560 1410 </string>
 	<key>NSWindow Frame TTInspector</key>
 	<string>2186 811 281 559 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow</key>
-	<string>449 304 1623 979 0 0 2560 1410 </string>
+	<string>188 359 1623 979 0 0 2560 1410 </string>
 	<key>NSWindow Frame TTWindow Basic</key>
 	<string>534 551 570 371 0 0 1728 1079 </string>
 	<key>NSWindow Frame TTWindow OzzyCzech</key>
-	<string>535 372 1280 910 0 0 2560 1410 </string>
+	<string>571 219 1280 910 0 0 2560 1410 </string>
 	<key>NSWindow Frame TTWindow OzzyCzech 1</key>
 	<string>215 195 1270 860 0 0 1728 1079 </string>
 	<key>ProfileCurrentVersion</key>

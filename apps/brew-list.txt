@@ -6,6 +6,7 @@ exiftool
 eza
 fd
 ffmpeg
+gemini-cli
 git
 git-extras
 git-lfs
