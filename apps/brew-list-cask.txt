@@ -1,5 +1,4 @@
 1password
-antigravity
 cursor
 daisydisk
 docker-desktop

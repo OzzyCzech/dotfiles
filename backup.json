@@ -37,6 +37,12 @@
     ]
   },
   {
+    "name": "Ghostty",
+    "paths": [
+      "~/Library/Application Support/com.mitchellh.ghostty/config"
+    ]
+  },
+  {
     "name": "Youtube Downloader",
     "paths": [
       "~/.config/yt-dlp.conf"
