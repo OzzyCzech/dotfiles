@@ -31,8 +31,9 @@ print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-tim
 # Package management
 ########################################################################################################################
 
-alias pup="npx taze minor --write --recursive --install --interactive --include-locked"
-alias pup-globals="npx taze major --write --recursive --install --interactive --include-locked --global"
+alias pup="npx taze minor --write --install --interactive --include-locked"
+alias pupr="npx taze minor --write --recursive --install --interactive --include-locked --mirror"
+alias pupg="npx taze major --write --install --interactive --include-locked --global"
 alias npm-list-globals="npm list -g --depth 0"
 alias composer="COMPOSER_IGNORE_PLATFORM_REQS=1 composer"
 

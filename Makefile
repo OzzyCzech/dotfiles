@@ -4,15 +4,15 @@ username := $(shell git config user.username)
 
 install:
 	touch ~/.hushlogin
-	mkdir -p ~/.config && cp -R config/ ~/.config/
 
-	cp -R {.ackrc,.gitconfig,.gitignore,.zshrc,.zsh_plugins.txt} ~
-	rm -rf ~/.zsh/ && cp -R zsh/ ~/.zsh/
-	mkdir -p ~/.bin && cp -R bin/* ~/.bin
+	rsync -a configs/.config/ ~/.config/
+	rsync -a {.ackrc,.gitconfig,.gitignore,.zshrc,.zsh_plugins.txt} ~/
+	rsync -a --delete zsh/ ~/.zsh/
+	rsync -a bin/. ~/.bin/
 
 	git config --global user.name "$(name)"
-	git config --global user.email $(email)
-	git config --global user.username $(username)
+	git config --global user.email "$(email)"
+	git config --global user.username "$(username)"
 
 utils:
 	swiftc utils/del.swift -o ~/.bin/del
