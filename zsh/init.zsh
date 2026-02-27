@@ -8,8 +8,6 @@ source "$SOURCE/aliases.zsh"
 
 source "$SOURCE/eza.zsh"
 source "$SOURCE/functions.zsh"
-source "$SOURCE/password.zsh"
-source "$SOURCE/encode64.zsh"
 source "$SOURCE/autoenv.zsh"
 source "$SOURCE/docker.zsh"
 
