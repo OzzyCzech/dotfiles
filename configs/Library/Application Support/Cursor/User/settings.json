@@ -41,7 +41,10 @@
     },
     "github.copilot.nextEditSuggestions.enabled": true,
     "files.exclude": {
-        "**/.idea": true
+        "**/.astro": true,
+        "**/.hg": false,
+        "**/.idea": true,
+        "**/.svn": false
     },
     "workbench.colorTheme": "PhpStorm Dark",
     "makefile.configureOnOpen": true,
@@ -49,5 +52,9 @@
         "editor.fontSize"
     ],
     "cursor.cpp.disabledLanguages": [],
-    "git.rebaseWhenSync": true
+    "git.rebaseWhenSync": true,
+    "[tailwindcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.useTabs": true
 }
