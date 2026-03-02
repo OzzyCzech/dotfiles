@@ -53,5 +53,11 @@
     "paths": [
       "~/.ackrc"
     ]
+  },
+  {
+    "name": "Claude",
+    "paths": [
+      "~/.claude/settings.json"
+    ]
   }
 ]
