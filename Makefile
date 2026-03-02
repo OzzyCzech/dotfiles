@@ -20,7 +20,9 @@ utils:
 	swiftc utils/encode64.swift -o ~/.bin/encode64
 	swiftc utils/backup.swift -o ~/.bin/backup
 
-backup: backup.apps backup.terminal
+backup: backup.apps backup.terminal backup.configs
+
+backup.configs:
 	backup -c backup.json configs
 
 backup.apps:

@@ -56,5 +56,6 @@
     "[tailwindcss]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "prettier.useTabs": true
+    "prettier.useTabs": true,
+    "diffEditor.ignoreTrimWhitespace": false
 }

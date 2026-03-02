@@ -47,5 +47,11 @@
     "paths": [
       "~/.config/yt-dlp.conf"
     ]
+  },
+  {
+    "name": "Ack",
+    "paths": [
+      "~/.ackrc"
+    ]
   }
 ]
