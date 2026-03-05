@@ -17,5 +17,15 @@
     {
         "key": "cmd+m",
         "command": "cursor.generateGitCommitMessage"
+    },
+    {
+        "key": "cmd+numpad_divide",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+        "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
     }
 ]

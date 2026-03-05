@@ -1,4 +1,6 @@
 1password
+claude-code
+copilot-cli
 cursor
 daisydisk
 docker-desktop
