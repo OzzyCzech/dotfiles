@@ -59,5 +59,11 @@
     "paths": [
       "~/.claude/settings.json"
     ]
+  },
+  {
+    "name": "Warp",
+    "paths": [
+      "~/.warprc"
+    ]
   }
 ]

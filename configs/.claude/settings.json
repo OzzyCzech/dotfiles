@@ -12,15 +12,15 @@
       "Write",
       "Edit",
       "MultiEdit",
-
       "Bash(git *)",
+      "Bash(glab *)",
+      "Bash(gh *)",
       "Bash(npm *)",
       "Bash(npx *)",
       "Bash(yarn *)",
       "Bash(pnpm *)",
       "Bash(curl:*)",
       "Bash(wget:*)",
-
       "Bash(ls:*)",
       "Bash(ls -la:*)",
       "Bash(cp:*)",
@@ -32,7 +32,7 @@
       "Bash(echo:*)",
       "Bash(pwd:*)",
       "Bash(cd:*)"
-    ]
+    ],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
@@ -47,5 +47,6 @@
       "Bash(ssh:*)",
       "Bash(scp:*)"
     ]
-  }
+  },
+  "model": "opus"
 }

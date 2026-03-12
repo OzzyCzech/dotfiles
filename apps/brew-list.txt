@@ -6,10 +6,10 @@ exiftool
 eza
 fd
 ffmpeg
-gemini-cli
 git
 git-extras
 git-lfs
+glab
 httpie
 imagemagick
 jq
@@ -21,6 +21,7 @@ mysql-client
 nmap
 oven-sh/bun/bun
 perl
+pnpm
 rclone
 rust
 telnet

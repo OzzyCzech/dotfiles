@@ -18,6 +18,3 @@
 # Custom file types
 --type-add=md:ext:md
 --type-add=strings=.strings
---type-add=vue:ext:vue
---type-add=js:ext:js,ts,mjs,cjs,mts,cts,jsx,tsx
---type-add=log:ext:log
