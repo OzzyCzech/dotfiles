@@ -10,6 +10,7 @@ source "$SOURCE/eza.zsh"
 source "$SOURCE/functions.zsh"
 source "$SOURCE/autoenv.zsh"
 source "$SOURCE/docker.zsh"
+source "$SOURCE/ai.zsh"
 
 # Libraries
 source "$SOURCE/history.zsh"
