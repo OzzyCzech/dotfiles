@@ -1,5 +1,3 @@
-
-
 source ~/.zsh/autocomplete.zsh
 
 # Install the Antidote plugin manager

@@ -1,5 +1,8 @@
 SOURCE=${0%/*}
 
+# Force xterm-256color terminal for all terminals
+export TERM=xterm-256color
+
 # Paths
 source "$SOURCE/paths.zsh"
 
