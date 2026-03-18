@@ -6,6 +6,7 @@ exiftool
 eza
 fd
 ffmpeg
+gh
 git
 git-extras
 git-lfs

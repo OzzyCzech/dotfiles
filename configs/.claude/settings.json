@@ -48,5 +48,17 @@
       "Bash(scp:*)"
     ]
   },
-  "model": "opus"
+  "model": "opus",
+  "enabledPlugins": {
+    "nette@nette": true
+  },
+  "extraKnownMarketplaces": {
+    "nette": {
+      "source": {
+        "source": "github",
+        "repo": "nette/claude-code"
+      }
+    }
+  },
+  "voiceEnabled": true
 }

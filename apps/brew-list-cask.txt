@@ -1,5 +1,6 @@
 1password
 claude-code
+cmux
 copilot-cli
 cursor
 daisydisk

@@ -1,5 +1,5 @@
-1569813296  1Password for Safari  (8.12.5)
-1352778147  Bitwarden             (2026.1.0)
+1569813296  1Password for Safari  (8.12.6)
+1352778147  Bitwarden             (2026.2.1)
 1544743900  Hush                  (1.0.18)
  408981434  iMovie                (10.4.4)
 1136220934  Infuse                (8.3.9)
