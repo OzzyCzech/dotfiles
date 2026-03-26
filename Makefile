@@ -14,7 +14,7 @@ install:
 	git config --global user.email "$(email)"
 	git config --global user.username "$(username)"
 
-	source ~/.zshrc
+	@echo "\nDone! Run 'exec zsh' to reload your shell."
 
 utils:
 	swiftc utils/del.swift -o ~/.bin/del
