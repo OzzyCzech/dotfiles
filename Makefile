@@ -14,6 +14,8 @@ install:
 	git config --global user.email "$(email)"
 	git config --global user.username "$(username)"
 
+	source ~/.zshrc
+
 utils:
 	swiftc utils/del.swift -o ~/.bin/del
 	swiftc utils/password.swift -o ~/.bin/password

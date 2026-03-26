@@ -2,7 +2,8 @@
 
 ### Claude aliases ###
 
-alias c="claude"
+alias c="claude --enable-auto-mode"
+alias c2="CLAUDE_CONFIG_DIR=~/.claude2 claude --enable-auto-mode"
 
 # Claude with dangerous permissions
 alias xc="claude --dangerously-skip-permissions"
@@ -16,10 +17,10 @@ alias cs="claude --model sonnet" # Claude Sonnet
 alias co="claude --model opus" # Claude Opus
 
 # Claude paste from clipboard
-alias cpaste='pbpaste | claude --print "$@"' # Claude paste from clipboard
+cpaste() { pbpaste | claude --print "$@"; }
 
-# Seach
-alias csearch='claude --model haiku --allowedTools "WebSearch,WebFetch" --print "$@"'
+# Search
+csearch() { claude --model haiku --allowedTools "WebSearch,WebFetch" --print "$@"; }
 
 ### Cursor aliases ###
 
