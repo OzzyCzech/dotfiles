@@ -7,6 +7,14 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "cursor": {
+      "type": "registry"
+    }
+  },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
