@@ -9,9 +9,9 @@ printf "\e[1;34m%s\e[0m\n" "🍺 Brew update and upgrade"
 brew update && brew upgrade && brew upgrade --cask --greedy
 brew cleanup && brew autoremove && brew doctor
 
-if [[ -f "$(brew --prefix antidote)/share/antidote/antidote.zsh" ]]; then
+if [[ -f "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh" ]]; then
   printf "\e[1;34m%s\e[0m\n" "Antidote update"
-  source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
+  source "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh"
   antidote update
 fi
 
@@ -19,17 +19,17 @@ printf "\e[1;34m%s\e[0m\n" "💻 Update macOS"
 softwareupdate -i -a
 
 # VS Code and Cursor extensions update
-if [[ -f "code" ]]; then
+if command -v code &>/dev/null; then
   printf "\e[1;34m%s\e[0m\n" "💻 VS Code extensions update"
   code --update-extensions
 fi
 
-if [[ -f "cursor" ]]; then
+if command -v cursor &>/dev/null; then
   printf "\e[1;34m%s\e[0m\n" "💻 Cursor extensions update"
   cursor --update-extensions
 fi
 
-if [[ -f "mas" ]]; then
+if command -v mas &>/dev/null; then
   printf "\e[1;34m%s\e[0m\n" "💻 Mac App Store apps update"
   mas upgrade
 fi

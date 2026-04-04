@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 # clear trash
 rm -rf ~/.Trash/*
 
@@ -29,6 +27,11 @@ fi
 # check if composer is installed
 if command -v composer &>/dev/null; then
   composer clear-cache
+fi
+
+# check if pnpm is installed
+if command -v pnpm &>/dev/null; then
+  pnpm store prune
 fi
 
 # delete Apple System Logs to speed up Terminal.app
