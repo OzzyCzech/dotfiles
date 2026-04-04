@@ -18,6 +18,3 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 zstyle ':completion:*:ssh:*' hosts off
 # SSH autocomplete
 autoload -Uz compinit && compinit -i
-
-# pnpm completion
-[[ -x $(command -v pnpm) ]] && eval "$(pnpm completion zsh)"

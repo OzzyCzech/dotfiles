@@ -3,7 +3,7 @@
 
 if ! command -v eza &>/dev/null; then
   print 'eza not found - https://eza.rocks. Please install eza before.' >&2
-  return 1
+  return 0
 fi
 
 alias ls='eza --group-directories-first --color-scale=all --color-scale-mode=gradient --octal-permissions'

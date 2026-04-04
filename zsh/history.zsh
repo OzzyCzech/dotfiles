@@ -17,4 +17,10 @@ setopt inc_append_history
 setopt share_history # share command history data
 
 # Make some commands not show up in history
-export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+zshaddhistory() {
+  local cmd="${1%%$'\n'}"
+  case "$cmd" in
+    ls|ls\ *|cd|cd\ *|pwd|exit|date|*\ --help) return 1 ;;
+  esac
+  return 0
+}

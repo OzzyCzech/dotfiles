@@ -27,6 +27,9 @@ utils:
 	swiftc utils/encode64.swift -o bin/encode64
 	swiftc utils/backup.swift -o bin/backup
 
+completions:
+	pnpm completion zsh > zsh/_pnpm
+
 backup: backup.apps backup.terminal backup.configs
 
 backup.configs:
