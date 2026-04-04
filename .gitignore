@@ -39,11 +39,10 @@ Thumbs.db
 # IDE configs files
 .idea
 
-# Compiled Swift utilities
-bin/del
-bin/password
-bin/encode64
-bin/backup
+# Compiled Swift utilities (ignore bin/ except shell scripts)
+bin/*
+!bin/mac-cleanup
+!bin/mac-upgrade
 
 # never let it happen :)
 node_modules

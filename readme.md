@@ -38,7 +38,7 @@ chsh -s /bin/zsh
 | Directory      | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
 | `zsh/`         | Zsh config — aliases, paths, prompt, history, AI helpers, Docker, eza, etc. |
-| `bin/`         | Compiled utilities (`backup`, `del`, `encode64`, `password`, `mac-cleanup`, `mac-upgrade`) |
+| `bin/`         | Compiled utilities (`backup`, `del`, `encode64`, `passgen`, `mac-cleanup`, `mac-upgrade`) |
 | `utils/`       | Swift source for utilities in `bin/`                                        |
 | `setup/`       | macOS defaults scripts (Finder, Dock, keyboard, …) — see `setup/readme.md` |
 | `apps/`        | Homebrew and Mac App Store app lists (`brew-list.txt`, `mas-list.txt`, …)   |
@@ -67,7 +67,7 @@ make utils
 | `backup`   | Backup files by path or JSON config    |
 | `del`      | Move files to Trash (safe delete)      |
 | `encode64` | Base64 encode/decode                   |
-| `password` | Generate random passwords              |
+| `passgen`  | Generate passwords and passphrases     |
 
 ### Backup
 

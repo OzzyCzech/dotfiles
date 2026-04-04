@@ -23,7 +23,7 @@ install:
 
 utils:
 	swiftc utils/del.swift -o bin/del
-	swiftc utils/password.swift -o bin/password
+	swiftc utils/passgen.swift -o bin/passgen
 	swiftc utils/encode64.swift -o bin/encode64
 	swiftc utils/backup.swift -o bin/backup
 
