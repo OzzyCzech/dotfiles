@@ -53,18 +53,18 @@ defaults write com.apple.dock showhidden -bool true
 # 14: Quick note
 
 # Top left screen corner → not set
-defaults write com.apple.dock wvous-tl-corner --int 0
-defaults write com.apple.dock wvous-tl-modifier --int 0
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-tl-modifier -int 0
 
 # Top right screen corner → not set
-defaults write com.apple.dock wvous-tr-corner --int 0
-defaults write com.apple.dock wvous-tr-modifier --int 0
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-tr-modifier -int 0
 
-# Top right corner → not set
+# Bottom right corner → not set
 defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
 
-# Bottom left corner → Lock screen
+# Bottom left corner → not set
 defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-bl-modifier -int 0
 

@@ -16,5 +16,5 @@ function set-screen-saver() {
   defaults write com.apple.screensaver askForPasswordDelay -int 0
   ok "Require password immediately"
 
-  killall "System Preferences" &> /dev/null
+  killall "System Settings" &> /dev/null
 }
