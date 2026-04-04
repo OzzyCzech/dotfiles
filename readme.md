@@ -1,6 +1,6 @@
 # OzzyCzech's dotfiles
 
-Personal macOS config. Zsh, Antidote, Zed, and helpers.
+Personal macOS config. Zsh, Antidote, and helpers.
 
 ## Quick start
 
@@ -19,14 +19,13 @@ Install [Homebrew](https://brew.sh/):
 Install tools:
 
 ```shell
-brew install git zsh zsh-completions antidote zed
+brew install git zsh zsh-completions antidote
 ```
 
 - [Zsh](https://www.zsh.org/) — interactive shell
 - [Zsh Completions](https://github.com/zsh-users/zsh-completions) — extra completions
 - [Antidote](https://getantidote.github.io) — fast Zsh plugin manager
 - [Git](https://git-scm.com/) — version control
-- [Zed](https://zed.dev/) — code editor
 
 Set Zsh as default shell:
 
@@ -34,54 +33,90 @@ Set Zsh as default shell:
 chsh -s /bin/zsh
 ```
 
+## Repository structure
+
+| Directory      | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| `zsh/`         | Zsh config — aliases, paths, prompt, history, AI helpers, Docker, eza, etc. |
+| `bin/`         | Compiled utilities (`backup`, `del`, `encode64`, `password`, `mac-cleanup`, `mac-upgrade`) |
+| `utils/`       | Swift source for utilities in `bin/`                                        |
+| `setup/`       | macOS defaults scripts (Finder, Dock, keyboard, …) — see `setup/readme.md` |
+| `apps/`        | Homebrew and Mac App Store app lists (`brew-list.txt`, `mas-list.txt`, …)   |
+| `configs/`     | Backed-up app configs (VS Code, Cursor, Ghostty, Terminal)                  |
+| `terminal/`    | Terminal & iTerm themes and profiles                                        |
+| `icns/`        | Custom volume icons                                                         |
+
+## What `make install` does
+
+1. Creates `~/.hushlogin`
+2. Copies app configs from `configs/` to `~/.config/`
+3. Copies `.gitconfig` to `~/`
+4. Symlinks dotfiles (`.ackrc`, `.gitignore`, `.zshrc`, `.zsh_plugins.txt`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
+5. Preserves existing git `user.name`, `user.email`, and `user.username`
+
+## Utilities
+
+Compile Swift utilities into `bin/`:
+
+```shell
+make utils
+```
+
+| Utility    | Description                            |
+|------------|----------------------------------------|
+| `backup`   | Backup files by path or JSON config    |
+| `del`      | Move files to Trash (safe delete)      |
+| `encode64` | Base64 encode/decode                   |
+| `password` | Generate random passwords              |
+
+### Backup
+
+```shell
+backup <source1> <source2> ... <out-directory>
+backup -c backup.json configs
+```
+
+The included `backup.json` defines paths for Zed, VS Code, Cursor, Ghostty, Terminal, Claude, and others. Run `make backup` to refresh app lists, terminal prefs, and configs in one step.
+
 ## Setup scripts
 
-Scripts live in `setup/` (see `setup/README.md` for layout):
+Scripts in `setup/` configure macOS defaults. Run individually:
 
-- **apps/** — app-specific defaults (Dock, Finder, Mail, …): run e.g. `zsh setup/apps/finder.zsh`
-- **system/** — system & input (keyboard, screensaver, updates); some define functions loaded via `defaults.zsh`
+```shell
+zsh setup/apps/finder.zsh
+zsh setup/apps/dock.zsh
+zsh setup/system/keyboard.zsh
+```
 
-Load helper functions and run one-off tweaks:
+Load helper functions:
 
 ```shell
 source ./setup/defaults.zsh
 ```
 
-### Lock screen message
-
-Helps recover a lost device.
+Then use:
 
 ```shell
-set-lock-message " Roman Ožana • +420 605 783 455 • roman@ozana.cz"
-set-screen-capture ~/Downloads
+set-lock-message "Roman Ozana • roman@ozana.cz • +420 605 783 455"
+set-screen-capture   # screenshots to ~/Downloads
+set-screen-saver     # disable screensaver, require password immediately
+set-software-updates # enable automatic updates
 ```
 
-### Backup SSH keys
+## Zsh plugins
+
+Managed by [Antidote](https://getantidote.github.io) via `.zsh_plugins.txt`:
+
+- [zsh-completions](https://github.com/zsh-users/zsh-completions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- oh-my-zsh: git, docker, docker-compose, extract, httpie, rsync, aliases, yarn, wd
+
+## Backup SSH keys
 
 ```shell
 zip -r ~/Downloads/ssh.zip ~/.ssh
 ```
 
-### Backup with backup utility
-
-A Swift-based backup utility is included for saving your configuration files and important data. It supports backing up specified files or files listed in a JSON config, only including files and directories that exist. The utility is found in `utils/backup.swift` and is available in `~/.bin/backup` after running `make utils`.
-
-**Usage:**
-
-- To backup specific files or directories:
-  ```shell
-  backup <source1> <source2> ... <out-directory>
-  ```
-
-- To backup paths defined in a JSON configuration:
-  ```shell
-  backup -c <config.json> <out-directory>
-  ```
-
-The JSON config supports lists of paths or groupings for organizing backups. Only files/directories that exist (paths with `~` are supported) will be copied into the backup output directory, retaining relative structure.
-
-For more details and config examples, refer to comments in `utils/backup.swift`.
-
-### Get inspired
+## Get inspired
 
 https://dotfiles.github.io/inspiration/
