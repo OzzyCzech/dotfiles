@@ -2,7 +2,7 @@ source ~/.zsh/autocomplete.zsh
 
 # Install the Antidote plugin manager
 # see https://getantidote.github.io/
-source $(brew --prefix antidote)/share/antidote/antidote.zsh
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
 # Force xterm-256color terminal for all terminals
