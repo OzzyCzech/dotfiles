@@ -39,5 +39,11 @@ Thumbs.db
 # IDE configs files
 .idea
 
+# Compiled Swift utilities
+bin/del
+bin/password
+bin/encode64
+bin/backup
+
 # never let it happen :)
 node_modules

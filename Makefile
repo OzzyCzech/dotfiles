@@ -6,9 +6,14 @@ install:
 	touch ~/.hushlogin
 
 	rsync -a configs/.config/ ~/.config/
-	rsync -a {.ackrc,.gitconfig,.gitignore,.zshrc,.zsh_plugins.txt} ~/
-	rsync -a --delete zsh/ ~/.zsh/
-	rsync -a bin/. ~/.bin/
+	rsync -a .gitconfig ~/
+
+	ln -sf ~/.dotfiles/.ackrc ~/.ackrc
+	ln -sf ~/.dotfiles/.gitignore ~/.gitignore
+	ln -sf ~/.dotfiles/.zshrc ~/.zshrc
+	ln -sf ~/.dotfiles/.zsh_plugins.txt ~/.zsh_plugins.txt
+	ln -sf ~/.dotfiles/zsh ~/.zsh
+	ln -sf ~/.dotfiles/bin ~/.bin
 
 	git config --global user.name "$(name)"
 	git config --global user.email "$(email)"
@@ -17,10 +22,10 @@ install:
 	@echo "\nDone! Run 'exec zsh' to reload your shell."
 
 utils:
-	swiftc utils/del.swift -o ~/.bin/del
-	swiftc utils/password.swift -o ~/.bin/password
-	swiftc utils/encode64.swift -o ~/.bin/encode64
-	swiftc utils/backup.swift -o ~/.bin/backup
+	swiftc utils/del.swift -o bin/del
+	swiftc utils/password.swift -o bin/password
+	swiftc utils/encode64.swift -o bin/encode64
+	swiftc utils/backup.swift -o bin/backup
 
 backup: backup.apps backup.terminal backup.configs
 
