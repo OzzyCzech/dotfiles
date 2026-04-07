@@ -1,6 +1,6 @@
 [
   {
-   "name": "Zed",   
+   "name": "Zed",
    "paths": [
      "~/.config/zed/settings.json",
      "~/.config/zed/keymap.json"
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "name": "Cursor",    
+    "name": "Cursor",
     "paths": [
       "~/Library/Application Support/Cursor/User/snippets",
       "~/Library/Application Support/Cursor/User/settings.json",
