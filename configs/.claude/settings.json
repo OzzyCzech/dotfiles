@@ -11,6 +11,8 @@
       "Grep",
       "Write",
       "Edit",
+      "WebSearch",
+      "WebFetch",
       "MultiEdit",
       "Bash(git *)",
       "Bash(glab *)",
@@ -19,20 +21,21 @@
       "Bash(npx *)",
       "Bash(yarn *)",
       "Bash(pnpm *)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
-      "Bash(ls:*)",
-      "Bash(ls -la:*)",
-      "Bash(cp:*)",
-      "Bash(mv:*)",
-      "Bash(mkdir:*)",
-      "Bash(touch:*)",
-      "Bash(find:*)",
-      "Bash(cat:*)",
-      "Bash(echo:*)",
-      "Bash(pwd:*)",
-      "Bash(cd:*)"
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(rmdir *)",
+      "Bash(wc *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(sort *)",
+      "Bash(diff *)",
+      "Bash(date *)",
+      "Bash(which *)",
+      "Bash(node *)",
+      "Bash(open *)"
     ],
+    "defaultMode": "default",
+    "ask": ["Bash(rm *)"],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
@@ -41,13 +44,21 @@
       "Write(./.env)",
       "Write(./.env.*)",
       "Write(./secrets/**)",
-      "Bash(chmod 777:*)",
-      "Bash(rm -rf:*)",
-      "Bash(sudo:*)",
-      "Bash(ssh:*)",
-      "Bash(scp:*)"
+      "Write(./.ssh/**)",
+      "Write(./node_modules/**)",
+      "Bash(chmod 777 *)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(eval *)",
+      "Bash(exec *)",
+      "Bash(curl * | sh)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | sh)"
     ]
   },
+  "autoMemoryEnabled": true,
   "enabledPlugins": {
     "nette@nette": true,
     "impeccable@impeccable": true
@@ -69,60 +80,5 @@
     }
   },
   "voiceEnabled": false,
-  "model": "opus",
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
-          }
-        ]
-      }
-    ],
-    "PostToolUseFailure": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
-          }
-        ]
-      }
-    ]
-  }
+  "model": "opusplan"
 }
