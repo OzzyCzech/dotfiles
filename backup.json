@@ -57,7 +57,9 @@
   {
     "name": "Claude",
     "paths": [
-      "~/.claude/settings.json"
+      "~/.claude/settings.json",
+      "~/.claude/commands",
+      "~/.claude/skills"
     ]
   },
   {
