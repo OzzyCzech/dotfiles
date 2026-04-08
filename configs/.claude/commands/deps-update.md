@@ -38,13 +38,7 @@ Flags:
 - `-r` — recursive mode for monorepos
 - `--include-locked` (`-l`) — include locked (fixed) versions without ^ or ~
 
-## 4. Remove Unused Packages
-
-Run `npx knip` to detect unused dependencies, exports, and files.
-- If knip finds unused dependencies or devDependencies, remove them (`$PM remove <package>`).
-- Only log unused exports and files in the summary, do not delete them automatically.
-
-## 5. Update Node.js Version
+## 4. Update Node.js Version
 
 Check if the project defines a Node.js version in any of these files:
 - `.nvmrc`
@@ -56,7 +50,7 @@ If so:
 2. If the defined version is older than the current LTS, update it to the latest LTS.
 3. Preserve the format (if it was `>=18`, update to `>=22`; if it was `18.17.0`, update to the specific LTS version).
 
-## 6. Audit and Fix Vulnerabilities
+## 5. Audit and Fix Vulnerabilities
 
 Run audit based on the package manager:
 - npm: `npm audit fix`
@@ -64,7 +58,7 @@ Run audit based on the package manager:
 - yarn: `yarn npm audit` (yarn v2+) or `yarn audit` (yarn v1)
 - bun: `bun pm trust` (if relevant)
 
-## 7. Check Dependabot Alerts (GitHub)
+## 6. Check Dependabot Alerts (GitHub)
 
 If `gh` CLI is available and the project is hosted on GitHub:
 
@@ -81,7 +75,7 @@ If `gh` CLI is available and the project is hosted on GitHub:
 
 If `gh` is not available or the project is not on GitHub, skip this step.
 
-## 8. Build, Tests, Lint, Typecheck
+## 7. Build, Tests, Lint, Typecheck
 
 Run all scripts from package.json sequentially, if they exist (detect from package.json `scripts`):
 
@@ -90,7 +84,7 @@ Run all scripts from package.json sequentially, if they exist (detect from packa
 3. `$PM run lint`
 4. `$PM run test`
 
-## 9. Automatic Error Fixing
+## 8. Automatic Error Fixing
 
 If anything from step 8 fails:
 
@@ -100,7 +94,7 @@ If anything from step 8 fails:
 4. Repeat until everything passes, up to 10 iterations per problem.
 5. If a problem cannot be resolved after 10 attempts, log it in the summary as unresolved and move on.
 
-## 10. Commit, Merge, and Cleanup
+## 9. Commit, Merge, and Cleanup
 
 1. Commit all changes with message:
    ```
@@ -109,12 +103,11 @@ If anything from step 8 fails:
 2. Switch back to the original branch and merge the update branch into it.
 3. Delete the update branch `chore/update-deps-YYYY-MM-DD`.
 
-## 11. Summary
+## 10. Summary
 
 At the end, provide a clear summary:
 - Detected package manager
 - List of updated packages (old version → new version)
-- Removed unused packages
 - Node.js version update (if performed)
 - Fixed breaking changes and what was modified in the code
 - Fixed vulnerabilities
