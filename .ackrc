@@ -17,4 +17,5 @@
 
 # Custom file types
 --type-add=md:ext:md
+--type-add=yaml:ext:yaml
 --type-add=strings=.strings
