@@ -8,3 +8,6 @@ export PATH=/usr/local/sbin:$PATH
 
 # Rust/Cargo
 export PATH=$PATH:~/.cargo/bin
+
+# Bun
+export PATH=$PATH:$HOME/.bun/bin
