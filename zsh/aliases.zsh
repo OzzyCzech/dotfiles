@@ -36,6 +36,7 @@ alias pupr="npx taze minor --write --recursive --install --interactive --include
 alias pupg="npx taze major --write --install --interactive --include-locked --global"
 alias npm-list-globals="npm list -g --depth 0"
 alias composer="COMPOSER_IGNORE_PLATFORM_REQS=1 composer"
+alias pip="python3 -m pip"
 
 ########################################################################################################################
 # Internet
