@@ -11,3 +11,6 @@ export PATH=$PATH:~/.cargo/bin
 
 # Bun
 export PATH=$PATH:$HOME/.bun/bin
+
+# pipx
+export PATH=$PATH:$HOME/.local/bin
