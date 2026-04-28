@@ -17,5 +17,6 @@
 
 # Custom file types
 --type-add=md:ext:md
+--type-add=astro:ext:astro
 --type-add=yml:ext:yaml,yml
 --type-add=strings=.strings
