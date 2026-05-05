@@ -8,6 +8,8 @@
 	<integer>2</integer>
 	<key>HasMigratedDefaults</key>
 	<true/>
+	<key>LastTerminalStartTime</key>
+	<date>2026-05-05T13:11:38Z</date>
 	<key>Man Page Window Settings</key>
 	<string>Man Page</string>
 	<key>NSColorPanelMode</key>
@@ -56,11 +58,11 @@
 	<key>NSWindow Frame TTInspector</key>
 	<string>2186 811 281 559 0 0 2560 1415 </string>
 	<key>NSWindow Frame TTWindow</key>
-	<string>101 76 1623 979 0 0 1728 1084 </string>
+	<string>901 312 1623 979 0 0 2560 1410 </string>
 	<key>NSWindow Frame TTWindow Basic</key>
 	<string>534 551 570 371 0 0 1728 1079 </string>
 	<key>NSWindow Frame TTWindow OzzyCzech</key>
-	<string>305 81 1280 874 0 0 1728 1084 </string>
+	<string>820 291 1280 874 0 0 2560 1410 </string>
 	<key>NSWindow Frame TTWindow OzzyCzech 1</key>
 	<string>215 195 1270 860 0 0 1728 1079 </string>
 	<key>ProfileCurrentVersion</key>
@@ -79,6 +81,8 @@
 	<integer>1</integer>
 	<key>TTInspector Selected Pane</key>
 	<string>Info</string>
+	<key>TTSettingsSnapshotSent</key>
+	<true/>
 	<key>Window Settings</key>
 	<dict>
 		<key>Basic</key>
