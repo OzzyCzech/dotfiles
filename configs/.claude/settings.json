@@ -19,6 +19,16 @@
       "Bash(gh *)",
       "Bash(npm *)",
       "Bash(npx *)",
+      "Bash(bun *)",
+      "Bash(bunx *)",
+      "Bash(ni *)",
+      "Bash(nr *)",
+      "Bash(nlx *)",
+      "Bash(nup *)",
+      "Bash(nun *)",
+      "Bash(nci *)",
+      "Bash(nd *)",
+      "Bash(na *)",
       "Bash(yarn *)",
       "Bash(pnpm *)",
       "Bash(curl *)",
@@ -32,10 +42,10 @@
       "Bash(date *)",
       "Bash(which *)",
       "Bash(node *)",
-      "Bash(open *)"
+      "Bash(open *)",
+      "Bash(ack *)",
+      "Bash(docker compose *)"
     ],
-    "defaultMode": "default",
-    "ask": ["Bash(rm *)"],
     "deny": [
       "Read(./.env)",
       "Read(./.env.*)",
@@ -56,12 +66,17 @@
       "Bash(curl * | sh)",
       "Bash(curl * | bash)",
       "Bash(wget * | sh)"
-    ]
+    ],
+    "ask": [
+      "Bash(rm *)"
+    ],
+    "defaultMode": "default"
   },
-  "autoMemoryEnabled": true,
+  "model": "opus[1m]",
   "enabledPlugins": {
     "nette@nette": true,
-    "impeccable@impeccable": true
+    "frontend-design@claude-plugins-official": true,
+    "agent-skills@addy-agent-skills": true
   },
   "extraKnownMarketplaces": {
     "nette": {
@@ -77,8 +92,18 @@
         "repo": "pbakaus/impeccable"
       },
       "autoUpdate": true
+    },
+    "addy-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      }
     }
   },
+  "effortLevel": "medium",
+  "autoMemoryEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "useAutoModeDuringPlan": true,
   "voiceEnabled": false,
-  "model": "opusplan"
+  "skipDangerousModePermissionPrompt": true
 }
