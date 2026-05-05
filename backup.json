@@ -39,7 +39,8 @@
   {
     "name": "Ghostty",
     "paths": [
-      "~/Library/Application Support/com.mitchellh.ghostty/config"
+      "~/Library/Application Support/com.mitchellh.ghostty/config",
+      "~/.config/ghostty/config"
     ]
   },
   {
@@ -66,6 +67,12 @@
     "name": "Warp",
     "paths": [
       "~/.warprc"
+    ]
+  },
+  {
+    "name": "cmux",
+    "paths": [
+      "~/.config/cmux/cmux.json"
     ]
   }
 ]

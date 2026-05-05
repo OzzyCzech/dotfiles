@@ -30,19 +30,16 @@ utils:
 completions:
 	pnpm completion zsh > zsh/_pnpm
 
-backup: backup.apps backup.terminal backup.configs
+backup: backup.apps backup.configs
 
 backup.configs:
 	backup -c backup.json configs
+	plutil -convert xml1 configs/Library/Preferences/com.apple.Terminal.plist
 
 backup.apps:
 	brew leaves --installed-on-request > apps/brew-list.txt
 	brew list --cask > apps/brew-list-cask.txt
 	brew tap > apps/brew-tap.txt
 	mas list > apps/mas-list.txt
-
-backup.terminal:
-	cp ~/Library/Preferences/com.apple.Terminal.plist terminal/com.apple.Terminal.plist	
-	plutil -convert xml1 terminal/com.apple.Terminal.plist
 
 .PHONY: $(MAKECMDGOALS)
