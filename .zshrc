@@ -19,7 +19,6 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/autoenv.zsh
 source ~/.zsh/docker.zsh
 source ~/.zsh/ai.zsh
-source ~/.zsh/zoxide.zsh
 
 # Libraries
 source ~/.zsh/history.zsh
@@ -27,3 +26,7 @@ source ~/.zsh/prompt.zsh
 
 # Load extra (if available)
 [[ -f ~/.zsh/extra.zsh ]] && source ~/.zsh/extra.zsh
+
+# zoxide must be initialized last so its chpwd hook is registered after
+# any other plugin/library that touches chpwd (autoenv, prompt, etc.).
+source ~/.zsh/zoxide.zsh
