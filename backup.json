@@ -64,12 +64,6 @@
     ]
   },
   {
-    "name": "Warp",
-    "paths": [
-      "~/.warprc"
-    ]
-  },
-  {
     "name": "cmux",
     "paths": [
       "~/.config/cmux/cmux.json"

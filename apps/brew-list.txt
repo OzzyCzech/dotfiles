@@ -35,5 +35,6 @@ trash
 wget
 yarn
 yt-dlp
+zoxide
 zsh
 zsh-completions

@@ -19,6 +19,7 @@ source ~/.zsh/functions.zsh
 source ~/.zsh/autoenv.zsh
 source ~/.zsh/docker.zsh
 source ~/.zsh/ai.zsh
+source ~/.zsh/zoxide.zsh
 
 # Libraries
 source ~/.zsh/history.zsh
