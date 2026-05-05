@@ -2,6 +2,7 @@ ack
 antidote
 awscli
 composer
+direnv
 exiftool
 eza
 fd
@@ -9,6 +10,7 @@ ffmpeg
 gh
 git
 git-extras
+git-ftp
 git-lfs
 glab
 httpie
@@ -19,9 +21,11 @@ mongodb/brew/mongodb-community-shell
 mongodb/brew/mongodb-database-tools
 mongosh
 mysql-client
+ni
 nmap
 oven-sh/bun/bun
 perl
+pipx
 pnpm
 rclone
 rust

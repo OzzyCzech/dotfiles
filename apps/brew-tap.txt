@@ -1,3 +1,4 @@
 hashicorp/tap
 mongodb/brew
 oven-sh/bun
+sw33tlie/macshot
