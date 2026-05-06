@@ -57,7 +57,6 @@
       "Write(./.ssh/**)",
       "Write(./node_modules/**)",
       "Bash(chmod 777 *)",
-      "Bash(rm -rf *)",
       "Bash(sudo *)",
       "Bash(ssh *)",
       "Bash(scp *)",
@@ -68,7 +67,8 @@
       "Bash(wget * | sh)"
     ],
     "ask": [
-      "Bash(rm *)"
+      "Bash(rm *)",
+      "Bash(rm -rf *)"
     ],
     "defaultMode": "default"
   },

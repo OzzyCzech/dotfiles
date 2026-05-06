@@ -17,6 +17,7 @@ httpie
 imagemagick
 jq
 mas
+mole
 mongodb/brew/mongodb-community-shell
 mongodb/brew/mongodb-database-tools
 mongosh
