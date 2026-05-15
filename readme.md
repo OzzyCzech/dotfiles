@@ -111,7 +111,7 @@ Managed by [Antidote](https://getantidote.github.io) via `.zsh_plugins.txt`:
 
 - [zsh-completions](https://github.com/zsh-users/zsh-completions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync, aliases, yarn
+- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync, yarn
 - [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd` (replaces `wd`); seed history with `zsh setup/zoxide-seed.zsh`
 
 ## Backup SSH keys
