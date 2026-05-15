@@ -3,18 +3,10 @@
 ### Claude aliases ###
 
 alias c="claude --enable-auto-mode"
-alias c2="CLAUDE_CONFIG_DIR=~/.claude2 claude --enable-auto-mode"
 
-# Claude with dangerous permissions
-alias xc="claude --dangerously-skip-permissions"
-alias xco="claude --model opus --dangerously-skip-permissions"
-alias xch="claude --model haiku --dangerously-skip-permissions"
-alias xcs="claude --model sonnet --dangerously-skip-permissions"
-
-# Claude model aliases
-alias ch="claude --model haiku" # Claude Haiku
-alias cs="claude --model sonnet" # Claude Sonnet
-alias co="claude --model opus" # Claude Opus
+alias ca="claude agents" # Claude agents
+alias cc="claude --continue" # Continue last session
+alias cr="claude --resume" # Resume session (interactive picker)
 
 # Claude paste from clipboard
 cpaste() { pbpaste | claude --print "$@"; }
@@ -37,4 +29,4 @@ EOF
 
 ### Cursor aliases ###
 
-alias cr="cursor ." # Cursor
+alias cu="cursor ." # Cursor
