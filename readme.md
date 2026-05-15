@@ -64,10 +64,12 @@ make utils
 
 | Utility    | Description                            |
 |------------|----------------------------------------|
-| `backup`   | Backup files by path or JSON config    |
-| `del`      | Move files to Trash (safe delete)      |
-| `encode64` | Base64 encode/decode                   |
-| `passgen`  | Generate passwords and passphrases     |
+| `backup`      | Backup files by path or JSON config    |
+| `del`         | Move files to Trash (safe delete)      |
+| `encode64`    | Base64 encode/decode                   |
+| `passgen`     | Generate passwords and passphrases     |
+| `mac-cleanup` | Shell script — clean caches/logs/Trash |
+| `mac-upgrade` | Shell script — upgrade brew, mas, npm  |
 
 ### Backup
 
@@ -109,7 +111,8 @@ Managed by [Antidote](https://getantidote.github.io) via `.zsh_plugins.txt`:
 
 - [zsh-completions](https://github.com/zsh-users/zsh-completions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- oh-my-zsh: git, docker, docker-compose, extract, httpie, rsync, aliases, yarn, wd
+- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync, aliases, yarn
+- [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd` (replaces `wd`); seed history with `zsh setup/zoxide-seed.zsh`
 
 ## Backup SSH keys
 

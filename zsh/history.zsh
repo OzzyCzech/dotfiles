@@ -5,7 +5,6 @@ fi
 
 export HISTSIZE=32768
 export SAVEHIST=$HISTSIZE
-export HISTFILESIZE=$HISTSIZE
 
 # Setup the history file
 setopt extended_history

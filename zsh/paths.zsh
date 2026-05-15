@@ -1,10 +1,9 @@
-#  Add the ~/bin/ directory for all users
+# Homebrew (Apple Silicon) — sets PATH, MANPATH, INFOPATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# User bin directories
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.bin
-
-# Prefix /usr/local/bin for brew
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
 
 # Rust/Cargo
 export PATH=$PATH:~/.cargo/bin

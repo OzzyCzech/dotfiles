@@ -16,7 +16,7 @@ csearch() { claude --model haiku --allowedTools "WebSearch,WebFetch" --print "$@
 
 # Claude commit & push: check status, rebase if needed, split into logical commits, then push
 csave() {
-  claude -p --allowedTools "Bash(git *),WebFetch" <<EOF
+  claude -p --allowedTools "Bash(git *),WebFetch" <<'EOF'
 
   Perform a complete git workflow in the current repository:
   1. Run git status and git diff --stat to assess current state. If working tree is clean, stop.

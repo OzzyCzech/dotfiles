@@ -42,7 +42,7 @@ alias composer="COMPOSER_IGNORE_PLATFORM_REQS=1 composer"
 ########################################################################################################################
 
 # IP addresses
-alias ip-local="ipconfig getifaddr en1"
+ip-local() { ipconfig getifaddr en0 || ipconfig getifaddr en1; }
 ip-v4() { dig @resolver1.opendns.com A "${1:-myip.opendns.com}" +short -4; }
 ip-v6() { dig @resolver1.opendns.com AAAA "${1:-myip.opendns.com}" +short -6; }
 ip() { echo "IPv4: $(ip-v4)\nIPv6: $(ip-v6)\nLocal: $(ip-local)"; }
