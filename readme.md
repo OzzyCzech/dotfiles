@@ -19,12 +19,13 @@ Install [Homebrew](https://brew.sh/):
 Install tools:
 
 ```shell
-brew install git zsh zsh-completions antidote
+brew install git zsh zsh-completions antidote powerlevel10k
 ```
 
 - [Zsh](https://www.zsh.org/) — interactive shell
 - [Zsh Completions](https://github.com/zsh-users/zsh-completions) — extra completions
 - [Antidote](https://getantidote.github.io) — fast Zsh plugin manager
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) — prompt theme
 - [Git](https://git-scm.com/) — version control
 
 Set Zsh as default shell:
@@ -51,7 +52,7 @@ chsh -s /bin/zsh
 1. Creates `~/.hushlogin`
 2. Copies app configs from `configs/` to `~/.config/`
 3. Copies `.gitconfig` to `~/`
-4. Symlinks dotfiles (`.ackrc`, `.gitignore`, `.zshrc`, `.zsh_plugins.txt`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
+4. Symlinks dotfiles (`.ackrc`, `.gitignore`, `.zshrc`, `.zsh_plugins.txt`, `.p10k.zsh`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
 5. Preserves existing git `user.name`, `user.email`, and `user.username`
 
 ## Utilities
@@ -111,8 +112,19 @@ Managed by [Antidote](https://getantidote.github.io) via `.zsh_plugins.txt`:
 
 - [zsh-completions](https://github.com/zsh-users/zsh-completions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync, yarn
+- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync
 - [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd` (replaces `wd`); seed history with `zsh setup/zoxide-seed.zsh`
+
+## Prompt
+
+The prompt is [Powerlevel10k](https://github.com/romkatv/powerlevel10k) configured
+to look like the classic [robbyrussell](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell)
+oh-my-zsh theme — same `➜ dir git:(branch) ✗` style, just rendered with
+async git status and instant-prompt support for snappier startup.
+
+The config in `.p10k.zsh` is a copy of the `p10k-robbyrussell.zsh` template
+shipped with Powerlevel10k. Tweak it directly or run `p10k configure` to
+generate a different style.
 
 ## Backup SSH keys
 
