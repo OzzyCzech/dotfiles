@@ -11,5 +11,3 @@ ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/httpie/_httpie kind:fpath
 ohmyzsh/ohmyzsh path:plugins/rsync
 
-# https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ohmyzsh/ohmyzsh path:themes/robbyrussell.zsh-theme

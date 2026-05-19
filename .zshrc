@@ -1,3 +1,8 @@
+# Enable Powerlevel10k instant prompt. Must stay at the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source ~/.zsh/autocomplete.zsh
 
 # Install the Antidote plugin manager
@@ -13,6 +18,9 @@ source ~/.zsh/paths.zsh
 
 # Aliases
 source ~/.zsh/aliases.zsh
+source ~/.zsh/net.zsh
+source ~/.zsh/mac.zsh
+source ~/.zsh/pkg.zsh
 
 source ~/.zsh/eza.zsh
 source ~/.zsh/functions.zsh

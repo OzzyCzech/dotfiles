@@ -12,6 +12,7 @@ install:
 	ln -sf ~/.dotfiles/.gitignore ~/.gitignore
 	ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 	ln -sf ~/.dotfiles/.zsh_plugins.txt ~/.zsh_plugins.txt
+	ln -sf ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 	ln -sf ~/.dotfiles/zsh ~/.zsh
 	ln -sf ~/.dotfiles/bin ~/.bin
 
