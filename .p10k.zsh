@@ -27,7 +27,13 @@
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
   # Left prompt segments.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(prompt_char dir vcs)
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status prompt_char dir vcs)
+
+  # Exit code segment — show the number only when the last command failed.
+  typeset -g POWERLEVEL9K_STATUS_OK=false
+  typeset -g POWERLEVEL9K_STATUS_ERROR=true
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=red
+  typeset -g POWERLEVEL9K_STATUS_ERROR_CONTENT_EXPANSION='%B$P9K_CONTENT'
   # Right prompt segments — only show duration of slow commands.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
 
@@ -106,6 +112,9 @@
   #              zsh initialization. Choose this if you've never tried instant prompt, haven't
   #              seen the warning, or if you are unsure what this all means.
   typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
+
+  # Transient prompt — collapse old prompts in scrollback to just the arrow.
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
 
   # Hot reload allows you to change POWERLEVEL9K options after Powerlevel10k has been initialized.
   # For example, you can type POWERLEVEL9K_BACKGROUND=red and see your prompt turn red. Hot reload
