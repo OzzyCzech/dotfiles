@@ -67,8 +67,8 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=green
   # Red prompt symbol if the last command failed.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=red
-  # Prompt symbol: classic robbyrussell arrow.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B➜'
+  # Prompt symbol: bold chevron (Pure style).
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B❯'
 
   # Current directory — show only the basename (last segment), cyan+bold.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=cyan
