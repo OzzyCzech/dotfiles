@@ -68,6 +68,8 @@
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=cyan
   # No truncation — we want the full path on its own line.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=none
+  # Show absolute path (/Users/roman) instead of ~ for paths under $HOME.
+  typeset -g POWERLEVEL9K_DIR_PATH_ABSOLUTE=true
   # Split path at the last '/': dirname grey (244), basename cyan bold.
   # If there's no slash (e.g. plain "~"), render the whole thing cyan bold.
   typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='${${P9K_CONTENT:#*/*}:+%B%F{cyan}$P9K_CONTENT}${${P9K_CONTENT:#*/*}:-%F{244}${P9K_CONTENT%/*}/%B%F{cyan}${P9K_CONTENT##*/}}'
