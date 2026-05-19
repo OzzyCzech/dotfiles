@@ -29,8 +29,11 @@
   # Two-line prompt: full path + git on top, prompt char on bottom.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status prompt_char)
 
-  # Empty line before each prompt (except the first) for breathing room.
-  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+  # Thin horizontal ruler between prompts (replaces an empty line for visual break).
+  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+  typeset -g POWERLEVEL9K_SHOW_RULER=true
+  typeset -g POWERLEVEL9K_RULER_CHAR='─'
+  typeset -g POWERLEVEL9K_RULER_FOREGROUND=238
 
   # Exit code segment — show the number only when the last command failed.
   typeset -g POWERLEVEL9K_STATUS_OK=false
