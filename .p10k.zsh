@@ -81,6 +81,8 @@
       # ↑ if local has unpushed commits, ↓ if remote has commits we don't.
       (( VCS_STATUS_COMMITS_AHEAD  )) && my_git_format+=" ${1+%6F}↑${VCS_STATUS_COMMITS_AHEAD}"
       (( VCS_STATUS_COMMITS_BEHIND )) && my_git_format+=" ${1+%6F}↓${VCS_STATUS_COMMITS_BEHIND}"
+      # ● if there are stashed changes.
+      (( VCS_STATUS_STASHES        )) && my_git_format+=" ${1+%5F}●${VCS_STATUS_STASHES}"
     fi
   }
   functions -M my_git_formatter 2>/dev/null
