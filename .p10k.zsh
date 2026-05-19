@@ -71,8 +71,8 @@
   # Show absolute path (/Users/roman) instead of ~ for paths under $HOME.
   typeset -g POWERLEVEL9K_DIR_PATH_ABSOLUTE=true
   # Split path at the last '/': dirname grey (244), basename cyan bold.
-  # If there's no slash (e.g. plain "~"), render the whole thing cyan bold.
-  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='${${P9K_CONTENT:#*/*}:+%B%F{cyan}$P9K_CONTENT}${${P9K_CONTENT:#*/*}:-%F{244}${P9K_CONTENT%/*}/%B%F{cyan}${P9K_CONTENT##*/}}'
+  # PATH_ABSOLUTE=true guarantees the path always contains a slash.
+  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%F{244}${P9K_CONTENT%/*}/%B%F{cyan}${P9K_CONTENT##*/}'
 
   # Git status formatter.
   function my_git_formatter() {
