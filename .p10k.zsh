@@ -34,8 +34,13 @@
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=red
   typeset -g POWERLEVEL9K_STATUS_ERROR_CONTENT_EXPANSION='%B$P9K_CONTENT'
-  # Right prompt segments — only show duration of slow commands.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
+  # Right prompt segments — full path (grey) plus duration of slow commands.
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(pwd_full command_execution_time)
+
+  # Custom segment: full current path in grey, with ~ for $HOME.
+  function prompt_pwd_full() {
+    p10k segment -f 244 -t '%~'
+  }
 
   # Show duration only for commands that took >=5s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
