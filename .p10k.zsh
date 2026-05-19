@@ -61,8 +61,8 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=green
   # Red prompt symbol if the last command failed.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=red
-  # Prompt symbol: bold arrow.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B➜ '
+  # Prompt symbol: bold chevron (Pure style).
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B❯'
 
   # Cyan current directory — full path (%~ shrinks $HOME to ~).
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=cyan
