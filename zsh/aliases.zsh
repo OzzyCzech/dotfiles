@@ -19,3 +19,7 @@ print-to-png() { chrome --headless --disable-gpu --hide-scrollbars --virtual-tim
 alias fs="stat -f \"%z bytes\""                          # file size
 type -f hd > /dev/null || alias hd="hexdump -C"          # canonical hex dump
 type -f md5sum > /dev/null || alias md5sum="md5"         # macOS has no md5sum
+
+# bat = cat with syntax highlighting. Auto-detects pipes (acts like plain
+# cat when output is not a TTY), so scripts/pipelines stay intact.
+command -v bat > /dev/null && alias cat="bat --paging=never"

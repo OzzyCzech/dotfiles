@@ -26,14 +26,17 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # Two-line prompt: full path + git on top, prompt char on bottom.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status prompt_char)
+  # Single-line prompt: basename + git + status + ❯ on the left,
+  # full path in grey on the right.
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status prompt_char)
 
-  # Thin horizontal ruler between prompts (replaces an empty line for visual break).
-  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
-  typeset -g POWERLEVEL9K_SHOW_RULER=true
-  typeset -g POWERLEVEL9K_RULER_CHAR='─'
-  typeset -g POWERLEVEL9K_RULER_FOREGROUND=238
+  # Custom segment: full current path in grey, with absolute /Users/...
+  function prompt_pwd_full() {
+    p10k segment -f 244 -t '%/'
+  }
+
+  # Empty line before each prompt for breathing room between commands.
+  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
   # Exit code segment — show the number only when the last command failed.
   typeset -g POWERLEVEL9K_STATUS_OK=false
@@ -41,8 +44,8 @@
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=red
   typeset -g POWERLEVEL9K_STATUS_ERROR_CONTENT_EXPANSION='%B$P9K_CONTENT'
 
-  # Right prompt — only the duration of slow commands.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
+  # Right prompt — full path in grey plus duration of slow commands.
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time pwd_full)
 
   # Show duration only for commands that took >=5s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
@@ -67,15 +70,10 @@
   # Prompt symbol: bold chevron (Pure style).
   typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B❯'
 
-  # Current directory — full path, parents in grey, last segment cyan+bold.
+  # Current directory — show only the basename (last segment), cyan+bold.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=cyan
-  # No truncation — we want the full path on its own line.
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=none
-  # Show absolute path (/Users/roman) instead of ~ for paths under $HOME.
-  typeset -g POWERLEVEL9K_DIR_PATH_ABSOLUTE=true
-  # Split path at the last '/': dirname grey (244), basename cyan bold.
-  # PATH_ABSOLUTE=true guarantees the path always contains a slash.
-  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%F{244}${P9K_CONTENT%/*}/%B%F{cyan}${P9K_CONTENT##*/}'
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%B$P9K_CONTENT'
 
   # Git status formatter.
   function my_git_formatter() {
