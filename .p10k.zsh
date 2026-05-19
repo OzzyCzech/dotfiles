@@ -28,8 +28,17 @@
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(prompt_char dir vcs)
-  # Right prompt segments.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+  # Right prompt segments — only show duration of slow commands.
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
+
+  # Show duration only for commands that took >=5s.
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
+  # Whole seconds, e.g. "7s" not "7.3s".
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
+  # Format: 1d 2h 3m 4s.
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
+  # Muted yellow so it doesn't fight with the prompt.
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=yellow
 
   # Basic style options that define the overall prompt look.
   typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
@@ -69,7 +78,7 @@
             VCS_STATUS_NUM_UNSTAGED   || VCS_STATUS_NUM_UNTRACKED )); then
         my_git_format+=" ${1+%3F}✗"
       fi
-      # ⇡ if local has unpushed commits, ⇣ if remote has commits we don't.
+      # ↑ if local has unpushed commits, ↓ if remote has commits we don't.
       (( VCS_STATUS_COMMITS_AHEAD  )) && my_git_format+=" ${1+%6F}↑${VCS_STATUS_COMMITS_AHEAD}"
       (( VCS_STATUS_COMMITS_BEHIND )) && my_git_format+=" ${1+%6F}↓${VCS_STATUS_COMMITS_BEHIND}"
     fi
