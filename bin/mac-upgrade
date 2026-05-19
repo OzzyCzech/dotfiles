@@ -1,37 +1,48 @@
 #!/usr/bin/env zsh
 
-if ! command -v brew &> /dev/null
-then
+section() { printf "\n\e[1;34m▶ %s\e[0m\n" "$1" }
+ok()      { printf "\e[1;32m✓ %s\e[0m\n" "$1" }
+
+if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-printf "\e[1;34m%s\e[0m\n" "🍺 Brew update and upgrade"
-brew update && brew upgrade && brew upgrade --cask --greedy
-brew cleanup && brew autoremove && brew doctor
+section "Homebrew update"
+brew update
+
+section "Homebrew upgrade (formulae)"
+brew upgrade
+
+section "Homebrew upgrade (casks, greedy)"
+brew upgrade --cask --greedy
+
+section "Homebrew maintenance"
+brew cleanup
+brew autoremove
+brew doctor || true
 
 if [[ -f "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh" ]]; then
-  printf "\e[1;34m%s\e[0m\n" "Antidote update"
+  section "Antidote update"
   source "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh"
   antidote update
 fi
 
-printf "\e[1;34m%s\e[0m\n" "💻 Update macOS"
+if command -v npm &>/dev/null; then
+  section "npm global packages"
+  npm update -g
+fi
+
+if command -v bun &>/dev/null; then
+  section "bun global packages"
+  bun update -g
+fi
+
+section "macOS software update"
 softwareupdate -i -a
 
-# VS Code and Cursor extensions update
-if command -v code &>/dev/null; then
-  printf "\e[1;34m%s\e[0m\n" "💻 VS Code extensions update"
-  code --update-extensions
-fi
-
 if command -v cursor &>/dev/null; then
-  printf "\e[1;34m%s\e[0m\n" "💻 Cursor extensions update"
-  cursor --update-extensions
+  section "Cursor extensions"
+  NODE_NO_WARNINGS=1 cursor --update-extensions
 fi
 
-if command -v mas &>/dev/null; then
-  printf "\e[1;34m%s\e[0m\n" "💻 Mac App Store apps update"
-  mas upgrade
-fi
-
-printf "\e[1;32m%s\e[0m\n" "✅ Done! Your system is up to date!"
+ok "Done! Your system is up to date."

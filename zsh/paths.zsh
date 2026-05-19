@@ -11,5 +11,9 @@ export PATH=$PATH:~/.cargo/bin
 # Bun
 export PATH=$PATH:$HOME/.bun/bin
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # pipx
 export PATH=$PATH:$HOME/.local/bin

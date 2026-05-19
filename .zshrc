@@ -31,3 +31,10 @@ source ~/.zsh/prompt.zsh
 # zoxide must be initialized last so its chpwd hook is registered after
 # any other plugin/library that touches chpwd (autoenv, prompt, etc.).
 source ~/.zsh/zoxide.zsh
+# pnpm
+export PNPM_HOME="/Users/roman/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
