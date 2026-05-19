@@ -64,12 +64,13 @@
   # Prompt symbol: bold chevron (Pure style).
   typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B❯'
 
-  # Cyan current directory — full path (%~ shrinks $HOME to ~).
+  # Current directory — full path, parents in grey, last segment cyan+bold.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=cyan
   # No truncation — we want the full path on its own line.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=none
-  # Bold directory.
-  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%B$P9K_CONTENT'
+  # Split path at the last '/': dirname grey (244), basename cyan bold.
+  # If there's no slash (e.g. plain "~"), render the whole thing cyan bold.
+  typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='${${P9K_CONTENT:#*/*}:+%B%F{cyan}$P9K_CONTENT}${${P9K_CONTENT:#*/*}:-%F{244}${P9K_CONTENT%/*}/%B%F{cyan}${P9K_CONTENT##*/}}'
 
   # Git status formatter.
   function my_git_formatter() {
