@@ -26,21 +26,20 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # Left prompt segments.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status prompt_char dir vcs)
+  # Two-line prompt: full path + git on top, prompt char on bottom.
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status prompt_char)
+
+  # Empty line before each prompt (except the first) for breathing room.
+  typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
   # Exit code segment — show the number only when the last command failed.
   typeset -g POWERLEVEL9K_STATUS_OK=false
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
   typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=red
   typeset -g POWERLEVEL9K_STATUS_ERROR_CONTENT_EXPANSION='%B$P9K_CONTENT'
-  # Right prompt segments — full path (grey) plus duration of slow commands.
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(pwd_full command_execution_time)
 
-  # Custom segment: full current path in grey, with ~ for $HOME.
-  function prompt_pwd_full() {
-    p10k segment -f 244 -t '%~'
-  }
+  # Right prompt — only the duration of slow commands.
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time)
 
   # Show duration only for commands that took >=5s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
@@ -65,10 +64,10 @@
   # Prompt symbol: bold arrow.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_CONTENT_EXPANSION='%B➜ '
 
-  # Cyan current directory.
+  # Cyan current directory — full path (%~ shrinks $HOME to ~).
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=cyan
-  # Show only the last segment of the current directory.
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
+  # No truncation — we want the full path on its own line.
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=none
   # Bold directory.
   typeset -g POWERLEVEL9K_DIR_CONTENT_EXPANSION='%B$P9K_CONTENT'
 
