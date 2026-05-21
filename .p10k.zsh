@@ -26,9 +26,9 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # Single-line prompt: basename + git + status + ❯ on the left,
-  # full path in grey on the right.
-  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status prompt_char)
+  # Single-line prompt: basename + git + ❯ on the left,
+  # full path in grey on the right. Failure is signaled by the red ❯ alone.
+  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs prompt_char)
 
   # Custom segment: full current path in grey, with absolute /Users/...
   function prompt_pwd_full() {
@@ -37,12 +37,6 @@
 
   # Empty line before each prompt for breathing room between commands.
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-  # Exit code segment — show the number only when the last command failed.
-  typeset -g POWERLEVEL9K_STATUS_OK=false
-  typeset -g POWERLEVEL9K_STATUS_ERROR=true
-  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=red
-  typeset -g POWERLEVEL9K_STATUS_ERROR_CONTENT_EXPANSION='%B$P9K_CONTENT'
 
   # Right prompt — full path in grey plus duration of slow commands.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time pwd_full)
