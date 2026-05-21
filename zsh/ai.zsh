@@ -2,11 +2,11 @@
 
 ### Claude aliases ###
 
-alias c="claude --enable-auto-mode"
+alias c="claude --chrome --enable-auto-mode"
 
 alias ca="claude agents" # Claude agents
-alias cc="claude --continue" # Continue last session
-alias cr="claude --resume" # Resume session (interactive picker)
+alias cc="claude --chrome --continue" # Continue last session
+alias cr="claude --chrome --resume" # Resume session (interactive picker)
 
 # Claude paste from clipboard
 cpaste() { pbpaste | claude --print "$@"; }
