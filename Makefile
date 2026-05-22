@@ -20,6 +20,13 @@ install:
 	ln -sf ~/.dotfiles/zsh ~/.zsh
 	ln -sf ~/.dotfiles/bin ~/.bin
 
+	# Symlink ~/.claude entries (global instructions, settings, commands, skills)
+	mkdir -p ~/.claude
+	ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
+	ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+	ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
+	ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
+
 	# Symlink ~/.config entries (per-file; apps create other files in these dirs)
 	mkdir -p ~/.config/zed ~/.config/ghostty ~/.config/cmux
 	ln -sf ~/.dotfiles/config/zed/keymap.json ~/.config/zed/keymap.json
