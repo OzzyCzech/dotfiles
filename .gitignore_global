@@ -1,0 +1,53 @@
+# git credential file
+.gitconfig.local
+
+# Temporary files
+*.cache
+*.log
+*~
+*#
+*.bak
+*.BAK
+*.old
+*.OLD
+*.off
+*.OFF
+*.dist
+*.DIST
+*.orig
+*.ORIG
+*.rej
+*.REJ
+*.swp
+*.swo
+*.swn
+*.swm
+*.tmp
+
+# Folder view configuration files
+.DS_Store*
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# IDE configs files
+.idea
+
+# Secrets safety net
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+id_rsa
+id_ed25519
+
+# never let it happen :)
+node_modules
