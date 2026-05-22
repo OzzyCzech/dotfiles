@@ -20,11 +20,12 @@ install:
 	ln -sf ~/.dotfiles/zsh ~/.zsh
 	ln -sf ~/.dotfiles/bin ~/.bin
 
-	# Symlink ~/.config entries
-	mkdir -p ~/.config
-	ln -sf ~/.dotfiles/config/zed ~/.config/zed
-	ln -sf ~/.dotfiles/config/ghostty ~/.config/ghostty
-	ln -sf ~/.dotfiles/config/cmux ~/.config/cmux
+	# Symlink ~/.config entries (per-file; apps create other files in these dirs)
+	mkdir -p ~/.config/zed ~/.config/ghostty ~/.config/cmux
+	ln -sf ~/.dotfiles/config/zed/keymap.json ~/.config/zed/keymap.json
+	ln -sf ~/.dotfiles/config/zed/settings.json ~/.config/zed/settings.json
+	ln -sf ~/.dotfiles/config/ghostty/config ~/.config/ghostty/config
+	ln -sf ~/.dotfiles/config/cmux/cmux.json ~/.config/cmux/cmux.json
 	ln -sf ~/.dotfiles/config/yt-dlp.conf ~/.config/yt-dlp.conf
 
 	@echo "\nDone! Run 'exec zsh' to reload your shell."
