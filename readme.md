@@ -39,21 +39,19 @@ chsh -s /bin/zsh
 | Directory      | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
 | `zsh/`         | Zsh config — aliases, paths, prompt, history, AI helpers, Docker, eza, etc. |
-| `bin/`         | Compiled utilities (`backup`, `del`, `encode64`, `passgen`, `mac-cleanup`, `mac-upgrade`) |
+| `bin/`         | Compiled utilities (`del`, `encode64`, `passgen`, `mac-cleanup`, `mac-upgrade`) |
 | `utils/`       | Swift source for utilities in `bin/`                                        |
 | `setup/`       | macOS defaults scripts (Finder, Dock, keyboard, …) — see `setup/readme.md` |
 | `apps/`        | Homebrew and Mac App Store app lists (`brew-list.txt`, `mas-list.txt`, …)   |
-| `configs/`     | Backed-up app configs (VS Code, Cursor, Ghostty, Terminal)                  |
-| `terminal/`    | Terminal & iTerm themes and profiles                                        |
+| `config/`      | App configs (Zed, Ghostty, cmux, yt-dlp) — symlinked into `~/.config/`      |
 | `icns/`        | Custom volume icons                                                         |
 
 ## What `make install` does
 
 1. Creates `~/.hushlogin`
-2. Copies app configs from `configs/` to `~/.config/`
-3. Copies `.gitconfig` to `~/`
-4. Symlinks dotfiles (`.ackrc`, `.gitignore`, `.zshrc`, `.zsh_plugins.txt`, `.p10k.zsh`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
-5. Preserves existing git `user.name`, `user.email`, and `user.username`
+2. Symlinks git config (`.gitconfig`, `.gitignore_global`) and sets `core.excludesfile`
+3. Symlinks zsh dotfiles (`.zshrc`, `.zsh_plugins.txt`, `.p10k.zsh`, `.zprofile`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
+4. Symlinks `config/` entries into `~/.config/` (Zed, Ghostty, cmux, yt-dlp)
 
 ## Utilities
 
@@ -65,21 +63,11 @@ make utils
 
 | Utility    | Description                            |
 |------------|----------------------------------------|
-| `backup`      | Backup files by path or JSON config    |
 | `del`         | Move files to Trash (safe delete)      |
 | `encode64`    | Base64 encode/decode                   |
 | `passgen`     | Generate passwords and passphrases     |
 | `mac-cleanup` | Shell script — clean caches/logs/Trash |
 | `mac-upgrade` | Shell script — upgrade brew, mas, npm  |
-
-### Backup
-
-```shell
-backup <source1> <source2> ... <out-directory>
-backup -c backup.json configs
-```
-
-The included `backup.json` defines paths for Zed, VS Code, Cursor, Ghostty, Terminal, Claude, and others. Run `make backup` to refresh app lists, terminal prefs, and configs in one step.
 
 ## Setup scripts
 
