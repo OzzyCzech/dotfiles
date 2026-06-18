@@ -11,10 +11,10 @@ section "Homebrew update"
 brew update
 
 section "Homebrew upgrade (formulae)"
-brew upgrade
+brew upgrade --yes
 
 section "Homebrew upgrade (casks, greedy)"
-brew upgrade --cask --greedy
+brew upgrade --cask --greedy --yes
 
 section "Homebrew maintenance"
 brew cleanup
