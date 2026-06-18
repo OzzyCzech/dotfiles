@@ -72,7 +72,6 @@
     ],
     "defaultMode": "default"
   },
-  "model": "opus[1m]",
   "enabledPlugins": {
     "nette@nette": true,
     "frontend-design@claude-plugins-official": true,
