@@ -2,16 +2,22 @@
 
 Personal macOS config. Zsh, Antidote, and helpers.
 
-## Quick start
+## Installation
 
 > [!NOTE]
-> The clone uses **SSH**, so on a fresh Mac you must set up a GitHub SSH key
-> first — see [GitHub access (SSH)](#github-access-ssh). Without it the clone
-> fails with `Permission denied (publickey)`.
+> The repo is cloned over **SSH**, so a fresh Mac needs a GitHub SSH key first
+> (step 2) — otherwise the clone fails with `Permission denied (publickey)`.
 
-```shell
-git clone git@github.com:OzzyCzech/dotfiles.git ~/.dotfiles && cd $_ && make
-```
+On a fresh Mac, follow these in order:
+
+1. **Install Homebrew, tools & set the shell** — see [Prerequisites](#prerequisites).
+2. **Set up GitHub SSH access** — see [GitHub access (SSH)](#github-access-ssh).
+3. **Clone and build:**
+   ```shell
+   git clone git@github.com:OzzyCzech/dotfiles.git ~/.dotfiles && cd $_ && make
+   ```
+   (what this does → [What `make install` does](#what-make-install-does))
+4. **Apply macOS defaults** (optional) — see [Setup scripts](#setup-scripts).
 
 ## Prerequisites
 
@@ -47,7 +53,7 @@ new one.
 
 ### Option A — restore from backup
 
-If you have `ssh.zip` from the old Mac (see [Backup SSH keys](#backup-ssh-keys)):
+If you have `ssh.zip` from the old Mac (see [Backup & restore SSH keys](#backup--restore-ssh-keys)):
 
 ```shell
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
@@ -126,7 +132,7 @@ SSH refuses keys that are too open. Correct modes:
 | `make` / `install`| Symlink all dotfiles (git, zsh, `~/.claude`, `~/.config`)            |
 | `make utils`      | Compile Swift utilities into `bin/`                                  |
 | `make completions`| Regenerate `zsh/_pnpm` completion                                    |
-| `make apps`       | Regenerate Homebrew/MAS app lists in `apps/`                         |
+| `make apps-backup`| Export installed Homebrew/MAS apps to lists in `apps/`               |
 
 ## Utilities
 
@@ -143,6 +149,26 @@ make utils
 | `passgen`     | Generate passwords and passphrases     |
 | `mac-cleanup` | Shell script — clean caches/logs/Trash |
 | `mac-upgrade` | Shell script — upgrade brew, mas, npm  |
+
+## Zsh plugins
+
+Managed by [Antidote](https://getantidote.github.io) via `.zsh_plugins.txt`:
+
+- [zsh-completions](https://github.com/zsh-users/zsh-completions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync
+- [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd` (replaces `wd`); seed history with `zsh setup/zoxide-seed.zsh`
+
+## Prompt
+
+The prompt is [Powerlevel10k](https://github.com/romkatv/powerlevel10k) configured
+to look like the classic [robbyrussell](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell)
+oh-my-zsh theme — same `➜ dir git:(branch) ✗` style, just rendered with
+async git status and instant-prompt support for snappier startup.
+
+The config in `.p10k.zsh` is a copy of the `p10k-robbyrussell.zsh` template
+shipped with Powerlevel10k. Tweak it directly or run `p10k configure` to
+generate a different style.
 
 ## Setup scripts
 
@@ -165,35 +191,19 @@ Then use:
 ```shell
 set-lock-message "Roman Ozana • roman@ozana.cz • +420 605 783 455"
 set-screen-capture   # screenshots to ~/Downloads
-set-screen-saver     # disable screensaver, require password immediately
+set-screen-saver     # screen saver after 5 min, require password immediately
 set-software-updates # enable automatic updates
 ```
 
-## Zsh plugins
+## Backup & restore SSH keys
 
-Managed by [Antidote](https://getantidote.github.io) via `.zsh_plugins.txt`:
-
-- [zsh-completions](https://github.com/zsh-users/zsh-completions)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- oh-my-zsh: git, gitfast, docker, docker-compose, extract, httpie, rsync
-- [zoxide](https://github.com/ajeetdsouza/zoxide) — smarter `cd` (replaces `wd`); seed history with `zsh setup/zoxide-seed.zsh`
-
-## Prompt
-
-The prompt is [Powerlevel10k](https://github.com/romkatv/powerlevel10k) configured
-to look like the classic [robbyrussell](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#robbyrussell)
-oh-my-zsh theme — same `➜ dir git:(branch) ✗` style, just rendered with
-async git status and instant-prompt support for snappier startup.
-
-The config in `.p10k.zsh` is a copy of the `p10k-robbyrussell.zsh` template
-shipped with Powerlevel10k. Tweak it directly or run `p10k configure` to
-generate a different style.
-
-## Backup SSH keys
+Back up your keys before wiping the old Mac:
 
 ```shell
 zip -r ~/Downloads/ssh.zip ~/.ssh
 ```
+
+Restore on the new Mac → [GitHub access (SSH), Option A](#option-a--restore-from-backup).
 
 ## Get inspired
 

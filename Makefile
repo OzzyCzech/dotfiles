@@ -45,7 +45,7 @@ utils:
 completions:
 	pnpm completion zsh > zsh/_pnpm
 
-apps:
+apps-backup:
 	brew leaves --installed-on-request > apps/brew-list.txt
 	brew list --cask > apps/brew-list-cask.txt
 	brew tap > apps/brew-tap.txt
