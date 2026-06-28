@@ -17,4 +17,7 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 # Mark all messages as read when opening a conversation
 defaults write com.apple.mail ConversationViewMarkAllAsRead -bool true
 
+# Disable link previews in messages
+defaults write com.apple.mail AddLinkPreviews -bool false
+
 killall "Mail" &> /dev/null
