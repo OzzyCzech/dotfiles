@@ -106,5 +106,6 @@
   "theme": "dark",
   "skipAutoPermissionPrompt": true,
   "useAutoModeDuringPlan": true,
-  "voiceEnabled": false
+  "voiceEnabled": false,
+  "tui": "fullscreen"
 }
