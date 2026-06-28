@@ -49,9 +49,19 @@ chsh -s /bin/zsh
 ## What `make install` does
 
 1. Creates `~/.hushlogin`
-2. Symlinks git config (`.gitconfig`, `.gitignore_global`) and sets `core.excludesfile`
+2. Symlinks git config (`.gitignore_global`, `.gitconfig`) and sets `core.excludesfile`
 3. Symlinks zsh dotfiles (`.zshrc`, `.zsh_plugins.txt`, `.p10k.zsh`, `.zprofile`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
-4. Symlinks `config/` entries into `~/.config/` (Zed, Ghostty, cmux, yt-dlp)
+4. Symlinks `claude/` entries into `~/.claude/` (`CLAUDE.md`, `settings.json`, `commands/`, `skills/`)
+5. Symlinks `config/` entries into `~/.config/` (Zed, Ghostty, cmux, yt-dlp)
+
+## Make targets
+
+| Target            | Description                                                          |
+|-------------------|---------------------------------------------------------------------|
+| `make` / `install`| Symlink all dotfiles (git, zsh, `~/.claude`, `~/.config`)            |
+| `make utils`      | Compile Swift utilities into `bin/`                                  |
+| `make completions`| Regenerate `zsh/_pnpm` completion                                    |
+| `make apps`       | Regenerate Homebrew/MAS app lists in `apps/`                         |
 
 ## Utilities
 
