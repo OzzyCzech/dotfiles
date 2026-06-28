@@ -13,3 +13,6 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable automatic capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
