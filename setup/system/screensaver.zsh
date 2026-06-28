@@ -7,9 +7,9 @@ function set-screen-saver() {
 
   info "Screen saver settings"
 
-  # Disable screen saver
-  defaults -currentHost write com.apple.screensaver idleTime -int 0
-  ok "Screen saver disabled"
+  # Start screen saver after 5 minutes
+  defaults -currentHost write com.apple.screensaver idleTime -int 300
+  ok "Screen saver after 5 minutes"
 
   # Require password immediately after sleep or screen saver begins
   defaults write com.apple.screensaver askForPassword -int 1
