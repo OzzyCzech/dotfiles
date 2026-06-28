@@ -115,6 +115,7 @@ SSH refuses keys that are too open. Correct modes:
 | `setup/`       | macOS defaults scripts (Finder, Dock, keyboard, …) — see `setup/readme.md` |
 | `apps/`        | Homebrew and Mac App Store app lists (`brew-list.txt`, `mas-list.txt`, …)   |
 | `config/`      | App configs (Zed, Ghostty, cmux, yt-dlp) — symlinked into `~/.config/`      |
+| `claude/`      | Claude Code config (`CLAUDE.md`, `settings.json`, commands, skills) — symlinked into `~/.claude/` |
 | `icns/`        | Custom volume icons                                                         |
 
 ## What `make install` does
