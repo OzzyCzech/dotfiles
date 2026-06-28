@@ -4,6 +4,11 @@ Personal macOS config. Zsh, Antidote, and helpers.
 
 ## Quick start
 
+> [!NOTE]
+> The clone uses **SSH**, so on a fresh Mac you must set up a GitHub SSH key
+> first — see [GitHub access (SSH)](#github-access-ssh). Without it the clone
+> fails with `Permission denied (publickey)`.
+
 ```shell
 git clone git@github.com:OzzyCzech/dotfiles.git ~/.dotfiles && cd $_ && make
 ```
@@ -33,6 +38,66 @@ Set Zsh as default shell:
 ```shell
 chsh -s /bin/zsh
 ```
+
+## GitHub access (SSH)
+
+The repo is cloned over SSH, so a fresh Mac needs a working SSH key on GitHub
+before `git clone`/`make`. Either restore your backed-up keys **or** generate a
+new one.
+
+### Option A — restore from backup
+
+If you have `ssh.zip` from the old Mac (see [Backup SSH keys](#backup-ssh-keys)):
+
+```shell
+mkdir -p ~/.ssh && chmod 700 ~/.ssh
+unzip ~/Downloads/ssh.zip -d ~/
+chmod 600 ~/.ssh/id_*        # private keys
+chmod 644 ~/.ssh/*.pub       # public keys
+```
+
+### Option B — generate a new key
+
+```shell
+ssh-keygen -t ed25519 -C "roman@ozana.cz"
+eval "$(ssh-agent -s)"
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+pbcopy < ~/.ssh/id_ed25519.pub   # then add it at https://github.com/settings/keys
+```
+
+### Persist the key in the macOS keychain
+
+Add to `~/.ssh/config` so the agent loads the key automatically after reboot:
+
+```
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+### Verify
+
+```shell
+ssh -T git@github.com
+```
+
+Accept the host key when prompted (GitHub's ed25519 fingerprint is
+`SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU`). A
+`Hi <user>! You've successfully authenticated` message means you're ready to
+clone.
+
+### File permissions
+
+SSH refuses keys that are too open. Correct modes:
+
+| Path                   | Mode  |
+|------------------------|-------|
+| `~/.ssh`               | `700` |
+| private keys (`id_*`)  | `600` |
+| public keys (`*.pub`)  | `644` |
+| `~/.ssh/config`        | `600` |
+| `~/.ssh/known_hosts`   | `644` |
 
 ## Repository structure
 
