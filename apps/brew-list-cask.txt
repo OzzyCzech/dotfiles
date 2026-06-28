@@ -1,6 +1,6 @@
 1password
 claude
-claude-code
+claude-code@latest
 cmux
 cursor
 daisydisk
@@ -13,12 +13,13 @@ google-chrome
 iina
 keepingyouawake
 maccy
+markdown-preview
+openshot-video-editor
 phpstorm
 puremac
 robo-3t
 sequel-ace
 slack
+tablepro
 the-unarchiver
-tolaria
-visual-studio-code
 zed

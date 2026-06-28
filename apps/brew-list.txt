@@ -1,6 +1,6 @@
-ack
 antidote
 awscli
+bat
 composer
 direnv
 exiftool
@@ -18,17 +18,16 @@ imagemagick
 jq
 mas
 mole
-mongodb/brew/mongodb-community-shell
-mongodb/brew/mongodb-database-tools
 mongosh
 mysql-client
 ni
 nmap
-oven-sh/bun/bun
 perl
 pipx
 pnpm
+powerlevel10k
 rclone
+ripgrep
 rust
 telnet
 tmux-xpanes
