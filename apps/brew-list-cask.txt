@@ -1,4 +1,5 @@
 1password
+affinity
 claude
 claude-code@latest
 cmux
@@ -13,11 +14,9 @@ google-chrome
 iina
 keepingyouawake
 maccy
-markdown-preview
 openshot-video-editor
 phpstorm
 puremac
-robo-3t
 sequel-ace
 slack
 tablepro
