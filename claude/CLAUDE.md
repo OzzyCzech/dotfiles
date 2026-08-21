@@ -1,14 +1,13 @@
 ## Pre-flight check
 
-Before starting any non-trivial implementation task:
-- Run `git fetch --all && git log --oneline HEAD..@{u}` and report if origin is ahead. If so, summarize the diverging commits so the user can decide whether to rebase or stash.
-- For work tied to an issue, briefly scan recently merged MRs/PRs for semantic overlap — the fix may already be on main.
+Before non-trivial implementation work:
+- Run `git fetch --all && git log --oneline HEAD..@{u}`; if origin is ahead, summarize the diverging commits before starting.
+- For issue-driven work, check recently merged MRs/PRs for overlap — the fix may already be on main.
 
 ## Language
 
-- Use the language the user writes in (Czech → Czech, English → English).
-- Code, commits, and GitLab/GitHub issues/MRs/PRs always in English regardless of conversation language.
+Code, commits, and GitLab/GitHub issues/MRs/PRs always in English, regardless of the conversation language.
 
 ## Plan Mode
 
-- In plan mode, prepare textual content (issue descriptions, specs, MR bodies) directly in the response. Do NOT create implementation plan files unless explicitly asked.
+Write plans and textual content (issue descriptions, specs, MR bodies) directly in the response. Do NOT create plan files unless asked.
