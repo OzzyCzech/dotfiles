@@ -1,6 +1,10 @@
-# Publish
+---
+description: Release a new package version — semver bump from commits, tag, registry publish, GitHub Release
+argument-hint: "[--dry-run] [--bump=major|minor|patch|prerelease] [--version=X.Y.Z] [--pre=rc|beta|alpha] [--no-publish] [--no-github-release] [--draft] [--prerelease] [--yes]"
+disable-model-invocation: true
+---
 
-Manual-only command: invoke this command only when explicitly requested by the user. Never auto-run it proactively.
+# Publish
 
 Releases a new package version based on existing git tags and changes since the last release. Auto-detects the project ecosystem (Node.js, PHP, Rust, Python, Go) and publishes a GitHub Release alongside the package registry publish.
 

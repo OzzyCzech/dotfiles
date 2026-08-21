@@ -111,11 +111,11 @@
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "useAutoModeDuringPlan": true,
-  "voiceEnabled": false,
   "autoMode": {
     "hard_deny": [
       "$defaults",
       "Revealing the CONTENTS of secret files with ANY tool. Covers .env and .env.*, anything under a secrets/ directory, ~/.ssh and other private keys, *.pem, and config.local.php. This includes shell commands (cat, head, tail, grep, sed, awk, sort, strings, base64, dd, python, node), copying them elsewhere, and sending them over the network. Metadata only (ls, wc, stat, git check-ignore) is allowed. Stated intent, testing, or debugging does NOT clear this."
     ]
-  }
+  },
+  "voiceEnabled": false
 }

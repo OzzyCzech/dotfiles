@@ -1,3 +1,8 @@
+---
+description: Rebase the current branch on main, a local branch, or a remote branch (with fetch)
+argument-hint: "[origin | branch | origin/branch]"
+---
+
 Rebase the current branch.
 
 Arguments: $ARGUMENTS

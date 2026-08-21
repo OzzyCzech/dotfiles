@@ -1,6 +1,9 @@
-# Bump
+---
+description: Full dependency and toolchain bump — deps to latest major, Node pins, GitHub Actions, audit, validate, commit
+disable-model-invocation: true
+---
 
-Manual-only command: invoke this command only when explicitly requested by the user. Never auto-run it proactively.
+# Bump
 
 Run full dependency and toolchain bump on the current branch. Do not switch branches.
 
