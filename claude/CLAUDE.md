@@ -6,8 +6,9 @@ Before non-trivial implementation work:
 
 ## Language
 
-Code, commits, and GitLab/GitHub issues/MRs/PRs always in English, regardless of the conversation language.
-
+- Code, commits, and GitLab/GitHub issues/MRs/PRs always in English, regardless of the conversation language.
+- Reply in Czech unless I write to you in English first.
+ 
 ## Plan Mode
 
 Write plans and textual content (issue descriptions, specs, MR bodies) directly in the response. Do NOT create plan files unless asked.
