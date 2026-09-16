@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json.schemastore.ogrep/claude-code-settings.json",
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "attribution": {
     "commit": "",
     "pr": ""
@@ -33,13 +33,8 @@
       "Bash(curl *)",
       "Bash(wget *)",
       "Bash(rmdir *)",
-      "Bash(wc *)",
-      "Bash(head *)",
-      "Bash(tail *)",
       "Bash(sort *)",
-      "Bash(diff *)",
       "Bash(date *)",
-      "Bash(which *)",
       "Bash(node *)",
       "Bash(open *)",
       "Bash(docker compose *)"
@@ -56,13 +51,8 @@
       "Read(~/.aws/**)",
       "Read(~/.gnupg/**)",
       "Read(~/.config/gh/**)",
-      "Edit(**/.env)",
-      "Edit(**/.env.*)",
-      "Edit(**/secrets/**)",
-      "Edit(**/config.local.php)",
-      "Edit(~/.ssh/**)",
       "Edit(**/node_modules/**)",
-      "Bash(chmod 777 *)",
+      "Bash(chmod *)",
       "Bash(sudo *)",
       "Bash(ssh *)",
       "Bash(scp *)",
@@ -70,8 +60,7 @@
       "Bash(exec *)"
     ],
     "ask": [
-      "Bash(rm *)",
-      "Bash(rm -rf *)"
+      "Bash(rm *)"
     ],
     "defaultMode": "auto"
   },
