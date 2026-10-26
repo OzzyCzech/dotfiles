@@ -39,6 +39,7 @@ awk '{print $1}' apps/mas-list.txt | xargs -n1 -t mas install
 
 ```shell
 brew tap mongodb/brew
+brew trust --formula mongodb/brew/mongodb-community-shell mongodb/brew/mongodb-database-tools
 brew install mongodb/brew/mongodb-community-shell
 brew install mongodb/brew/mongodb-database-tools
 ```

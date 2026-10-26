@@ -1,6 +1,1 @@
-hashicorp/tap
 mongodb/brew
-oven-sh/bun
-pluk-inc/tap
-romkatv/powerlevel10k
-sw33tlie/macshot
