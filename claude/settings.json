@@ -59,9 +59,6 @@
       "Bash(eval *)",
       "Bash(exec *)"
     ],
-    "ask": [
-      "Bash(rm *)"
-    ],
     "defaultMode": "auto"
   },
   "enabledPlugins": {
@@ -94,6 +91,12 @@
     }
   },
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "advisorModel": "fable",
   "tui": "fullscreen",
   "autoMemoryEnabled": true,
   "theme": "dark",
