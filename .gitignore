@@ -2,3 +2,7 @@
 bin/*
 !bin/mac-cleanup
 !bin/mac-upgrade
+
+# Claude Code managed skills (synced from claude.ai account)
+claude/skills/synced/
+claude/skills/.trash/
