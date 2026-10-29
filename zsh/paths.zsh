@@ -17,3 +17,8 @@ export PATH="$PNPM_HOME:$PATH"
 
 # pipx
 export PATH=$PATH:$HOME/.local/bin
+
+# Composer — pin home so it doesn't flip between ~/.composer and
+# ~/.config/composer depending on XDG_* env vars (cmux sets XDG_DATA_DIRS)
+export COMPOSER_HOME="$HOME/.config/composer"
+export PATH=$PATH:$COMPOSER_HOME/vendor/bin
