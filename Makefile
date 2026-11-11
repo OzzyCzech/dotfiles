@@ -20,10 +20,11 @@ install:
 	ln -sf ~/.dotfiles/zsh ~/.zsh
 	ln -sf ~/.dotfiles/bin ~/.bin
 
-	# Symlink ~/.claude entries (global instructions, settings, commands, skills)
+	# Symlink ~/.claude entries (global instructions, settings, status line, commands, skills)
 	mkdir -p ~/.claude
 	ln -sf ~/.dotfiles/claude/CLAUDE.md ~/.claude/CLAUDE.md
 	ln -sf ~/.dotfiles/claude/settings.json ~/.claude/settings.json
+	ln -sf ~/.dotfiles/claude/statusline.sh ~/.claude/statusline.sh
 	ln -sf ~/.dotfiles/claude/commands ~/.claude/commands
 	ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
 
