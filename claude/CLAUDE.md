@@ -5,7 +5,7 @@ Before non-trivial work, `git fetch` and summarize any new commits on this branc
 ## Language
 
 - Identifiers and branch names: always English.
-- Comments, docs, user-facing strings, commits, issues, MRs/PRs (including drafts in replies): use the language the project's CLAUDE.md sets; otherwise match the prevailing language of existing ones of the same kind (surrounding comments, `git log`, recent issues/MRs); English if there are none. Never take it from the conversation language.
+- Comments, docs, user-facing strings, commits, issues, MRs/PRs (including drafts in replies): use the language the project's CLAUDE.md sets; otherwise match the prevailing language of existing ones of the same kind (surrounding comments, `git log`, recent issues/MRs). Use English if there are none. Never take it from the conversation language.
 - Reply in the language I write in.
 
 ## Plan Mode
