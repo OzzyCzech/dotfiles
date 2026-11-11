@@ -51,3 +51,5 @@ id_ed25519
 
 # never let it happen :)
 node_modules
+
+**/.claude/settings.local.json
