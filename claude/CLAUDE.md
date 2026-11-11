@@ -1,14 +1,13 @@
 ## Pre-flight check
 
-Before non-trivial implementation work:
-- Run `git fetch --all && git log --oneline HEAD..@{u}`; if origin is ahead, summarize the diverging commits before starting.
-- For issue-driven work, check recently merged MRs/PRs for overlap — the fix may already be on main.
+Before non-trivial work, `git fetch` and summarize any new commits on this branch's upstream or the default branch that HEAD doesn't have. For issue work, also check open and recently merged MRs/PRs for overlap.
 
 ## Language
 
-- Code, commits, and GitLab/GitHub issues/MRs/PRs always in English, regardless of the conversation language.
-- Reply in Czech unless I write to you in English first.
- 
+- Identifiers and branch names: always English.
+- Comments, docs, user-facing strings, commits, issues, MRs/PRs (including drafts in replies): use the language the project's CLAUDE.md sets; otherwise match the prevailing language of existing ones of the same kind (surrounding comments, `git log`, recent issues/MRs); English if there are none. Never take it from the conversation language.
+- Reply in the language I write in.
+
 ## Plan Mode
 
 Write plans and textual content (issue descriptions, specs, MR bodies) directly in the response. Do NOT create plan files unless asked.
