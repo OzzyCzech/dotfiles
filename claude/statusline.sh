@@ -61,13 +61,9 @@ IFS=$'\x1f' read -r model ctx_pct cache_warm cache_expires cache_tokens project 
 
 out="${model:-Claude}"
 
-# Context: a bar green up to 50 %, yellow up to 80 %, then red.
+# Context: green up to 50 %, yellow up to 80 %, then red.
 ctx_pct=${ctx_pct:-0}
-used="" free=""
-for ((i = 0; i < 10; i++)); do
-	if ((i < (ctx_pct + 5) / 10)); then used+="█"; else free+="░"; fi
-done
-out+="$SEP$(level_color "$ctx_pct")$used$DIM$free$RESET $ctx_pct%"
+out+="${SEP}Context: $(level_color "$ctx_pct")$ctx_pct%$RESET"
 
 # Prompt cache, only when going cold would be expensive: a countdown shortly before it expires, then cold.
 # The clock decides rather than the warm flag, which can lag right at the moment of expiry.
