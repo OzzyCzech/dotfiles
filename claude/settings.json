@@ -61,12 +61,18 @@
     ],
     "defaultMode": "auto"
   },
+  "skillOverrides": {
+    "gitlab-cli": "off",
+    "publish": "off"
+  },
   "enabledPlugins": {
     "nette@nette": true,
-    "frontend-design@claude-plugins-official": true,
-    "agent-skills@addy-agent-skills": true,
-    "swift-lsp@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": false,
+    "agent-skills@addy-agent-skills": false,
+    "swift-lsp@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": false,
+    "php-fixer@nette": true,
+    "rodokmen@rodokmen-skill": true
   },
   "extraKnownMarketplaces": {
     "nette": {
@@ -76,17 +82,16 @@
       },
       "autoUpdate": true
     },
-    "impeccable": {
-      "source": {
-        "source": "github",
-        "repo": "pbakaus/impeccable"
-      },
-      "autoUpdate": true
-    },
     "addy-agent-skills": {
       "source": {
         "source": "github",
         "repo": "addyosmani/agent-skills"
+      }
+    },
+    "rodokmen-skill": {
+      "source": {
+        "source": "github",
+        "repo": "sarsonj/rodokmen-skill"
       }
     }
   },
