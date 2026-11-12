@@ -11,8 +11,10 @@
 [core]
 	editor = nano
 	excludesfile = /Users/roman/.gitignore_global
-	attributesfile = ~/.gitattributes
 	whitespace = fix,trailing-space,cr-at-eol
+
+	# Cache untracked files to speed up `git status`
+	untrackedCache = true
 
 	# Make `git rebase` safer on macOS
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
@@ -20,7 +22,7 @@
 
 	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
-	precomposeunicode = false
+	precomposeunicode = true
 	commentChar = ";"
 
 [init]
@@ -28,9 +30,6 @@
 
 [diff]
 	renames = copies
-
-[diff "bin"]
-	textconv = hexdump -v -C
 
 [push]
 	default = current
@@ -55,7 +54,6 @@
 	missingCommitsCheck = warn
 	abbreviateCommands = false
 	instructionFormat = %<(60,trunc)%s   %cn <%ce>   [GPG: %G?% GK]
-	untrackedCache = true
 	autoSquash = true
 	autoStash = true
 	stat = true
@@ -186,8 +184,8 @@
 	# Unstage last commit
 	unstage = reset --soft HEAD~
 
-	# Undo last commit
-	undo = reset --hard HEAD~
+	# Undo last commit, keep uncommitted changes (refuses if they would be overwritten)
+	undo = reset --keep HEAD~
 
 	# Commit all changes
 	commit-all = !git add -A && git commit -am
@@ -212,7 +210,8 @@
 	delete-merged = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 
 	# prune local tags (delete not pushed tags)
-	prune = fetch --prune --prune-tags
+	# (named prune-tags: git ignores aliases that shadow built-in commands such as `prune`)
+	prune-tags = fetch --prune --prune-tags
 
 	# remove untracked dirs, ignored files with force !
 	cleanup = !git fetch --prune --tags && git clean -xdf
