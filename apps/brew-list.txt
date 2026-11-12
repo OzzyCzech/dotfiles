@@ -18,7 +18,6 @@ imagemagick
 jq
 mas
 mole
-mongosh
 mysql-client
 ni
 nmap

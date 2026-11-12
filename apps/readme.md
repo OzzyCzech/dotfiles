@@ -34,8 +34,8 @@ awk '{print $1}' apps/mas-list.txt | xargs -n1 -t mas install
 
 ## Install MongoDB tools and shell only
 
-`mongosh` is already in `brew-list.txt`; the tools below come from the
-`mongodb/brew` tap and are not in the backup lists:
+The tools below come from the `mongodb/brew` tap and are not in the backup
+lists:
 
 ```shell
 brew tap mongodb/brew
