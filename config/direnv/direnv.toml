@@ -1,0 +1,8 @@
+[global]
+# Load plain .env files as well, not only .envrc
+load_dotenv = true
+
+# Trusted roots: .env (and .envrc, which is shell code) anywhere below them
+# load without `direnv allow`. Elsewhere direnv still asks first.
+[whitelist]
+prefix = [ "/Volumes/Work" ]

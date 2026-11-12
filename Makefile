@@ -29,12 +29,13 @@ install:
 	ln -sf ~/.dotfiles/claude/skills ~/.claude/skills
 
 	# Symlink ~/.config entries (per-file; apps create other files in these dirs)
-	mkdir -p ~/.config/zed ~/.config/ghostty ~/.config/cmux
+	mkdir -p ~/.config/zed ~/.config/ghostty ~/.config/cmux ~/.config/direnv
 	ln -sf ~/.dotfiles/config/zed/keymap.json ~/.config/zed/keymap.json
 	ln -sf ~/.dotfiles/config/zed/settings.json ~/.config/zed/settings.json
 	ln -sf ~/.dotfiles/config/ghostty/config ~/.config/ghostty/config
 	ln -sf ~/.dotfiles/config/cmux/cmux.json ~/.config/cmux/cmux.json
 	ln -sf ~/.dotfiles/config/yt-dlp.conf ~/.config/yt-dlp.conf
+	ln -sf ~/.dotfiles/config/direnv/direnv.toml ~/.config/direnv/direnv.toml
 
 	@echo "\nDone! Run 'exec zsh' to reload your shell."
 

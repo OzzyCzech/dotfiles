@@ -114,7 +114,7 @@ SSH refuses keys that are too open. Correct modes:
 | `utils/`       | Swift source for utilities in `bin/`                                        |
 | `setup/`       | macOS defaults scripts (Finder, Dock, keyboard, …) — see `setup/readme.md` |
 | `apps/`        | Homebrew and Mac App Store app lists (`brew-list.txt`, `mas-list.txt`, …)   |
-| `config/`      | App configs (Zed, Ghostty, cmux, yt-dlp) — symlinked into `~/.config/`      |
+| `config/`      | App configs (Zed, Ghostty, cmux, yt-dlp, direnv) — symlinked into `~/.config/` |
 | `claude/`      | Claude Code config (`CLAUDE.md`, `settings.json`, commands, skills) — symlinked into `~/.claude/` |
 | `icns/`        | Custom volume icons                                                         |
 
@@ -124,7 +124,7 @@ SSH refuses keys that are too open. Correct modes:
 2. Symlinks git config (`.gitignore_global`, `.gitconfig`) and sets `core.excludesfile`
 3. Symlinks zsh dotfiles (`.zshrc`, `.zsh_plugins.txt`, `.p10k.zsh`, `.zprofile`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
 4. Symlinks `claude/` entries into `~/.claude/` (`CLAUDE.md`, `settings.json`, `commands/`, `skills/`)
-5. Symlinks `config/` entries into `~/.config/` (Zed, Ghostty, cmux, yt-dlp)
+5. Symlinks `config/` entries into `~/.config/` (Zed, Ghostty, cmux, yt-dlp, direnv)
 
 ## Make targets
 
