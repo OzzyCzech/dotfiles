@@ -42,6 +42,13 @@ if command -v rustup &>/dev/null; then
   rustup update
 fi
 
+if [[ -f ~/.claude/statusline.sh ]]; then
+  section "Claude Code status line"
+  curl -fsSL -o ~/.claude/statusline.sh.tmp https://raw.githubusercontent.com/OzzyCzech/claude-code-statusline/main/statusline.sh \
+    && mv ~/.claude/statusline.sh.tmp ~/.claude/statusline.sh \
+    || rm -f ~/.claude/statusline.sh.tmp
+fi
+
 section "macOS software update"
 softwareupdate -i -a
 

@@ -123,7 +123,7 @@ SSH refuses keys that are too open. Correct modes:
 1. Creates `~/.hushlogin`
 2. Symlinks git config (`.gitignore_global`, `.gitconfig`) and sets `core.excludesfile`
 3. Symlinks zsh dotfiles (`.zshrc`, `.zsh_plugins.txt`, `.p10k.zsh`, `.zprofile`) and directories (`zsh/` → `~/.zsh`, `bin/` → `~/.bin`)
-4. Symlinks `claude/` entries into `~/.claude/` (`CLAUDE.md`, `settings.json`, `commands/`, `skills/`)
+4. Symlinks `claude/` entries into `~/.claude/` (`CLAUDE.md`, `settings.json`, `commands/`, `skills/`) and downloads the status line from [claude-code-statusline](https://github.com/OzzyCzech/claude-code-statusline)
 5. Symlinks `config/` entries into `~/.config/` (Zed, Ghostty, cmux, yt-dlp, direnv)
 
 ## Make targets
@@ -149,7 +149,7 @@ make utils
 | `encode64`    | Base64 encode/decode                   |
 | `passgen`     | Generate passwords and passphrases     |
 | `mac-cleanup` | Shell script — clean caches/logs/Trash |
-| `mac-upgrade` | Shell script — upgrade brew, npm, bun, Rust, macOS |
+| `mac-upgrade` | Shell script — upgrade brew, npm, bun, Rust, Claude Code status line, macOS |
 
 ## Zsh plugins
 
