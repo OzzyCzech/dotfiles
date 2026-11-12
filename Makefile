@@ -44,9 +44,6 @@ utils:
 	swiftc utils/passgen.swift -o bin/passgen
 	swiftc utils/encode64.swift -o bin/encode64
 
-completions:
-	pnpm completion zsh > zsh/_pnpm
-
 apps-backup:
 	brew leaves --installed-on-request > apps/brew-list.txt
 	brew list --cask > apps/brew-list-cask.txt

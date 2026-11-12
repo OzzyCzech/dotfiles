@@ -7,7 +7,6 @@ alias work="cd /Volumes/Work"
 # Browsers
 alias safari="/Applications/Safari.app/Contents/MacOS/Safari"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox"
 
 # Print website to pdf or png
 # e.g. print-to-pdf https://google.com ~/Downloads/google.pdf

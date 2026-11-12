@@ -26,7 +26,3 @@ csave() {
   5. Run git push. If push fails, report the error.
 EOF
 }
-
-### Cursor aliases ###
-
-alias cu="cursor ." # Cursor

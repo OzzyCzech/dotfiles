@@ -20,15 +20,6 @@ function rename-multimedia() {
     "$@"
 }
 
-# Rename all files in folder to sequential filenames
-function rename-sequenced() {
-  r=$'\e[31m' nl=$'\n' n=$'\e[0m' files=$(ls -1 | wc -l)
-  read -r -p "${r}All ${files} files in folder '$(pwd)' will be sequentially renamed${nl}${n}Are you sure? [y/N] " response
-  if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
-    rename --counter-format 000001 --lower-case --keep-extension --expr='$_ = "$N" if @EXT' *
-  fi
-}
-
 # Clean up drive before unmount
 function cleandrive() {
   if [ -n "$1" ] && [ -d "/Volumes/$1/" ]; then

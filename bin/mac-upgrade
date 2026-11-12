@@ -45,9 +45,4 @@ fi
 section "macOS software update"
 softwareupdate -i -a
 
-if command -v cursor &>/dev/null; then
-  section "Cursor extensions"
-  NODE_NO_WARNINGS=1 cursor --update-extensions
-fi
-
 ok "Done! Your system is up to date."

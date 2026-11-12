@@ -132,7 +132,6 @@ SSH refuses keys that are too open. Correct modes:
 |-------------------|---------------------------------------------------------------------|
 | `make` / `install`| Symlink all dotfiles (git, zsh, `~/.claude`, `~/.config`)            |
 | `make utils`      | Compile Swift utilities into `bin/`                                  |
-| `make completions`| Regenerate `zsh/_pnpm` completion                                    |
 | `make apps-backup`| Export installed Homebrew/MAS apps to lists in `apps/`               |
 
 ## Utilities
