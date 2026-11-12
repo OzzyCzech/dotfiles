@@ -34,8 +34,6 @@
     "defaultMode": "auto"
   },
   "skillOverrides": {
-    "gitlab-cli": "off",
-    "publish": "off",
     "anthropic-skills:docs": "off",
     "anthropic-skills:docx": "off",
     "anthropic-skills:google-workspace": "off",
@@ -43,8 +41,7 @@
     "anthropic-skills:morning": "off",
     "anthropic-skills:pptx": "off",
     "anthropic-skills:skill-creator": "off",
-    "anthropic-skills:xlsx": "off",
-    "rebase": "off"
+    "anthropic-skills:xlsx": "off"
   },
   "statusLine": {
     "type": "command",
