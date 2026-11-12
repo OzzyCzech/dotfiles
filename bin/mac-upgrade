@@ -37,6 +37,11 @@ if command -v bun &>/dev/null; then
   bun update -g
 fi
 
+if command -v rustup &>/dev/null; then
+  section "Rust toolchain"
+  rustup update
+fi
+
 section "macOS software update"
 softwareupdate -i -a
 

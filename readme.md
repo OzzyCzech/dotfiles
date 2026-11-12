@@ -149,7 +149,7 @@ make utils
 | `encode64`    | Base64 encode/decode                   |
 | `passgen`     | Generate passwords and passphrases     |
 | `mac-cleanup` | Shell script — clean caches/logs/Trash |
-| `mac-upgrade` | Shell script — upgrade brew, mas, npm  |
+| `mac-upgrade` | Shell script — upgrade brew, npm, bun, Rust, macOS |
 
 ## Zsh plugins
 

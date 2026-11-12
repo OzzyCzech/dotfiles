@@ -16,5 +16,9 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 
 # see https://github.com/ohmyzsh/ohmyzsh/issues/7284
 zstyle ':completion:*:ssh:*' hosts off
+
+# cargo completion ships inside the rustup toolchain, not in Homebrew's site-functions
+fpath+=(~/.rustup/toolchains/stable-*/share/zsh/site-functions(N))
+
 # SSH autocomplete
 autoload -Uz compinit && compinit -i
