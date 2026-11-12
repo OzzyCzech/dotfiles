@@ -14,8 +14,8 @@ source ~/.zsh/autocomplete.zsh
 source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
-# Force xterm-256color terminal for all terminals
-export TERM=xterm-256color
+# Keep the terminal's own TERM; fall back only for ssh and sudo
+source ~/.zsh/terminal.zsh
 
 # Paths
 source ~/.zsh/paths.zsh
