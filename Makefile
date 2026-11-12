@@ -45,9 +45,9 @@ utils:
 	swiftc utils/encode64.swift -o bin/encode64
 
 apps-backup:
-	brew leaves --installed-on-request > apps/brew-list.txt
-	brew list --cask > apps/brew-list-cask.txt
-	brew tap > apps/brew-tap.txt
-	mas list > apps/mas-list.txt
+	brew bundle dump --file=apps/Brewfile --force
+
+apps-install:
+	brew bundle install --file=apps/Brewfile
 
 .PHONY: $(MAKECMDGOALS)

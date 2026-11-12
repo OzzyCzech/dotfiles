@@ -1,0 +1,147 @@
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Incredibly fast JavaScript runtime, bundler, test runner, and package manager
+brew "bun"
+# Dependency Manager for PHP
+brew "composer"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Platform keystore credential helper for Docker
+brew "docker-credential-helper"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Modern, maintained replacement for ls
+brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Small git utilities
+brew "git-extras"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Git-powered FTP client
+brew "git-ftp"
+# Git extension for versioning large files
+brew "git-lfs"
+# Open-source GitLab command-line tool
+brew "glab"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Mac App Store command-line interface
+brew "mas"
+# Deep clean and optimize your Mac
+brew "mole"
+# Open source relational database management system
+brew "mysql-client"
+# Selects the right Node package manager based on lockfiles
+brew "ni"
+# Port scanning utility for large networks
+brew "nmap"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Theme for zsh
+brew "powerlevel10k"
+# Rsync for cloud storage
+brew "rclone"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Rust toolchain installer
+brew "rustup"
+# User interface to the TELNET protocol
+brew "telnet"
+# Ultimate terminal divider powered by tmux
+brew "tmux-xpanes"
+# CLI tool that moves files or folder to the trash
+brew "trash"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Additional completion definitions for zsh
+brew "zsh-completions"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Image editing and design software
+cask "affinity"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
+# Ghostty-based terminal with vertical tabs and notifications for AI coding agents
+cask "cmux"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# Disk space visualiser
+cask "daisydisk"
+# GIT client
+cask "fork"
+# Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client
+cask "forklift"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
+cask "google-chrome"
+# Homebrew's official GUI
+cask "homebrew-app"
+# Free and open-source media player
+cask "iina"
+# Tool to prevent the system from going into sleep mode
+cask "keepingyouawake"
+# Clipboard manager
+cask "maccy"
+# Replacement for Docker Desktop
+cask "orbstack"
+# PHP IDE by JetBrains
+cask "phpstorm"
+# Open-source application manager and system cleaner
+cask "puremac"
+# MySQL/MariaDB database management
+cask "sequel-ace"
+# Team communication and collaboration software
+cask "slack"
+# Minimal GUI for AI code agents
+cask "t3-code"
+# Native database client for many database types
+cask "tablepro"
+# Unpacks archive files
+cask "the-unarchiver"
+# Multiplayer code editor
+cask "zed"
+mas "1Password for Safari", id: 1569813296
+mas "Bitwarden", id: 1352778147
+mas "Hush", id: 1544743900
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "Keynote", id: 409183694
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
+mas "Photomator", id: 1444636541
+mas "Pixelmator Pro", id: 1289583905
+mas "Wipr", id: 1662217862
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835

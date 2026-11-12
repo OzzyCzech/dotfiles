@@ -113,7 +113,7 @@ SSH refuses keys that are too open. Correct modes:
 | `bin/`         | Compiled utilities (`del`, `encode64`, `passgen`, `mac-cleanup`, `mac-upgrade`) |
 | `utils/`       | Swift source for utilities in `bin/`                                        |
 | `setup/`       | macOS defaults scripts (Finder, Dock, keyboard, …) — see `setup/readme.md` |
-| `apps/`        | Homebrew and Mac App Store app lists (`brew-list.txt`, `mas-list.txt`, …)   |
+| `apps/`        | `Brewfile` with Homebrew formulae, casks and Mac App Store apps             |
 | `config/`      | App configs (Zed, Ghostty, cmux, yt-dlp, direnv) — symlinked into `~/.config/` |
 | `claude/`      | Claude Code config (`CLAUDE.md`, `settings.json`, commands, skills) — symlinked into `~/.claude/` |
 | `icns/`        | Custom volume icons                                                         |
@@ -132,7 +132,8 @@ SSH refuses keys that are too open. Correct modes:
 |-------------------|---------------------------------------------------------------------|
 | `make` / `install`| Symlink all dotfiles (git, zsh, `~/.claude`, `~/.config`)            |
 | `make utils`      | Compile Swift utilities into `bin/`                                  |
-| `make apps-backup`| Export installed Homebrew/MAS apps to lists in `apps/`               |
+| `make apps-backup`| Dump installed Homebrew/MAS apps to `apps/Brewfile`                  |
+| `make apps-install`| Install everything from `apps/Brewfile`                             |
 
 ## Utilities
 
