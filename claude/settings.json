@@ -25,14 +25,9 @@
       "Bash(eval *)",
       "Bash(exec *)"
     ],
-    "ask": [
-      "Bash(glab mr merge *)",
-      "Bash(make release*)",
-      "Bash(git push --force*)",
-      "Bash(git push -f*)"
-    ],
     "defaultMode": "auto"
   },
+  "model": "opus",
   "skillOverrides": {
     "anthropic-skills:docs": "off",
     "anthropic-skills:docx": "off",
