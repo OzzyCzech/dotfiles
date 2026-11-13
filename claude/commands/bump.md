@@ -180,9 +180,10 @@ continue to report.
 Stage tracked changes only (`git add -u` — includes the lockfile; never
 untracked tool dirs).
 
-~~~text
-chore: bump YYYY-MM-DD
-~~~
+Write the subject in the style of the repo's `git log`:
+
+- Conventional commits (`fix:`, `chore:`) → `chore: bump YYYY-MM-DD`
+- Plain sentences → name the main bumps, e.g. `Bump Astro to 7.4.11, Biome to 2.6.7 and other dependencies`
 
 Then verify the commit on a clean checkout: `git archive HEAD | tar -x -C <tmp>`,
 `nci` (frozen lockfile), step 2 checks. With a populated `node_modules`, pnpm's
