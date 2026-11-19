@@ -2,6 +2,10 @@
 # Load plain .env files as well, not only .envrc
 load_dotenv = true
 
+# Silent loading: no "loading ..." or "export +..." lines; errors still show
+log_format = "-"
+hide_env_diff = true
+
 # Trusted roots: .env (and .envrc, which is shell code) anywhere below them
 # load without `direnv allow`. Elsewhere direnv still asks first.
 [whitelist]
