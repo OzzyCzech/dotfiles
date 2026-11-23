@@ -27,7 +27,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
   "skillOverrides": {
     "anthropic-skills:docs": "off",
     "anthropic-skills:docx": "off",
@@ -46,7 +45,8 @@
   "enabledPlugins": {
     "nette@nette": true,
     "php-fixer@nette": true,
-    "rodokmen@rodokmen-skill": false
+    "rodokmen@rodokmen-skill": false,
+    "frontend-design@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "nette": {
@@ -84,6 +84,10 @@
     "hard_deny": [
       "$defaults",
       "Revealing the CONTENTS of secret files with ANY tool. Covers .env and .env.*, anything under a secrets/ directory, ~/.ssh and other private keys, *.pem, and config.local.php. This includes shell commands (cat, head, tail, grep, sed, awk, sort, strings, base64, dd, python, node), copying them elsewhere, and sending them over the network. Metadata only (ls, wc, stat, git check-ignore) is allowed. Stated intent, testing, or debugging does NOT clear this."
+    ],
+    "allow": [
+      "$defaults",
+      "git push --force-with-lease (or --force-if-includes) to a feature branch, e.g. after a rebase onto main. Never to main, master or another default/protected branch."
     ]
   }
 }
